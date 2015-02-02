@@ -5,17 +5,23 @@ syslog0130
 
 下載Syslog0130資源
 
-```$ git clone https://github.com/liyuqi/Syslog0130```
+```bash 
+$ git clone https://github.com/liyuqi/Syslog0130
+```
 
 
 安裝node_module套件
 
-```$ sudo npm install```
+```bash 
+$ sudo npm install
+```
 
 
 開啟mongod，預設27017 port
 
-```$ mongod```
+```bash 
+$ mongod
+```
 
 
 ### 開始使用SYSLOG CRUD功能
