@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+<form class="form-horizontal" method="post">
+    <fieldset>
+        <legend>新增 log</legend>
+        <div class="control-group">
+            <!--<label class="control-label" for="leveltype">level</label>-->
+
+            <!--<div class="controls">-->
+            <!--<select name="leveltype" class="input-xlarge" data-size="5">-->
+            <!--<option value="ANALYSIS">ANALYSIS</option>-->
+            <!--<option value="info">info</option>-->
+            <!--<option value="warn">warn</option>-->
+            <!--<option value="error">error</option>-->
+            <!--<option value="fatal">fatal</option>-->
+            <!--</select>-->
+            <!--</div>-->
+            <p></p>
+            <label class="control-label" for="timestamp">timestamp</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="time" name="time" value="">　　ex:2014-04-25
+            </div>
+            <p></p>
+
+            <label class="control-label" for="identifier">identifier</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="identifier" name="identifier" value="%PIX-x-insert" ></input>　　ex:%PIX-6-302005
+                       <!--disabled="disabled"-->
+
+            </div>
+            <p></p>
+
+            <label class="control-label" for="msg">message</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="msg" name="msg" value="">
+            </div>
+            <p></p>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">送出</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<!--這一段是存在的-->
+<% if (locals.messages) { %>
+<% messages.forEach(function(message) { %>
+<p class='<%= message.type %>'><%= message.string %></p>
+<% }) %>
+<% removeMessages() %>
+<% } %>
+
+<br>
+
+<p></p>
+<% if (resp) { %>
+<h3>儲存完成</h3>
+
+<!--<p>Level : <%= resp.level %></p>-->
+<p>_id : <%= resp._id %></p>
+<p>Timestamp : <%= resp.time %></p>
+<p>Identifier : <%= resp.identifier %></p>
+<p>Log Message : <%= resp.message %></p>
+
+<% } else { %>
+<h3></h3>
+<% } %>
+
+</body>
+</html>

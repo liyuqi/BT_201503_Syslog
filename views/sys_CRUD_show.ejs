@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+
+<fieldset>
+    <legend>顯示 log</legend>
+</fieldset>
+<form class="form-horizontal" method="post">
+    <h3> 總量 : <%= totalcount %>筆資料
+        <button type="submit" class="btn btn-primary">show</button>
+    </h3>
+</form>
+
+<p></p>
+
+<% if (resp) { %>
+<!--<h3>顯示結果</h3><br/>-->
+<% if (resp.length == 0) { %>
+<h4>查無資料!</h4>
+<% } else{ %>
+
+<h4> 回傳最近 <%= resp.length %> 筆</h4>
+
+<table class="table table-hover table-condensed">
+    <caption></caption>
+    <thead>
+    <tr>
+    <tr>
+        <th>Timestamp</th>
+        <th>Identifier</th>
+        <th>Message</th>
+        <th>_id</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% resp.forEach( function(body){ %>
+    <tr>
+        <% if(body.time) {
+        if(body.time.toString().length > 12){ %>
+        <td><%= body.time.toLocaleString() %></td>
+        <% } else { %>
+        <td><%= body.time.toLocaleString() %></td>
+        <% } } %>
+        <td><%= body.identifier %></td>
+        <td><%= body.message %></td>
+        <td><%= body._id %></td>
+    </tr>
+    <% }); %>
+    </tbody>
+</table>
+<% } %>
+<% } else { %>
+
+<% } %>
+</body>
+</html>

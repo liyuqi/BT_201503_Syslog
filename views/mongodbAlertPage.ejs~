@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+	<!--<meta http-equiv="refresh" content="5">-->
+  </head>
+  <body id='bodyWrap'>
+
+<% if (resp) { %>
+<h3>全部 Alert 結果</h3><br/>
+    <% if (resp.length==0) { %>
+	<%var now = new Date()%>
+      <h4><%= now.toLocaleTimeString() %> 查無資料!</h4>
+    <% } else{ %>
+    <table class="table" id='alertContent'>
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Timestamp</th>
+          <th>Message</th>
+          <th>Id</th>
+          <th>Host</th>
+        </tr>
+      </thead>
+    <tbody>
+    <% resp.forEach( function( body ){ %>
+    <tr>
+      <td><%= body.level %></td>
+      <%if(body.timestamp) {  
+      if(body.timestamp.toString().length>12){%>
+        <td><%= body.timestamp %></td>
+      <% } else { %>
+        <td><%= body.timestamp %></td>
+      <% } } %>
+      <td><%= body.message %></td>
+      <td><%= body._id %></td>
+       <% if( body.host ){%>
+      <td><%= body.host.ip %></td>
+       <% } %>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+   <% } %>
+<% } else { %>
+   <h3>總量 : <%= totalcount %>筆資料</h3>
+<% } %>
+<br />
+<div>
+  <ul class="pagination">
+  <% if (!isFirstPage) { %>
+    <li class="prepage"><a href="?p=<%= page-1 %>"><上頁 </a></li>
+  <% } %>
+  <% for(var p=1;p<=pageTotal;p++){
+	if(p===page){%>
+	<li class="active"><a href="?p=<%= p %>"><%= p %></a></li>
+	<%} else {%>
+	<li><a href="?p=<%= p %>"><%= p %></a></li>
+  <%}}%>
+  <% if (!isLastPage) { %>
+    <li class="nextpage"><a href="?p=<%= page+1 %>"> 下頁></a></li>
+  <% } %>
+  </ul>
+</div>
+  </body>
+</html>
