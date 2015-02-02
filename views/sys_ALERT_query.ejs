@@ -14,34 +14,24 @@
         <div class="control-group">
             <label class="control-label" for="logid">_id</label>
             <div class="controls">
-                <input type="text"  class="input-medium search-query" id="logid" name="logid" value=""></input>
-            </div>
+                <select id="field" multiple="multiple">
+                    <option>time</option>
+                    <option>identifier</option>
+                    <option>message</option>
+                </select>
             <p></p>
 
-            <label class="control-label" for="matchdate">時間區間</label>
+            <label class="control-label" for="key_value">Message</label>
             <div class="controls">
-                <!--disabled="disabled"-->
-                <input type="text" class="input-small" id="matchdate" name="matchdate" value=""></input> -
-                <input type="text" class="input-small" id="matchenddate" name="matchenddate" value=""></input>　
-                </br>
-                ex:2014-03-25 or 2013-03-25 18:00:00
+                <input type="text" class="input-xlarge" id="key_value" name="key_value" value=""></input>
             </div>
+
+            <div>time 建議值:2004-03-24</div>
+            <div>identifier 建議值:%PIX-4-106023</div>
+            <div>message 建議值:198.207.223.240</div>
             <p></p>
 
-            <label class="control-label" for="identifer">identifier</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="identifier" name="identifier" value=""></input>　　ex:%PIX-4-106023
-            </div>
-            <p></p>
-
-            <label class="control-label" for="matchmsg">Message</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="matchmsg" name="matchmsg" value=""></input>　　ex:192.168.0.1
-            </div>
-            <p></p>
-
-            <label class="control-label" for="info"></label>
-            <div> * 一次僅會搜尋一個條件, message使用RegEx查詢   <span style="font-family:consolas">{$regex:/string/}</>  </div>
+            <div> * 一次僅會輸入一個條件 </div>
             <!--，由上面的欄位開始。-->
             <p></p>
         </div>

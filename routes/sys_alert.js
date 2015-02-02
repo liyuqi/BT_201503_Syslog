@@ -6,31 +6,66 @@
 var util = require('util');
 
 exports.index = function(req, res){
-    res.render('sys_ALERT_insert', { title: 'Create log', resp : false,layout: 'l2'});
+    res.render('sys_ALERT_insert', { title: 'Create ALERT', resp : false,layout: 'l2'});
 };
 
 exports.sys_ALERT_insert = function(mongodb){
     return function(req, res) {
-        //console.log(req.body.timestamp);
-        var reqTimestamp = req.body.timestamp || (new Date).getTime();
 
-        var logmsg = {
-            time : reqTimestamp,
-            identifier: req.body.identifier || '',
-            message: req.body.msg || ''
-        };
-        var collection = mongodb.get('logs');
-        collection.insert(logmsg,{safe: true}, function(err, events){
-            console.log("events data : " + util.inspect(events));
-            // mongodb.close();
-            res.render('sys_ALERT_insert', { title: 'Create log', resp : events,layout: 'l2'});
-        });
+        var collection = mongodb.get('alerts');
+        var event_field = req.body.field;
+        var event_value = req.body.field_value;
+
+        if (event_value.length>0) {
+            if (event_field == "time") {
+                var reqTime = req.body.field_value || (new Date).getTime();
+                var event = {
+                    field:event_field,
+                    value:reqTime
+                    //url_param:'field='+event_field+'&value='+reqTime;
+                };
+                console.log("events data : " + util.inspect(event));
+                collection.insert(event,{safe: true}, function(err, docs){
+                    console.log("events data : " + util.inspect(docs));
+                    // mongodb.close();
+                    res.render('sys_CRUD_insert', { title: 'Create ALERT rule', resp : docs,layout: 'l2'});
+                });
+            }
+            else if (event_field = "identifier") {
+                var reqIdentifier = new RegExp('' + req.body.field_value);
+                var event = {
+                    field: event_field,
+                    value:reqIdentifier
+                };
+                console.log("events data : " + util.inspect(event));
+                collection.insert(event,{safe: true}, function(err, docs){
+                    console.log("events data : " + util.inspect(docs));
+                    // mongodb.close();
+                    res.render('sys_CRUD_insert', { title: 'Create ALERT rule', resp : docs,layout: 'l2'});
+                });
+            }
+            else if (event_field ="message"){
+                var reqMessage = new RegExp('' + req.body.field_value);
+                var event = {
+                    field: event_field,
+                    value:reqMessage
+                };
+                console.log("events data : " + util.inspect(event));
+                collection.insert(event,{safe: true}, function(err, docs){
+                    console.log("events data : " + util.inspect(docs));
+                    // mongodb.close();
+                    res.render('sys_CRUD_insert', { title: 'Create ALERT rule', resp : docs,layout: 'l2'});
+                });
+            }
+        }else{
+            res.redirect('/sys_ALERT_index');
+        }
     };
 };
 
 exports.sys_ALERT_loglist = function(mongodb){
     return function(req, res) {
-        var collection = mongodb.get('logs');
+        var collection = mongodb.get('alerts');
 
         collection.col.count({},function(err, count) {
             if(err) throw err;
@@ -53,7 +88,7 @@ exports.sys_ALERT_query = function(mongodb){
         var sysid = {$regex: new RegExp(''+identifier)};
 
         console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
-        var collection = mongodb.get('logs');
+        var collection = mongodb.get('alerts');
         if (matchmsg.length < 1 && req.body.logid.length < 1 && identifier.length < 1 && req.body.matchdate.length < 1) {
             // console.log("return to loglist");
             res.redirect('/sys_ALERT_query');
@@ -96,7 +131,7 @@ exports.sys_ALERT_query = function(mongodb){
 
 exports.sys_ALERT_count = function (mongodb) {
     return function (req, res) {
-        var collection = mongodb.get('logs');
+        var collection = mongodb.get('alerts');
 
         collection.count({}, function (err, count) {
             if (err) throw err;
@@ -107,7 +142,7 @@ exports.sys_ALERT_count = function (mongodb) {
 
 exports.sys_ALERT_show = function (mongodb) {
     return function (req, res) {
-        var collection = mongodb.get('logs');
+        var collection = mongodb.get('alerts');
 
         collection.count({}, function (err, count) {
             collection.find({}, {/*limit: 20,*/ sort: {_id: -1}}, function (e, docs) {

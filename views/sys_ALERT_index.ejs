@@ -7,36 +7,35 @@
 <form class="form-horizontal" method="post">
     <fieldset>
         <legend>新增 log</legend>
+
         <div class="control-group">
-            <!--<label class="control-label" for="leveltype">level</label>-->
+            <label class="control-label" for="logid">_id</label>
 
-            <!--<div class="controls">-->
-                <!--<select name="leveltype" class="input-xlarge" data-size="5">-->
-                    <!--<option value="ANALYSIS">ANALYSIS</option>-->
-                    <!--<option value="info">info</option>-->
-                    <!--<option value="warn">warn</option>-->
-                    <!--<option value="error">error</option>-->
-                    <!--<option value="fatal">fatal</option>-->
-                <!--</select>-->
-            <!--</div>-->
-            <!--<p></p>-->
-            <label class="control-label" for="timestamp">timestamp</label>
             <div class="controls">
-                <input type="text" class="input-xlarge" id="timestamp" name="timestamp" value="">　　ex:2014-04-25
-            </div>
+                <select id="field" multiple="multiple">
+                    <option>time</option>
+                    <option>identifier</option>
+                    <option>message</option>
+                </select>
 
-            <label class="control-label" for="identifier">identifier</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="identifier" name="identifier" value="%PIX-x-insert" ></input>　　ex:%PIX-6-302005
-                <!--disabled="disabled"-->
-            </div>
-            <p></p>
+                <p></p>
 
-            <label class="control-label" for="msg">message</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="msg" name="msg" value="">
+                <label class="control-label" for="key_value">Message</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="key_value" name="key_value" value=""></input>
+                </div>
+                <p></p>
+
+                <div>time 建議值:2004-03-24</div>
+                <div>identifier 建議值:%PIX-4-106023</div>
+                <div>message 建議值:198.207.223.240</div>
+                <p></p>
+
+                <div> * 一次僅會輸入一個條件</div>
+                <!--，由上面的欄位開始。-->
+                <p></p>
             </div>
-            <p></p>
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">送出</button>
