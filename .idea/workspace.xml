@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="sys_ALERT_list &lt;%= JSON.parse() %&gt;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/sys_ALERT_display.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
-      <change type="DELETED" beforePath="C:\workspace\Syslog0130\views\sys_ALERT_query.ejs" afterPath="" />
-      <change type="MOVED" beforePath="C:\workspace\Syslog0130\views\sys_ALERT_show.ejs" afterPath="$PROJECT_DIR$/views/sys_CRUD_display.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/l2.ejs" afterPath="$PROJECT_DIR$/views/l2.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.ejs" afterPath="$PROJECT_DIR$/views/layout.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_insert.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_insert.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_display.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_display.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_CRUD_query.ejs" afterPath="$PROJECT_DIR$/views/sys_CRUD_query.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_CRUD_show.ejs" afterPath="$PROJECT_DIR$/views/sys_CRUD_show.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sys_alert.js" afterPath="$PROJECT_DIR$/routes/sys_alert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sys_mongo.js" afterPath="$PROJECT_DIR$/routes/sys_mongo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FET081Paging.iws" />
@@ -37,14 +27,14 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="sys_CRUD_query.ejs" pinned="false" current-in-tab="false">
+            <file leaf-file-name="sys_CRUD_query.ejs" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/views/sys_CRUD_query.ejs">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="33.37037" vertical-offset="1447" max-vertical-offset="2310">
-                    <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+                  <state vertical-scroll-proportion="0.33242875" vertical-offset="658" max-vertical-offset="2310">
+                    <caret line="43" column="109" selection-start-line="43" selection-start-column="109" selection-end-line="43" selection-end-column="109" />
                     <folding>
-                      <marker date="1423040324396" expanded="true" signature="455:473" placeholder="..." />
-                      <marker date="1423040324396" expanded="true" signature="632:650" placeholder="..." />
+                      <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                      <element signature="n#style#0;n#span#0;n#div#4;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -60,10 +50,10 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="sys_ALERT_list.ejs" pinned="false" current-in-tab="true">
+            <file leaf-file-name="sys_ALERT_list.ejs" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/views/sys_ALERT_list.ejs">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.70170456" vertical-offset="388" max-vertical-offset="1764">
+                  <state vertical-scroll-proportion="-8.233334" vertical-offset="388" max-vertical-offset="1764">
                     <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
                     <folding />
                   </state>
@@ -119,20 +109,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys_ALERT_insert.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sys_ALERT_insert.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/sys_ALERT_insert.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.8489702" vertical-offset="1476" max-vertical-offset="2163">
+            <state vertical-scroll-proportion="46.11111" vertical-offset="1476" max-vertical-offset="2163">
               <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys_ALERT_display.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sys_ALERT_display.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/sys_ALERT_display.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.444445" vertical-offset="2106" max-vertical-offset="2793">
+            <state vertical-scroll-proportion="0.5684931" vertical-offset="2355" max-vertical-offset="2793">
               <caret line="124" column="7" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -171,11 +161,11 @@
         <option value="$PROJECT_DIR$/views/sys_CRUD_show.ejs" />
         <option value="$PROJECT_DIR$/views/l2.ejs" />
         <option value="$PROJECT_DIR$/views/layout.ejs" />
-        <option value="$PROJECT_DIR$/views/sys_CRUD_query.ejs" />
         <option value="$PROJECT_DIR$/routes/sys_mongo.js" />
         <option value="$PROJECT_DIR$/views/sys_CRUD_display.ejs" />
-        <option value="$PROJECT_DIR$/views/sys_ALERT_display.ejs" />
         <option value="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
+        <option value="$PROJECT_DIR$/views/sys_CRUD_query.ejs" />
+        <option value="$PROJECT_DIR$/views/sys_ALERT_display.ejs" />
       </list>
     </option>
   </component>
@@ -361,13 +351,20 @@
       <option name="number" value="Default" />
       <updated>1421724754045</updated>
     </task>
+    <task id="LOCAL-00001" summary="sys_ALERT_list &lt;%= JSON.parse() %&gt;">
+      <created>1423139428848</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1423139428848</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="243" y="0" width="1283" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32938075" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32806325" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.080368906" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -377,7 +374,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21253823" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3992095" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930756" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -743,17 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/sys_CRUD_query.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="33.37037" vertical-offset="1447" max-vertical-offset="2310">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <marker date="1423040324396" expanded="true" signature="455:473" placeholder="..." />
-            <marker date="1423040324396" expanded="true" signature="632:650" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.222222" vertical-offset="1581" max-vertical-offset="3150">
@@ -818,19 +804,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/sys_ALERT_display.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.444445" vertical-offset="2106" max-vertical-offset="2793">
-          <caret line="124" column="7" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/sys_ALERT_list.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70170456" vertical-offset="388" max-vertical-offset="1764">
+        <state vertical-scroll-proportion="-8.233334" vertical-offset="388" max-vertical-offset="1764">
           <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding />
         </state>
@@ -838,9 +814,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/sys_ALERT_insert.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8489702" vertical-offset="1476" max-vertical-offset="2163">
+        <state vertical-scroll-proportion="46.11111" vertical-offset="1476" max-vertical-offset="2163">
           <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/sys_CRUD_query.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33242875" vertical-offset="658" max-vertical-offset="2310">
+          <caret line="43" column="109" selection-start-line="43" selection-start-column="109" selection-end-line="43" selection-end-column="109" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#4;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/sys_ALERT_display.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5684931" vertical-offset="2355" max-vertical-offset="2793">
+          <caret line="124" column="7" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
