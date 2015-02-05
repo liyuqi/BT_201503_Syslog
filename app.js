@@ -79,10 +79,11 @@ app.post('/sys_CRUD_show', 	sys_mongo.sys_CRUD_show(dbfluentd));
 
 app.get('/sys_ALERT_insert',	sys_alert.index);
 app.post('/sys_ALERT_insert', 	sys_alert.sys_ALERT_insert(dbfluentd));
-app.get('/sys_ALERT_query', 	sys_alert.sys_ALERT_loglist(dbfluentd));
-app.post('/sys_ALERT_query', 	sys_alert.sys_ALERT_query(dbfluentd));
-app.get('/sys_ALERT_show', 		sys_alert.sys_ALERT_count(dbfluentd));
-app.post('/sys_ALERT_show', 	sys_alert.sys_ALERT_show(dbfluentd));
+app.get('/sys_ALERT_list', 		sys_alert.sys_ALERT_count(dbfluentd));
+app.post('/sys_ALERT_list', 	sys_alert.sys_ALERT_list(dbfluentd));
+app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_loglist(dbfluentd));
+app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_query(dbfluentd));
+
 /*
 app.get('/sys_CRUD_insert', function(req, res){
 	res.render('sys_CRUD_insert', { title: 'Create log', resp : false,layout: 'l2'});

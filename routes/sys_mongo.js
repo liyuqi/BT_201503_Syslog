@@ -61,14 +61,15 @@ exports.sys_CRUD_query = function(mongodb){
         if(matchmsg.length >0){
             collection.find({message:message}/*,{limit : 20}*/,function(e,docs){
                 console.log(message+' '+docs.length);
-                res.render('sys_CRUD_query', {title: 'logs', resp : docs,layout: 'l2'});
+                //res.render('sys_CRUD_query', {title: 'logs', resp : docs,layout: 'l2'});
+                res.render('sys_CRUD_display', {title: 'logs', totalcount: docs.length, resp: docs, layout: 'l2'});
             });
         }
         else if(identifier.length >0){
             collection.find({identifier:sysid}/*,{limit : 20}*/,function(e,docs){
                 //console.log("docs data : "+util.inspect(docs));
                 console.log(sysid+' '+docs.length);
-                res.render('sys_CRUD_query', {title: 'logs', resp : docs,layout: 'l2'});
+                res.render('sys_CRUD_display', {title: 'logs', totalcount: docs.length, resp : docs,layout: 'l2'});
             });
         }
         else if(req.body.matchdate.length >0){
@@ -79,7 +80,7 @@ exports.sys_CRUD_query = function(mongodb){
 
             collection.find({"time" : {"$gte": start,"$lte":end}},{limit : 20},function(e,docs){
                 // console.log("docs data : "+util.inspect(docs));
-                res.render('sys_CRUD_query', {title: 'logs', resp : docs,layout: 'l2'});
+                res.render('sys_CRUD_display', {title: 'logs', totalcount: docs.length, resp : docs,layout: 'l2'});
             });
         }
         else{
@@ -88,7 +89,7 @@ exports.sys_CRUD_query = function(mongodb){
                 if(err) {
                     res.redirect('/sys_CRUD_query');
                 }
-                res.render('sys_CRUD_query', {title: 'logs', resp : docs,layout: 'l2'});
+                res.render('sys_CRUD_display', {title: 'logs', totalcount: docs.length, resp : docs,layout: 'l2'});
             });
         }
     };

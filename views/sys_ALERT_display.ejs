@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link href="/stylesheets/c3.css" rel="stylesheet" type="text/css">
+    <script src="/javascripts/d3.min.js" charset="utf-8"></script>
+    <script src="/javascripts/c3.min.js"></script>
+</head>
+<body>
+<form class="form-horizontal" method="post">
+    <fieldset>
+        <legend>顯示 Alert</legend>
+
+        <!--<div class="control-group">-->
+            <!--<label class="control-label" for="logid">_id</label>-->
+            <!--<div class="controls">-->
+                <!--<select id="field" multiple="multiple">-->
+                    <!--<option>time</option>-->
+                    <!--<option>identifier</option>-->
+                    <!--<option>message</option>-->
+                <!--</select>-->
+            <!--<p></p>-->
+
+            <!--<label class="control-label" for="key_value">Message</label>-->
+            <!--<div class="controls">-->
+                <!--<input type="text" class="input-xlarge" id="key_value" name="key_value" value=""></input>-->
+            <!--</div>-->
+
+            <!--<div>time 建議值:2004-03-24</div>-->
+            <!--<div>identifier 建議值:%PIX-4-106023</div>-->
+            <!--<div>message 建議值:198.207.223.240</div>-->
+            <!--<p></p>-->
+
+            <!--<div> * 一次僅會輸入一個條件 </div>-->
+            <!--&lt;!&ndash;，由上面的欄位開始。&ndash;&gt;-->
+            <!--<p></p>-->
+        <!--</div>-->
+
+        <div class="control-group">
+
+            <label class="control-label" for="matchdate">時間區間</label>
+            <div class="controls">
+                <!--disabled="disabled"-->
+                <input type="text" class="input-small" id="matchdate" name="matchdate" value="" disabled="disabled"></input> -
+                <input type="text" class="input-small" id="matchenddate" name="matchenddate" value="" disabled="disabled"></input>　
+                </br>
+                ex:2014-03-25 or 2013-03-25 18:00:00
+            </div>
+            <p></p>
+
+            <label class="control-label" for="identifer">identifier</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="identifier" name="identifier" value=""></input>　　ex:%PIX-4-106023
+            </div>
+            <p></p>
+
+            <label class="control-label" for="matchmsg">Message</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="matchmsg" name="matchmsg" value=""></input>　　ex:198.207.223.240
+            </div>
+            <p></p>
+
+            <label class="control-label" for="info"></label>
+            <div> * 新增告警條件   <span style="font-family:consolas">{$regex:/string/}</>  </div>
+            <!--，由上面的欄位開始。-->
+            <p></p>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">search</button>
+        </div>
+    </fieldset>
+</form>
+<!--這一段是存在的-->
+<!--<% if (locals.messages) { %>-->
+<!--<% messages.forEach(function(message) { %>-->
+<!--<p class='<%= message.type %>'><%= message.string %></p>-->
+<!--<% }) %>-->
+<!--<% removeMessages() %>-->
+<!--<% } %>-->
+
+<p></p>
+
+<% if (resp) { %>
+<h3>搜尋結果</h3></br>
+<% if (resp.length == 0) { %>
+<h4> 查無資料!</h4>
+<% } else /*if (resp.length < 20)*/{%>
+<h4> 回傳 <%= resp.length %> 筆</h4>
+
+<table class="table table-hover table-condensed">
+    <caption></caption>
+    <thead>
+    <tr>
+    <tr>
+        <th>Field</th>
+        <th>value</th>
+        <th>goto</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% resp.forEach( function(event){ %>
+    <tr>
+        <!--<td><%= body.level %></td>-->
+        <!--<% if(body.time) {-->
+        <!--if(body.time.toString().length > 12){ %>-->
+        <!--<td><%= body.time.toLocaleString() %></td>-->
+        <!--<% } else { %>-->
+        <!--<td><%= body.time.toLocaleString() %></td>-->
+        <!--<% } } %>-->
+        <!--<td><%= body.identifier %></td>-->
+        <!--<td><%= body.message %></td>-->
+        <!--<td><%= body._id %></td>-->
+        <td><%= event.field %></td>
+        <td><%= event.value %></td>
+        <td><a href="/sys_ALERT_show?field=<%= event.field %>&value=<%= event.value %>">goto alert</a></td>
+    </tr>
+    <% }); %>
+    </tbody>
+</table>
+<% } %>
+<% } else { %>
+<h3>總量 : <%= totalcount %>筆資料</h3>
+<% } %>
+
+</body>
+</html>

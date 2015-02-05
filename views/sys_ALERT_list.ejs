@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+
+<fieldset>
+    <legend>列表 Alert</legend>
+</fieldset>
+<form class="form-horizontal" method="post">
+    <h3> 總量 : <%= totalcount %>筆資料
+        <button type="submit" class="btn btn-primary">show</button>
+    </h3>
+</form>
+
+<p></p>
+
+<% if (resp) { %>
+<!--<h3>顯示結果</h3><br/>-->
+<% if (resp.length == 0) { %>
+<h4>查無資料!</h4>
+<% } else{ %>
+
+<h4> 回傳最近 <%= resp.length %> 筆</h4>
+
+<table class="table table-hover table-condensed">
+    <caption></caption>
+    <thead>
+    <tr>
+    <tr>
+        <th>event</th>
+        <th>JSON</th>
+        <th>goto</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <% resp.forEach( function(docs){ %>
+    <tr>
+    <td><%= docs.event %></td>
+    <td>
+        <script></script>
+        <%- JSON.parse(docs.event) %>
+    </td>
+    </td>
+    <td><a href="/sys_ALERT_display?event=ooo">goto alert</a></td>
+    </tr>
+
+
+    <% }); %>
+
+    </tbody>
+</table>
+<% } %>
+<% } else { %>
+
+<% } %>
+
+<script>
+    <%
+        function checkJSON(doc) {
+            var d = doc.getValue();
+
+            try {
+                docJSON = JSON.parse(d);
+                console.log('json.parse');
+                return true;
+            } catch (err) {
+                alert('This is not a valid document!');
+                return false;
+            }
+        }
+    %>
+</script>
+
+</body>
+</html>
