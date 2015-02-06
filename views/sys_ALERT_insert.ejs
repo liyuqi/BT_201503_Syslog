@@ -64,7 +64,7 @@
             <p></p>
         </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">add</button>
+                <button type="submit" class="btn btn-primary">Add</button>
             </div>
     </fieldset>
 </form>
@@ -83,7 +83,7 @@
 <% if (resp) { %>
 <h3>儲存完成</h3>
 
-<p>event : <%= JSON.stringify(resp.event) %></p>
+<p>event : <%# JSON.stringify(resp.event) %></p>
 <p>time : <%= resp.event._id %></p>
 <p>identifier : <%= resp.event.identifier %></p>
 <p>message : <%= resp.event.message %></p>
