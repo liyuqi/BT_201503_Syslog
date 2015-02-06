@@ -10,6 +10,7 @@ var mongoStatus = require('./routes/mongoStatus');
 var sys_mongo = require('./routes/sys_mongo');
 var sys_alert = require('./routes/sys_alert');
 
+var util = require('util');
 var http = require('http');
 var path = require('path');
 

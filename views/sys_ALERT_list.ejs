@@ -2,6 +2,7 @@
 <html>
 <head>
     <title><%= title %></title>
+    <% //var util = require('util');%>
 </head>
 <body>
 
@@ -36,20 +37,17 @@
     </thead>
     <tbody>
 
-
     <% resp.forEach( function(docs){ %>
-    <tr>
-    <td><%= docs.event %></td>
-    <td>
-        <script></script>
-        <%- JSON.parse(docs.event) %>
-    </td>
-    </td>
-    <td><a href="/sys_ALERT_display?event=ooo">goto alert</a></td>
+    <%# for(var i=0; i<resp.length; i++){ %>
+    <%# var event = resp[i] %>
+
+    <td><% if(docs.event.identifier) %><%= docs.event.identifier %></td>
+    <td><%= docs.event.message %></td>
+    <td><a href="/sys_ALERT_display?event=ooo">goto</a></td>
     </tr>
 
-
-    <% }); %>
+    <% }) %>
+    <%# } %>
 
     </tbody>
 </table>
