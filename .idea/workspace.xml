@@ -105,7 +105,7 @@
       <file leaf-file-name="sys_ALERT_insert.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/sys_ALERT_insert.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0174673" vertical-offset="0" max-vertical-offset="2121">
+            <state vertical-scroll-proportion="3.1643836" vertical-offset="0" max-vertical-offset="2121">
               <caret line="66" column="74" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="74" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -380,12 +380,18 @@
       <option name="project" value="LOCAL" />
       <updated>1423228088334</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="sys_ALERT_list &lt;%= JSON.parse() %&gt;">
+      <created>1423228095792</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1423228095792</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="0" width="1471" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -399,7 +405,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930756" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32806325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -845,7 +851,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/sys_ALERT_insert.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0174673" vertical-offset="0" max-vertical-offset="2121">
+        <state vertical-scroll-proportion="3.1643836" vertical-offset="0" max-vertical-offset="2121">
           <caret line="66" column="74" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="74" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#fieldset#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
