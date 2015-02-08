@@ -26,6 +26,12 @@ $ mongod
 
 ### 開始使用SYSLOG CRUD功能
 
+開啟app
+
+```bash
+$ node app.js
+```
+
 新增Log
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_insert.png)
 
