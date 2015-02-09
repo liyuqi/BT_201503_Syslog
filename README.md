@@ -26,7 +26,7 @@ $ mongod
 修改mongodb設定
 
 ```bash
-$ vi ./setting.js
+$ vi ./setting.js    # 替換連線DB
 ```
 
 > module.exports = {
@@ -40,6 +40,13 @@ $ vi ./setting.js
 >  	port : `27017`
 
 >  };
+
+```bash
+$ vi ./app.js       # 替換連線DB
+```
+
+> var dbfluentd = monk('`192.168.0.190/test`');
+
 
 ### 開始使用SYSLOG CRUD功能
 
