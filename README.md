@@ -39,4 +39,16 @@ $ node app.js
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_query.png)
 
 顯示Log
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_show.png)
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_query_result.png)
+
+最新Log
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_show_pagging.png)
+
+設定 Alert
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_insert.png)
+
+列表 Alert
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_list.png)
+
+顯示Alert
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_display.png)
