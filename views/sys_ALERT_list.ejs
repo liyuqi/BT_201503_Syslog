@@ -2,6 +2,7 @@
 <html>
 <head>
     <title><%= title %></title>
+    <% //var util = require('util');%>
 </head>
 <body>
 
@@ -29,27 +30,24 @@
     <thead>
     <tr>
     <tr>
-        <th>event</th>
-        <th>JSON</th>
-        <th>goto</th>
+        <th>Rule</th>
+        <!--<th>JSON</th>-->
+        <th>Show</th>
     </tr>
     </thead>
     <tbody>
 
-
     <% resp.forEach( function(docs){ %>
-    <tr>
-    <td><%= docs.event %></td>
-    <td>
-        <script></script>
-        <%- JSON.parse(docs.event) %>
-    </td>
-    </td>
-    <td><a href="/sys_ALERT_display?event=ooo">goto alert</a></td>
+    <%# for(var i=0; i<resp.length; i++){ %>
+    <%# var event = resp[i] %>
+
+    <td>{identifier:<%= docs.event.identifier%>,message:<%= docs.event.message%>}</td>
+    <!--<td><%# docs.event.message %></td>-->
+    <td><a href="/sys_ALERT_display?_id=<%= docs._id %>">show</a></td>
     </tr>
 
-
-    <% }); %>
+    <% }) %>
+    <%# } %>
 
     </tbody>
 </table>
@@ -57,23 +55,5 @@
 <% } else { %>
 
 <% } %>
-
-<script>
-    <%
-        function checkJSON(doc) {
-            var d = doc.getValue();
-
-            try {
-                docJSON = JSON.parse(d);
-                console.log('json.parse');
-                return true;
-            } catch (err) {
-                alert('This is not a valid document!');
-                return false;
-            }
-        }
-    %>
-</script>
-
 </body>
 </html>

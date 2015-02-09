@@ -4,7 +4,7 @@
 //mongodbDemo
 // var mongodb = require('../models/db.js');
 var util = require('util');
-
+var _pageunit=10;
 exports.index = function(req, res){
     res.render('sys_CRUD_insert', { title: 'Create log', resp : false,layout: 'l2'});
 };
@@ -97,26 +97,50 @@ exports.sys_CRUD_query = function(mongodb){
 
 exports.sys_CRUD_count = function (mongodb) {
     return function (req, res) {
+        var page = req.query.p ? parseInt(req.query.p) : 1;
         var collection = mongodb.get('logs');
-
-        collection.count({}, function (err, count) {
-            if (err) throw err;
-            res.render('sys_CRUD_show', {title: 'logs', totalcount: count, resp: null, logdetail: null, layout: 'l2'});
+        collection.count({},function(err,count){
+            collection.find({},// function (err, docs) {
+                {skip : (page - 1) * _pageunit,limit : _pageunit,sort : { time : -1 }} , function (err, docs) {
+                    if (err) throw err;
+                    res.render('sys_CRUD_show', {
+                        title: 'logs',
+                        totalcount: count,
+                        resp: docs,
+                        page: page,
+                        pageTotal: Math.ceil(count / _pageunit),
+                        isFirstPage: (page - 1) == 0,
+                        isLastPage: ((page - 1) * _pageunit + docs.length) == count,
+                        layout: 'l2'
+                    });
+                });
         });
+
     };
 };
 
 exports.sys_CRUD_show = function (mongodb) {
     return function (req, res) {
+        var page = req.query.p ? parseInt(req.query.p) : 1;
+
         var collection = mongodb.get('logs');
 
         collection.count({}, function (err, count) {
-            collection.find({}, {limit: 20, sort: {_id: -1}}, function (e, docs) {
+            collection.find({}, //{/*limit: 20,*/ sort: {_id: -1}}, function (e, docs) {
+                {skip : (page - 1) * 20,limit : 20,sort : { timestamp : -1 }}, function (e, docs) {
                 // console.log("docs data : "+util.inspect(docs));
                 var docdetail;
                 if (docs.length == 1) docdetail = util.inspect(docs);
                 res.render('sys_CRUD_show', {
-                    title: 'logs', totalcount: count, resp: docs, logdetail: docdetail, layout: 'l2'
+                    title: 'logs',
+                    totalcount: count,
+                    resp: docs,
+                    logdetail: docdetail,
+                    page: page,
+                    pageTotal: Math.ceil(docs.length / 20),
+                    isFirstPage: (page - 1) == 0,
+                    isLastPage: ((page - 1) * 20 + docs.length) == docs.length,
+                    layout: 'l2'
                 });
             });
         });

@@ -3,26 +3,36 @@
 <head>
     <title><%= title %></title>
 </head>
-<body>
+<body id='bodyWrap'>
 
 <fieldset>
-    <legend>最近 log</legend>
+    <legend>最新 log</legend>
 </fieldset>
-<form class="form-horizontal" method="post">
-    <h3> 總量 : <%= totalcount %>筆資料
-        <button type="submit" class="btn btn-primary">show</button>
-    </h3>
-</form>
+<!--<form class="form-horizontal" method="post">-->
+    <!--<h3> 總量 : <%# totalcount %>筆資料-->
+        <!--<button type="submit" class="btn btn-primary">show</button>-->
+    <!--</h3>-->
+<!--</form>-->
 
-<p></p>
+<!--<p></p>-->
 
 <% if (resp) { %>
 <!--<h3>顯示結果</h3><br/>-->
 <% if (resp.length == 0) { %>
 <h4>查無資料!</h4>
 <% } else{ %>
-
-<h4> 回傳最近 <%= resp.length %> 筆</h4>
+<h3> 總量 : <%= totalcount %>筆資料,  顯示 <%= (page - 1) * 10 +1 %>-<%= (page - 1) * 10 + resp.length %></h3>
+<!--<div>-->
+    <ul class="pagination">
+        <% if (!isFirstPage) { %>
+        <li class="prepage"><a href="?p=<%= page-1 %>"><i class="icon-chevron-left"></i>上頁 </a></li>
+        <% } %>
+        <% if (!isLastPage) { %>
+        <li class="nextpage"><a href="?p=<%= page+1 %>"> 下頁<i class="icon-chevron-right"></i></a></li>
+        <% } %>
+    </ul>
+<!--</div>-->
+<!--<h4> 回傳最新 <%= resp.length %> 筆</h4>-->
 
 <table class="table table-hover table-condensed">
     <caption></caption>
@@ -32,7 +42,7 @@
         <th>Timestamp</th>
         <th>Identifier</th>
         <th>Message</th>
-        <th>_id</th>
+        <!--<th>_id</th>-->
     </tr>
     </thead>
     <tbody>
@@ -46,7 +56,7 @@
         <% } } %>
         <td><%= body.identifier %></td>
         <td><%= body.message %></td>
-        <td><%= body._id %></td>
+        <!--<td><%# body._id %></td>-->
     </tr>
     <% }); %>
     </tbody>
@@ -55,5 +65,6 @@
 <% } else { %>
 
 <% } %>
+
 </body>
 </html>

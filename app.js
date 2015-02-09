@@ -75,7 +75,7 @@ app.post('/sys_CRUD_insert',sys_mongo.sys_CRUD_insert(dbfluentd));
 app.get('/sys_CRUD_query', 	sys_mongo.sys_CRUD_loglist(dbfluentd));
 app.post('/sys_CRUD_query', sys_mongo.sys_CRUD_query(dbfluentd));
 app.get('/sys_CRUD_show', 	sys_mongo.sys_CRUD_count(dbfluentd));
-app.post('/sys_CRUD_show', 	sys_mongo.sys_CRUD_show(dbfluentd));
+//app.post('/sys_CRUD_show', 	sys_mongo.sys_CRUD_show(dbfluentd));
 
 app.get('/sys_ALERT_insert',	sys_alert.index);
 app.post('/sys_ALERT_insert', 	sys_alert.sys_ALERT_insert(dbfluentd));
