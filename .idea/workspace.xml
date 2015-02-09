@@ -54,8 +54,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5632353" vertical-offset="415" max-vertical-offset="1701">
-              <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.22352941" vertical-offset="415" max-vertical-offset="1701">
+              <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -443,7 +443,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423472807784</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;README.md&#10;">
+      <created>1423472892785</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1423472892785</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -892,8 +898,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5632353" vertical-offset="415" max-vertical-offset="1701">
-          <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.22352941" vertical-offset="415" max-vertical-offset="1701">
+          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
           <folding />
         </state>
       </provider>

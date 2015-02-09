@@ -25,7 +25,7 @@ $ mongod
 
 修改mongodb設定
 
-```bash
+```sh
 $ vi ./setting.js    # 替換連線DB
 ```
 
@@ -38,7 +38,7 @@ module.exports = {
 };
 ```
 
-```bash
+```sh
 $ vi ./app.js       # 替換連線DB
 ```
 
