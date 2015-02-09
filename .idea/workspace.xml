@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/syslog_CRUD_insert.png" afterPath="$PROJECT_DIR$/example/syslog_CRUD_insert.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/syslog_CRUD_query.png" afterPath="$PROJECT_DIR$/example/syslog_CRUD_query.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/l2.ejs" afterPath="$PROJECT_DIR$/views/l2.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.ejs" afterPath="$PROJECT_DIR$/views/layout.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_display.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_display.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_CRUD_insert.ejs" afterPath="$PROJECT_DIR$/views/sys_CRUD_insert.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="d25f45a4-c568-4041-b3bf-20b5c7f4c7e0" name="alert_fix_field" comment="alert_fix_field" />
@@ -386,7 +379,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423454613536</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="0209">
+      <created>1423460864209</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1423460864209</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -432,7 +431,8 @@
     <MESSAGE value="alert_fix_field" />
     <MESSAGE value="sys_ALERT_list &lt;%= JSON.parse() %&gt;" />
     <MESSAGE value="sys_CRUD_display .toISOString() =&gt; ISODate()" />
-    <option name="LAST_COMMIT_MESSAGE" value="sys_CRUD_display .toISOString() =&gt; ISODate()" />
+    <MESSAGE value="0209" />
+    <option name="LAST_COMMIT_MESSAGE" value="0209" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
