@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\workspace\Syslog0130\example\syslog_CRUD_show.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/syslog_ALERT_display.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/syslog_ALERT_insert.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/syslog_ALERT_list.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/syslog_CRUD_query_result.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/syslog_CRUD_show_pagging.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="d25f45a4-c568-4041-b3bf-20b5c7f4c7e0" name="alert_fix_field" comment="alert_fix_field" />
@@ -406,7 +410,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423460871966</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="0209">
+      <created>1423461016768</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1423461016768</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
