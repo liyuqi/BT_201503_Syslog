@@ -29,17 +29,14 @@ $ mongod
 $ vi ./setting.js    # 替換連線DB
 ```
 
-> module.exports = {
-
->  	cookie_secret : 'secret_meteoric',
-
->  	db : '`test`',
-
->  	host : '`192.168.0.190`',
-
->  	port : `27017`
-
->  };
+```js
+module.exports = {
+	cookie_secret : 'secret_meteoric',
+  	db : 'test',
+  	host : '192.168.0.190',
+	port : 27017
+};
+```
 
 ```bash
 $ vi ./app.js       # 替換連線DB
@@ -48,9 +45,6 @@ $ vi ./app.js       # 替換連線DB
 ```js
 var dbfluentd = monk('`192.168.0.190/test`');
 ```
-
-<pre style="background:#fff;color:#000"><span style="color:#ff5600">var</span> dbfluentd <span style="color:#ff5600">=</span> monk(<span style="color:#00a33f">'`192.168.0.190/test`'</span>);
-</pre>
 
 ### 開始使用SYSLOG CRUD功能
 
