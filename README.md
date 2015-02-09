@@ -30,10 +30,15 @@ $ vi ./setting.js
 ```
 
 > module.exports = {
->  	cookie_secret : 'secret_meteoric',
->  	db : 'test',
->  	host : '[192.168.0.190](192.168.0.190)',
->  	port : 27017
+
+>  	    cookie_secret : 'secret_meteoric',
+
+>  	    db : '[fluentd](fluentd)',
+
+>  	    host : '[192.168.0.190](192.168.0.190)',
+
+>  	    port : [27017](27017)
+
 >  };
 
 ### 開始使用SYSLOG CRUD功能
