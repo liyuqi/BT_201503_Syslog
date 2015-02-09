@@ -1,6 +1,6 @@
 module.exports = {
 	cookie_secret : 'secret_meteoric',
-	db : 'fluentd',
-	host : '127.0.0.1',
+	db : 'test',
+	host : '192.168.0.190',
 	port : 27017
-}
+};

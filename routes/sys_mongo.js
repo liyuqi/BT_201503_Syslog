@@ -1,5 +1,12 @@
 /**
  * Created by Yuqi on 2015/1/21.
+ * > db.logs.findOne()
+ {
+         "_id" : ObjectId("54b8f9fd4a9f865637000001"),
+         "identifier" : " %PIX-6-302005",
+         "message" : " Built UDP connection for faddr 198.207.223.240/53337 gaddr 10.0.0.187/53 laddr 192.168.0.2/53",
+         "time" : ISODate("2004-03-29T01:54:18Z")
+ }
  */
 //mongodbDemo
 // var mongodb = require('../models/db.js');

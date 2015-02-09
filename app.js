@@ -19,9 +19,9 @@ var settings = require('./settings');
 var MongoStore = require('connect-mongo')(express);
 
 var monk = require('monk');
-var dbevents = monk('127.0.0.1:27017/events');
-var dbalerts = monk('127.0.0.1:27017/alerts');
-var dbfluentd = monk('127.0.0.1:27017/fluentd');
+var dbevents = monk('192.168.0.190/events');
+var dbalerts = monk('192.168.0.190/alerts');
+var dbfluentd = monk('192.168.0.190/test');
 
 var partials = require('express-partials');
 var flash = require('connect-flash');
