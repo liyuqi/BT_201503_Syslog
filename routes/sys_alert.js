@@ -104,31 +104,39 @@ exports.sys_ALERT_loglist = function(mongodb){
         console.log('url._id: '+req.query._id);
         var event;
         if (event_id_string==null) res.redirect('/sys_ALERT_list');
-        collectionAlert.find({_id:event_id_string},function(err,alerts){
-            if(!alerts) res.redirect('/sys_ALERT_list');
-            //console.log('alert :'+util.inspect(alerts));
-            event = alerts[0].event;
-            //console.log('alert_event: '+JSON.stringify(event));
+        else {
+            collectionAlert.find({_id: event_id_string}, function (err, alerts) {
+                if (err)   res.redirect('/sys_ALERT_display');
+                else {
+                    if (!alerts) res.redirect('/sys_ALERT_list');
+                    else {
+                        console.log('alert :' + util.inspect(alerts));
+                        event = alerts[0].event;
+                        console.log('alert_event: ' + JSON.stringify(event));
 
-            //console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
-            var collectionLog = mongodb.get('logs');
-            //var collection = mongodb.get('alerts');
-            if (!event) {
-                res.redirect('/sys_ALERT_display');
-            }
-            if(event){
-                collectionLog.count(event,function(err,count){
-                    collectionLog.find(event,{limit : 20},function(err,docs){
-                        console.log('event_log: '+util.inspect(event) + ' '+docs.length);
-                        res.render('sys_ALERT_display', {title: 'alert display',totalcount : count, resp : docs,layout: 'l2'});
-                    });
-                })
-            }
-            else{
-                res.redirect('/sys_ALERT_display');
-            }
-        });
-
+                        //console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
+                        var collectionLog = mongodb.get('logs');
+                        //var collection = mongodb.get('alerts');
+                        if (event) {
+                            collectionLog.count(event, function (err, count) {
+                                collectionLog.find(event, {limit: 20}, function (err, docs) {
+                                    console.log('event_log: ' + util.inspect(event) + ' ' + docs.length);
+                                    res.render('sys_ALERT_display', {
+                                        title: 'alert display',
+                                        totalcount: count,
+                                        resp: docs,
+                                        layout: 'l2'
+                                    });
+                                });
+                            })
+                        }
+                        else {
+                            res.redirect('/sys_ALERT_display');
+                        }
+                    }
+                }
+            });
+        }
 
     };
 };

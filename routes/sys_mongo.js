@@ -12,10 +12,10 @@ exports.index = function(req, res){
 exports.sys_CRUD_insert = function(mongodb){
     return function(req, res) {
         //console.log(req.body.timestamp);
-        var reqTimestamp = req.body.timestamp || (new Date).getTime();
-
+        var reqTimestamp = req.body.timestamp || new Date().toISOString();
+        //console.log(reqTimestamp);
         var logmsg = {
-            time : reqTimestamp,
+            time : new Date(reqTimestamp),
             identifier: req.body.identifier || '',
             message: req.body.msg || ''
         };
