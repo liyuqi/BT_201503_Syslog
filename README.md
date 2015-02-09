@@ -43,7 +43,7 @@ $ vi ./app.js       # 替換連線DB
 ```
 
 ```js
-var dbfluentd = monk('`192.168.0.190/test`');
+var dbfluentd = monk('192.168.0.190/test');
 ```
 
 ### 開始使用SYSLOG CRUD功能
