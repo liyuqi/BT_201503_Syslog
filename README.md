@@ -23,6 +23,17 @@ $ sudo npm install
 $ mongod
 ```
 
+修改mongodb設定
+
+```bash
+$ vi ./setting.js
+module.exports = {
+  	cookie_secret : 'secret_meteoric',
+  	db : 'test',
+  	host : ```'192.168.0.190'```,
+  	port : 27017
+  };
+```
 
 ### 開始使用SYSLOG CRUD功能
 
