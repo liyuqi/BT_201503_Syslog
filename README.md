@@ -27,13 +27,14 @@ $ mongod
 
 ```bash
 $ vi ./setting.js
-module.exports = {
+```
+
+> module.exports = {
   	cookie_secret : 'secret_meteoric',
   	db : 'test',
-  	host : ```'192.168.0.190'```,
+  	host : '[192.168.0.190](192.168.0.190)',
   	port : 27017
   };
-```
 
 ### 開始使用SYSLOG CRUD功能
 
