@@ -32,21 +32,21 @@
         <th>Timestamp</th>
         <th>Identifier</th>
         <th>Message</th>
-        <th>_id</th>
+        <!--<th>_id</th>-->
     </tr>
     </thead>
     <tbody>
     <% resp.forEach( function(body){ %>
     <tr>
         <% if(body.time) {
-        if(body.time.toString().length > 12){ %>
+        if(body.time.toString()){ %>
         <td><%= body.time.toISOString() %></td>
         <% } else { %>
         <td><%= body.time.toISOString() %></td>
         <% } } %>
         <td><%= body.identifier %></td>
         <td><%= body.message %></td>
-        <td><%= body._id %></td>
+        <!--<td><%= body._id %></td>-->
     </tr>
     <% }); %>
     </tbody>
