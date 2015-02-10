@@ -6,7 +6,7 @@ syslog0209
 下載Syslog0209資源
 
 ```bash 
-$ git clone https://github.com/liyuqi/Syslog0130
+$ git clone https://github.com/liyuqi/Syslog0209
 ```
 
 
