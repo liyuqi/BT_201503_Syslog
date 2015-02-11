@@ -131,9 +131,9 @@ exports.sys_ALERT_loglist = function(mongodb){
                                     res.render('sys_ALERT_timeInterval', {
                                         title: 'alert display',
                                         totalcount: count,
-                                        resp: docs,
-                                        start: start,
-                                        end: end
+                                        resp: docs
+                                        //,start: start
+                                        //,end: end
                                     });
                                 });
                             })
