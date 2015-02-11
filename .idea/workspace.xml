@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="MongoStore&#10;&#10;Conflicts:&#10;&#9;README.md&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/sys_ALERT_timeInterval.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/sys_query.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.js" afterPath="$PROJECT_DIR$/settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_insert.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_insert.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_CRUD_query.ejs" afterPath="$PROJECT_DIR$/views/sys_CRUD_query.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sys_alert.js" afterPath="$PROJECT_DIR$/routes/sys_alert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sys_mongo.js" afterPath="$PROJECT_DIR$/routes/sys_mongo.js" />
+    <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FET081Paging.iws" />
@@ -62,7 +53,7 @@
       <file leaf-file-name="sys_alert.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/sys_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19970632" vertical-offset="452" max-vertical-offset="2268">
+            <state vertical-scroll-proportion="0.014684288" vertical-offset="578" max-vertical-offset="2268">
               <caret line="156" column="49" selection-start-line="156" selection-start-column="49" selection-end-line="156" selection-end-column="49" />
               <folding>
                 <element signature="e#258#1740#0" expanded="false" />
@@ -545,7 +536,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423539167655</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="MongoStore&#10;&#10;Conflicts:&#10;&#9;README.md&#10;">
+      <created>1423567298790</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1423567298790</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1025,7 +1022,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/sys_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19970632" vertical-offset="452" max-vertical-offset="2268">
+        <state vertical-scroll-proportion="0.014684288" vertical-offset="578" max-vertical-offset="2268">
           <caret line="156" column="49" selection-start-line="156" selection-start-column="49" selection-end-line="156" selection-end-column="49" />
           <folding>
             <element signature="e#258#1740#0" expanded="false" />
