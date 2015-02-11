@@ -14,7 +14,7 @@
 var util = require('util');
 var _pageunit=10;
 exports.index = function(req, res){
-    res.render('sys_CRUD_insert', { title: 'Create log', resp : false,layout: 'l2'});
+    res.render('sys_CRUD_insert', { title: 'Create log', resp : false});
 };
 
 exports.sys_CRUD_insert = function(mongodb){
@@ -31,7 +31,7 @@ exports.sys_CRUD_insert = function(mongodb){
         collection.insert(logmsg,{safe: true}, function(err, events){
             console.log("events data : " + util.inspect(events));
             // mongodb.close();
-            res.render('sys_CRUD_insert', { title: 'Create log', resp : events,layout: 'l2'});
+            res.render('sys_CRUD_insert', { title: 'Create log', resp : events});
         });
     };
 };
@@ -43,7 +43,7 @@ exports.sys_CRUD_loglist = function(mongodb){
         collection.col.count({},function(err, count) {
             if(err) throw err;
             //console.log(format("count = %s", count));
-            res.render('sys_CRUD_query', {title: 'logs', totalcount : count,resp :null,layout: 'l2'});
+            res.render('sys_CRUD_query', {title: 'logs', totalcount : count,resp :null});
         });
     };
 };
@@ -52,35 +52,7 @@ exports.sys_CRUD_query = function(mongodb){
     return function(req, res) {
         var query = {};
         var collection = mongodb.get('logs');
-        //field
-        /*if(req.body.matchdate){
-            if(req.body.matchenddate){
-                query.time = {$gte:new Date(req.body.matchdate.trim()), $lt: new Date(req.body.matchenddate.trim())};
-            }else{
-                query.time = {$gte:new Date(req.body.matchdate.trim())};
-            }
-        }
-        if(req.body.matchenddate){
-            if(req.body.matchdate){
-                query.time = {$gte:new Date(req.body.matchdate.trim()), $lt: new Date(req.body.matchenddate.trim())};
-            }else{
-                query.time = {$lt :new Date(req.body.matchenddate.trim())}
-            }
-        }*/
-        /*if(req.body.matchdate){
-            if(req.body.matchenddate){
-                query.TIMESTAMP = {$gte:new Date(req.body.matchdate.trim()), $lt: new Date(req.body.matchenddate.trim())};
-            }else{
-                query.TIMESTAMP = {$gte:new Date(req.body.matchdate.trim())};
-            }
-        }
-        if(req.body.matchenddate){
-            if(req.body.matchdate){
-                query.TIMESTAMP = {$gte:new Date(req.body.matchdate.trim()), $lt: new Date(req.body.matchenddate.trim())};
-            }else{
-                query.TIMESTAMP = {$lt :new Date(req.body.matchenddate.trim())}
-            }
-        }*/
+        //field input
         if(req.body.matchdate){
             if(req.body.matchenddate){
                 query.time = {$gte:(new Date(req.body.matchdate/*.trim().toISOString()*/)), $lt: (new Date(req.body.matchenddate/*.trim().toISOString()*/))};
@@ -88,13 +60,13 @@ exports.sys_CRUD_query = function(mongodb){
                 query.time = {$gte:(new Date(req.body.matchdate/*.trim().toISOString()*/))};
             }
         }
-        /*if(req.body.matchenddate){
+        if(req.body.matchenddate){
             if(req.body.matchdate){
                 query.time = {$gte:new Date(req.body.matchdate.trim().toISOString()), $lt: new Date(req.body.matchenddate.trim().toISOString())};
             }else{
                 query.time = {$lt :new Date(req.body.matchenddate.trim().toISOString())}
             }
-        }*/
+        }
         if(req.body.identifier){
             query.identifier = {$regex: new RegExp('.*'+req.body.identifier)};
         }
@@ -110,7 +82,7 @@ exports.sys_CRUD_query = function(mongodb){
         collection.find(query /*,{limit : 20}*/,function(err,docs){
             console.log('docs.length: '+docs.length);
             if(err) res.redirect('/sys_CRUD_query');
-            res.render('sys_CRUD_display', {title: 'logs', totalcount: docs.length, resp: docs, layout: 'l2'});
+            res.render('sys_CRUD_display', {title: 'logs', totalcount: docs.length, resp: docs});
         });
     };
 };
@@ -130,8 +102,7 @@ exports.sys_CRUD_count = function (mongodb) {
                         page: page,
                         pageTotal: Math.ceil(count / _pageunit),
                         isFirstPage: (page - 1) == 0,
-                        isLastPage: ((page - 1) * _pageunit + docs.length) == count,
-                        layout: 'l2'
+                        isLastPage: ((page - 1) * _pageunit + docs.length) == count
                     });
                 });
         });
@@ -159,8 +130,7 @@ exports.sys_CRUD_show = function (mongodb) {
                     page: page,
                     pageTotal: Math.ceil(docs.length / 20),
                     isFirstPage: (page - 1) == 0,
-                    isLastPage: ((page - 1) * 20 + docs.length) == docs.length,
-                    layout: 'l2'
+                    isLastPage: ((page - 1) * 20 + docs.length) == docs.length
                 });
             });
         });
@@ -182,8 +152,13 @@ exports.sys_CRUD_show = function (mongodb) {
 //                // console.log("docs data : "+util.inspect(docs));
 //                var docdetail;
 //                if(docs.length==1) docdetail = util.inspect(docs);
-//                res.render('sys_CRUD_show', {title: 'logs', resp : docs, logdetail : docdetail,layout: 'l2'});
+//                res.render('sys_CRUD_show', {title: 'logs', resp : docs, logdetail : docdetail});
 //            });
 //        }
 //    };
 //};
+
+
+sys_CRUD_timeConverter = function (mongodb){
+    var collection = mongodb.get('logs')
+}

@@ -6,7 +6,7 @@
 var util = require('util');
 
 exports.index = function(req, res){
-    res.render('sys_ALERT_insert', { title: 'Create ALERT', resp : false,layout: 'l2'});
+    res.render('sys_ALERT_insert', { title: 'Create ALERT', resp : false});
 };
 
 /*exports.sys_ALERT_insert = function (mongodb) {
@@ -68,7 +68,7 @@ exports.sys_ALERT_insert = function(mongodb){
         if(rule){
             collection.insert({event:rule,time:new Date()},{safe: true}, function(err, docs){
                 console.log("alert data : " + JSON.stringify(docs) + util.inspect(docs));
-                res.render('sys_ALERT_insert', { title: 'Create log', resp :docs,layout: 'l2'});
+                res.render('sys_ALERT_insert', { title: 'Create log', resp :docs});
                 if(err) res.redirect('/sys_ALERT_insert');
             });
         }
@@ -81,7 +81,7 @@ exports.sys_ALERT_count = function (mongodb) {
 
         collection.count({}, function (err, count) {
             if (err) throw err;
-            res.render('sys_ALERT_list', {title: 'alerts', totalcount: count, resp: null, logdetail: null, layout: 'l2'});
+            res.render('sys_ALERT_list', {title: 'alerts', totalcount: count, resp: null, logdetail: null});
         });
     };
 };
@@ -95,9 +95,9 @@ exports.sys_ALERT_list = function (mongodb) {
                 // console.log("docs data : "+util.inspect(docs));
                 var docdetail;
                 if (docs.length == 1) docdetail = util.inspect(docs);
-                var test = util.inspect(docs);
+                //console.log(util.inspect(docs));
                 res.render('sys_ALERT_list', {
-                    title: 'alerts', totalcount: count, resp: docs, logdetail: docdetail, layout: 'l2'
+                    title: 'alerts', totalcount: count, resp: docs, logdetail: docdetail
                 });
             });
         });
@@ -133,8 +133,7 @@ exports.sys_ALERT_loglist = function(mongodb){
                                         totalcount: count,
                                         resp: docs,
                                         start: start,
-                                        end: end,
-                                        layout: 'l2'
+                                        end: end
                                     });
                                 });
                             })
@@ -151,10 +150,9 @@ _interval = 60*1000;
 
 exports.sys_ALERT_timeInterval = function (mongodb) {
     return function (req, res) {
-        var time = new Date('2004-03-29T01:55');
+        //var time = new Date('2004-03-29T01:55');
         var start = new Date('2004-03-29T01:55');
-        var end = new Date();
-        end.setTime(start.getTime() + _interval);
+        var end = new Date().setTime(start.getTime() + _interval);
 
         var collectionAlert = mongodb.get('alerts');
         var event = {};
@@ -162,7 +160,7 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
         if (!req.query._id) res.redirect('/sys_ALERT_list');
         else {
             collectionAlert.find({_id: req.query._id}, function (err, alerts) {
-                if (err)   res.redirect('/sys_ALERT_timeInterval');
+                if (err) res.redirect('/sys_ALERT_timeInterval');
                 else {
                     if (!alerts) res.redirect('/sys_ALERT_list');
                     else {
@@ -185,8 +183,7 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
                                         totalcount: count,
                                         resp: docs,
                                         start: start,
-                                        end: end,
-                                        layout: 'l2'
+                                        end: end
                                     });
                                 });
                             })
@@ -200,7 +197,7 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
     };
 };
 
-exports.sys_ALERT_query = function(mongodb){
+/*exports.sys_ALERT_query = function(mongodb){
     return function(req, res) {
         var collectionAlert = mongodb.get('alerts');
         var event_string = req.query.event || null;
@@ -220,12 +217,54 @@ exports.sys_ALERT_query = function(mongodb){
             collectionLog.count(event,function(err,count){
                 collectionLog.find(JSON.parse(event),{limit : 20},function(err,docs){
                     console.log('event_log: '+util.inspect(event) + ' '+docs.length);
-                    res.render('sys_ALERT_display', {title: 'alert display',totalcount : count, resp : docs,layout: 'l2'});
+                    res.render('sys_ALERT_display', {title: 'alert display',totalcount : count, resp : docs});
                 });
             })
         }
         else{
             res.redirect('/sys_ALERT_display');
         }
+    };
+};*/
+
+
+exports.sys_ALERT_event = function(mongodb){
+    return function(req, res) {
+
+        var collection = mongodb.get('logs');
+
+        console.log("流量小計 : ");
+        collection.col.aggregate([
+            {$project:{
+                  _id:1
+                , year: {$year: "$time"}
+                , month:{$month: "$time"}
+                , day:  {$dayOfMonth: "$time"}
+                , hour: {$hour: "$time"}
+                , minute: {$minute: "$time"}
+                , time: 1
+                , identifier: 1
+            }}
+            ,{$group:{
+                _id: {
+                      year: "$year"
+                    , month: "$month"
+                    , day: "$day"
+                    , hour: "$hour"
+                    , minute: "$minute"
+                }
+                ,key: {$push:{identifier:"$identifier",time:"$time"}}
+                ,count: {$sum: 1}
+            }}
+            ,{$project:{
+                _id:1
+                //,key:1
+                ,count:1
+            }}
+        ], function(err, result) {
+            if(err) console.log("err : "+err.message);
+            console.log("result : "+util.inspect(result));
+            res.render('sys_ALERT_event', {title: '流量小計', result: result });
+        });
     };
 };

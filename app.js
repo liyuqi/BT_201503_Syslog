@@ -87,6 +87,8 @@ app.post('/sys_ALERT_list', 	sys_alert.sys_ALERT_list(dbfluentd));
 app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
 //app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_query(dbfluentd));
 app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
+app.use('/sys_ALERT_event', 	sys_alert.sys_ALERT_event(dbfluentd));
+
 
 //app.get('/mongodbSetting', mongodbAlert.page);
 //app.post('/mongodbSetting', mongodbAlert.alertSetting(dbalerts));
