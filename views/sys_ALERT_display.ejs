@@ -27,6 +27,7 @@
         <thead>
         <tr>
         <tr>
+            <th></th>
             <th>Timestamp</th>
             <th>Identifier</th>
             <th>Message</th>
@@ -34,8 +35,10 @@
         </tr>
         </thead>
         <tbody>
+        <% var i=1; %>
         <% resp.forEach( function(body){ %>
         <tr>
+            <td><%= i++; %></td>
             <% if(body.time) {
             if(body.time.toString().length > 12){ %>
             <td><%= body.time.toISOString() %></td>

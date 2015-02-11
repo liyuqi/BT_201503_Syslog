@@ -30,6 +30,7 @@
     <thead>
     <tr>
     <tr>
+        <th></th>
         <th>Rule</th>
         <!--<th>JSON</th>-->
         <th>Show</th>
@@ -37,11 +38,11 @@
     </thead>
     <tbody>
 
+    <% var i=1; %>
     <% resp.forEach( function(docs){ %>
-    <%# for(var i=0; i<resp.length; i++){ %>
-    <%# var event = resp[i] %>
-
-    <td><%= docs.event %>,{identifier:<%= docs.event.identifier%>,message:<%= docs.event.message%>}</td>
+    <tr>
+        <td><%= i++; %></td>
+    <td><%# docs.event %>{identifier:<%= docs.event.identifier %>,message:<%= docs.event.message %>}</td>
     <!--<td><%# docs.event.message %></td>-->
     <td><a href="/sys_ALERT_display?_id=<%= docs._id %>">show</a></td>
     </tr>

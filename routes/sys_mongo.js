@@ -12,7 +12,8 @@
 //mongodbDemo
 // var mongodb = require('../models/db.js');
 var util = require('util');
-var _pageunit=10;
+var _pageunit=50;
+
 exports.index = function(req, res){
     res.render('sys_CRUD_insert', { title: 'Create log', resp : false});
 };
@@ -30,7 +31,7 @@ exports.sys_CRUD_insert = function(mongodb){
         var collection = mongodb.get('logs');
         collection.insert(logmsg,{safe: true}, function(err, events){
             console.log("events data : " + util.inspect(events));
-            // mongodb.close();
+
             res.render('sys_CRUD_insert', { title: 'Create log', resp : events});
         });
     };
@@ -82,7 +83,7 @@ exports.sys_CRUD_query = function(mongodb){
         collection.find(query /*,{limit : 20}*/,function(err,docs){
             console.log('docs.length: '+docs.length);
             if(err) res.redirect('/sys_CRUD_query');
-            res.render('sys_CRUD_display', {title: 'logs', totalcount: docs.length, resp: docs});
+            res.render('sys_CRUD_display_query', {title: 'logs', totalcount: docs.length, resp: docs});
         });
     };
 };
@@ -92,25 +93,41 @@ exports.sys_CRUD_count = function (mongodb) {
         var page = req.query.p ? parseInt(req.query.p) : 1;
         var collection = mongodb.get('logs');
         collection.count({},function(err,count){
-            collection.find({},// function (err, docs) {
-                {skip : (page - 1) * _pageunit,limit : _pageunit,sort : { time : -1 }} , function (err, docs) {
+            collection.find({}, {limit : _pageunit,sort : { time : -1 }} , function (err, docs) {
                     if (err) throw err;
                     res.render('sys_CRUD_show', {
                         title: 'logs',
                         totalcount: count,
-                        resp: docs,
-                        page: page,
-                        pageTotal: Math.ceil(count / _pageunit),
-                        isFirstPage: (page - 1) == 0,
-                        isLastPage: ((page - 1) * _pageunit + docs.length) == count
+                        resp: docs
                     });
                 });
         });
-
     };
 };
 
 exports.sys_CRUD_show = function (mongodb) {
+    return function (req, res) {
+
+        var collection = mongodb.get('logs');
+
+        collection.count({}, function (err, count) {
+            collection.find({}, //{/*limit: 20,*/ sort: {_id: -1}}, function (e, docs) {
+                {limit : 50,sort : { timestamp : -1 }}, function (e, docs) {
+                    // console.log("docs data : "+util.inspect(docs));
+                    var docdetail;
+                    if (docs.length == 1) docdetail = util.inspect(docs);
+                    res.render('sys_CRUD_show', {
+                        title: 'logs',
+                        totalcount: count,
+                        resp: docs,
+                        logdetail: docdetail
+                    });
+                });
+        });
+    };
+};
+
+exports.sys_CRUD_show_pagging = function (mongodb) {
     return function (req, res) {
         var page = req.query.p ? parseInt(req.query.p) : 1;
 
@@ -137,28 +154,7 @@ exports.sys_CRUD_show = function (mongodb) {
     };
 };
 
-//exports.sys_CRUD_queryNoRegEx = function(mongodb){
-//    return function(req, res) {
-//        //var ipcond = req.body.hostip;
-//        var sysmsg = req.body.matchmsg || '';
-//
-//        var collection = mongodb.get('events');
-//        if(sysmsg.length <1){
-//            console.log("redirect...");
-//            res.redirect( '/sys_CRUD_show' );
-//        }
-//        if(sysmsg.length >0){
-//            collection.find({/*"message":sysmsg*/},{limit : 20},function(e,docs){
-//                // console.log("docs data : "+util.inspect(docs));
-//                var docdetail;
-//                if(docs.length==1) docdetail = util.inspect(docs);
-//                res.render('sys_CRUD_show', {title: 'logs', resp : docs, logdetail : docdetail});
-//            });
-//        }
-//    };
-//};
-
-
-sys_CRUD_timeConverter = function (mongodb){
-    var collection = mongodb.get('logs')
-}
+//sys_CRUD_timeConverter = function (mongodb){
+//    var collection = mongodb.get('logs');
+//    collection.update({})
+//}

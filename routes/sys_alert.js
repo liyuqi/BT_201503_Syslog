@@ -55,10 +55,10 @@ exports.sys_ALERT_insert = function(mongodb){
         var collection = mongodb.get('alerts');
 
         if(req.body.identifier){
-            rule.identifier = /*$regex:*/ new RegExp('.*'+req.body.identifier);
+            rule.identifier = /*$regex:*/ new RegExp('.*'+req.body.identifier.trim());
         }
         if(req.body.matchmsg){
-            rule.message = /*$regex:*/ new RegExp('.*'+req.body.matchmsg);
+            rule.message = /*$regex:*/ new RegExp('.*'+req.body.matchmsg.trim());
         }
         /*if(req.body.logid){
             rule._id = req.body.logid;
@@ -126,7 +126,7 @@ exports.sys_ALERT_loglist = function(mongodb){
 
                         if (event) {
                             collectionLog.count(event, function (err, count) {
-                                collectionLog.find(event, {limit: 20}, function (err, docs) {
+                                collectionLog.find(event, {limit: 50}, function (err, docs) {
                                     console.log('event_log: ' + util.inspect(event) + ' ' + docs.length);
                                     res.render('sys_ALERT_timeInterval', {
                                         title: 'alert display',
@@ -151,8 +151,9 @@ _interval = 60*1000;
 exports.sys_ALERT_timeInterval = function (mongodb) {
     return function (req, res) {
         //var time = new Date('2004-03-29T01:55');
-        var start = new Date('2004-03-29T01:55');
-        var end = new Date().setTime(start.getTime() + _interval);
+        //var rule = {};
+        var ruleStart = new Date('2004-03-29T01:55');
+        var ruleEnd = new Date().setTime(ruleStart.getTime() + _interval);
 
         var collectionAlert = mongodb.get('alerts');
         var event = {};
@@ -182,8 +183,8 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
                                         title: 'alert display',
                                         totalcount: count,
                                         resp: docs,
-                                        start: start,
-                                        end: end
+                                        start: ruleStart,
+                                        end: ruleEnd
                                     });
                                 });
                             })
@@ -197,36 +198,57 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
     };
 };
 
-/*exports.sys_ALERT_query = function(mongodb){
-    return function(req, res) {
+exports.sys_ALERT_TIMESTAMPInterval = function (mongodb) {
+    return function (req, res) {
+        //var time = new Date('2004-03-29T01:55');
+        //var rule = {};
+        var ruleStart = new Date('2004-03-29T01:55');
+        //var ruleEnd = new Date(new Date().setTime(ruleStart.getTime() + _interval));
+        var ruleEnd = new Date().setTime(ruleStart.getTime() + _interval);
+        console.log('T0 type: '+typeof(ruleStart) +' T0: '+ ruleStart);
+        console.log('T1 type: '+typeof(ruleEnd) +' T1: '+ ruleEnd);
         var collectionAlert = mongodb.get('alerts');
-        var event_string = req.query.event || null;
-        var event;
-        collectionAlert.find({_id:event_string},function(err,alerts){
-            event = util.inspect(alerts.event);
-            console.log('alert_event: '+event);
-        });
+        var event = {};
+        //console.log('url._id: '+req.query._id);
+        if (!req.query._id) res.redirect('/sys_ALERT_list');
+        else {
+            collectionAlert.find({_id: req.query._id}, function (err, alerts) {
+                if (err) res.redirect('/sys_ALERT_TIMESTAMPInterval');
+                else {
+                    if (!alerts) res.redirect('/sys_ALERT_list');
+                    else {
+                        event = alerts[0].event;
+                        event.time = {
+                            $gt : ruleStart,//.toISOString(),//.toString(),
+                            $lte: ruleEnd//.toISOString()//.toString()
+                        };
+                        //console.log('event: '+util.inspect(event));
+                        //var collection = mongodb.get('alerts');
+                        //console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
+                        var collectionLog = mongodb.get('logs');
 
-        //console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
-        var collectionLog = mongodb.get('logs');
-        //var collection = mongodb.get('alerts');
-        if (event.length < 1) {
-            res.redirect('/sys_ALERT_display');
+                        if (event) {
+                            collectionLog.count(event, function (err, count) {
+                                collectionLog.find(event, {limit: 20}, function (err, docs) {
+                                    console.log('event_log: ' + util.inspect(event) + ' ' + docs.length);
+                                    res.render('sys_ALERT_TIMESTAMPInterval', {
+                                        title: 'alert display',
+                                        totalcount: count,
+                                        resp: docs,
+                                        start: ruleStart,
+                                        end: ruleEnd
+                                    });
+                                });
+                            })
+                        }
+                        else { res.redirect('/sys_ALERT_TIMESTAMPInterval'); }
+                    }
+                }
+            });
         }
-        if(event.length >0){
-            collectionLog.count(event,function(err,count){
-                collectionLog.find(JSON.parse(event),{limit : 20},function(err,docs){
-                    console.log('event_log: '+util.inspect(event) + ' '+docs.length);
-                    res.render('sys_ALERT_display', {title: 'alert display',totalcount : count, resp : docs});
-                });
-            })
-        }
-        else{
-            res.redirect('/sys_ALERT_display');
-        }
+
     };
-};*/
-
+};
 
 exports.sys_ALERT_event = function(mongodb){
     return function(req, res) {

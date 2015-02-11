@@ -20,6 +20,7 @@
     <table class="table table-striped table-hover " width="80%">
         <thead>
         <tr>
+            <th></th>
             <th>tag</th>
             <th>count</th>
 
@@ -30,6 +31,7 @@
                 result.forEach( function ( event ){ %>
 
         <tr>
+            <td><%= i++; %></td>
             <!--<td ><a href="/nw01detail?oid=<%# event._id %>"><%# event._id %></a></td>-->
             <!--<td ><%= JSON.stringify(event._id) %></td>-->
             <td><%= event._id.year %>-<%= event._id.month %>-<%= event._id.day %> <%= event._id.hour%>:<%= event._id.minute %></td>

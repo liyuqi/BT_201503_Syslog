@@ -3,34 +3,33 @@
 <head>
     <title><%= title %></title>
 </head>
-<body id='bodyWrap'>
+<body>
 
 <fieldset>
-    <legend>最新 log</legend>
+    <legend>查詢 log</legend>
 </fieldset>
 <!--<form class="form-horizontal" method="post">-->
-    <!--<h3> 總量 : <%# totalcount %>筆資料-->
+    <!--<h3> 總量 : <%= totalcount %>筆資料-->
         <!--<button type="submit" class="btn btn-primary">show</button>-->
     <!--</h3>-->
 <!--</form>-->
 
-<!--<p></p>-->
+<p></p>
 
 <% if (resp) { %>
 <!--<h3>顯示結果</h3><br/>-->
 <% if (resp.length == 0) { %>
 <h4>查無資料!</h4>
 <% } else{ %>
-<h3> 總量 : <%= totalcount %>筆資料,  顯示前 <%= resp.length %> 筆</h3>
 
-<!--<h4> 回傳最新 <%= resp.length %> 筆</h4>-->
+<h4> 回傳 <%= resp.length %> 筆</h4>
 
 <table class="table table-hover table-condensed">
     <caption></caption>
     <thead>
     <tr>
     <tr>
-        <td></td>
+        <th></th>
         <th>Timestamp</th>
         <th>Identifier</th>
         <th>Message</th>
@@ -43,14 +42,14 @@
     <tr>
         <td><%= i++; %></td>
         <% if(body.time) {
-        if(body.time.toString().length > 12){ %>
+        if(body.time.toString()){ %>
         <td><%= body.time.toISOString() %></td>
         <% } else { %>
         <td><%= body.time.toISOString() %></td>
         <% } } %>
         <td><%= body.identifier %></td>
         <td><%= body.message %></td>
-        <!--<td><%# body._id %></td>-->
+        <!--<td><%= body._id %></td>-->
     </tr>
     <% }); %>
     </tbody>
@@ -59,6 +58,5 @@
 <% } else { %>
 
 <% } %>
-
 </body>
 </html>

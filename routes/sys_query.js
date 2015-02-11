@@ -39,6 +39,35 @@ exports.sys_ALERT_insert = function(mongodb){
     };
 };
 
+/*exports.sys_ALERT_query = function(mongodb){
+ return function(req, res) {
+ var collectionAlert = mongodb.get('alerts');
+ var event_string = req.query.event || null;
+ var event;
+ collectionAlert.find({_id:event_string},function(err,alerts){
+ event = util.inspect(alerts.event);
+ console.log('alert_event: '+event);
+ });
+
+ //console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
+ var collectionLog = mongodb.get('logs');
+ //var collection = mongodb.get('alerts');
+ if (event.length < 1) {
+ res.redirect('/sys_ALERT_display');
+ }
+ if(event.length >0){
+ collectionLog.count(event,function(err,count){
+ collectionLog.find(JSON.parse(event),{limit : 20},function(err,docs){
+ console.log('event_log: '+util.inspect(event) + ' '+docs.length);
+ res.render('sys_ALERT_display', {title: 'alert display',totalcount : count, resp : docs});
+ });
+ })
+ }
+ else{
+ res.redirect('/sys_ALERT_display');
+ }
+ };
+ };*/
 
 exports.sys_CRUD_query = function(mongodb){
     return function(req, res) {
