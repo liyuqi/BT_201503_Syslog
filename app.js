@@ -86,6 +86,7 @@ app.post('/sys_ALERT_list', 	sys_alert.sys_ALERT_list(dbfluentd));
 //app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_loglist(dbfluentd));
 app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
 app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
+app.get('/sys_ALERT_delete', 	sys_alert.sys_ALERT_delete(dbfluentd));
 //app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_query(dbfluentd));
 app.use('/sys_ALERT_event', 	sys_alert.sys_ALERT_event(dbfluentd));
 

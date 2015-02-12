@@ -24,6 +24,7 @@ exports.sys_CRUD_insert = function(mongodb){
         var reqTimestamp = req.body.timestamp || new Date().toISOString();
         //console.log(reqTimestamp);
         var logmsg = {
+            TIMESTAMP : new Date(),
             time : new Date(reqTimestamp),
             identifier: req.body.identifier || '',
             message: req.body.msg || ''
@@ -90,7 +91,7 @@ exports.sys_CRUD_query = function(mongodb){
 
 exports.sys_CRUD_count = function (mongodb) {
     return function (req, res) {
-        var page = req.query.p ? parseInt(req.query.p) : 1;
+        //var page = req.query.p ? parseInt(req.query.p) : 1;
         var collection = mongodb.get('logs');
         collection.count({},function(err,count){
             collection.find({}, {limit : _pageunit,sort : { time : -1 }} , function (err, docs) {

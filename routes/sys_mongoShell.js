@@ -6,31 +6,31 @@ var readline = require('readline'),
 var childprocess = require('child_process');
 
 exports.page = function (req, res) {
-	processexec();
+	processexec();//childprocess.exec(newTerminal());//
 	console.log('gen logs');
-	res.render('mongoStatus', {	title : 'Create log',resp : false,layout : 'l2'	});
+	res.render('mongoStatus', {	title : 'Create log',resp : false});
 };
 exports.child = function(){
-	
     return function(req, res) {
 	//var mongoOption = req.body.mongoOption
 	//console.log(mongoOption);
-	childprocess.exec(newTerminal());
-	console.log("child exec"+'\n\n');
-	res.render('mongoStatus', { title: 'mongo status', mongodSwitch:'no',layout: 'l2'});
+	if(1) processexec();//childprocess.exec(newTerminal());
+		console.log('child '+_dirname);
+	res.render('mongoStatus', { title: 'mongo status'});
 	};
-}
+};
 
 function newTerminal() {
 	// return "gnome-terminal -x sh -c '"+cmdstr+"|less'"; ==> open terminal window
-	fs.readdir('./genSyslog.js',function(path){
-		console.log('gen syslog');
-		return "mongo localhost/fluentd "+path;
-	})
+	console.log(_dirname);
+	//fs.read(_dirname+'/genSyslog.js',function(path){
+	//	console.log('gen syslog '+path);
+		return "mongo localhost/fluentd"+ _dirname+'/genSyslog.js';
+	//});
 
 	//return "mongod --config /etc/mongodb.conf";
 	//return "calc";
-	console.log('calc');
+	//console.log('calc');
 }
 
 function processexec() {

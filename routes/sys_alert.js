@@ -75,13 +75,31 @@ exports.sys_ALERT_insert = function(mongodb){
     };
 };
 
+//exports.sys_ALERT_count = function (mongodb) {
+//    return function (req, res) {
+//        var collection = mongodb.get('alerts');
+//
+//        collection.count({}, function (err, count) {
+//            if (err) throw err;
+//            res.render('sys_ALERT_list', {title: 'alerts', totalcount: count, resp: null, logdetail: null});
+//        });
+//    };
+//};
+
 exports.sys_ALERT_count = function (mongodb) {
     return function (req, res) {
         var collection = mongodb.get('alerts');
 
         collection.count({}, function (err, count) {
-            if (err) throw err;
-            res.render('sys_ALERT_list', {title: 'alerts', totalcount: count, resp: null, logdetail: null});
+            collection.find({}, function (err, docs) {
+                // console.log("docs data : "+util.inspect(docs));
+                var docdetail;
+                if (docs.length == 1) docdetail = util.inspect(docs);
+                //console.log(util.inspect(docs));
+                res.render('sys_ALERT_list', {
+                    title: 'alerts', totalcount: count, resp: docs, logdetail: docdetail
+                });
+            });
         });
     };
 };
@@ -198,52 +216,19 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
     };
 };
 
-exports.sys_ALERT_TIMESTAMPInterval = function (mongodb) {
-    return function (req, res) {
-        //var time = new Date('2004-03-29T01:55');
-        //var rule = {};
-        var ruleStart = new Date('2004-03-29T01:55');
-        //var ruleEnd = new Date(new Date().setTime(ruleStart.getTime() + _interval));
-        var ruleEnd = new Date().setTime(ruleStart.getTime() + _interval);
-        console.log('T0 type: '+typeof(ruleStart) +' T0: '+ ruleStart);
-        console.log('T1 type: '+typeof(ruleEnd) +' T1: '+ ruleEnd);
+exports.sys_ALERT_delete = function(mongodb){
+    return function(req, res) {
         var collectionAlert = mongodb.get('alerts');
-        var event = {};
-        //console.log('url._id: '+req.query._id);
+
         if (!req.query._id) res.redirect('/sys_ALERT_list');
         else {
-            collectionAlert.find({_id: req.query._id}, function (err, alerts) {
-                if (err) res.redirect('/sys_ALERT_TIMESTAMPInterval');
-                else {
-                    if (!alerts) res.redirect('/sys_ALERT_list');
-                    else {
-                        event = alerts[0].event;
-                        event.time = {
-                            $gt : ruleStart,//.toISOString(),//.toString(),
-                            $lte: ruleEnd//.toISOString()//.toString()
-                        };
-                        var collectionLog = mongodb.get('logs');
+            collectionAlert.remove({_id: req.query._id}, function (err) {
+                if (err) res.redirect('/sys_ALERT_list');
 
-                        if (event) {
-                            collectionLog.count(event, function (err, count) {
-                                collectionLog.find(event, {limit: 20}, function (err, docs) {
-                                    console.log('event_log: ' + util.inspect(event) + ' ' + docs.length);
-                                    res.render('sys_ALERT_TIMESTAMPInterval', {
-                                        title: 'alert display',
-                                        totalcount: count,
-                                        resp: docs,
-                                        start: ruleStart,
-                                        end: ruleEnd
-                                    });
-                                });
-                            })
-                        }
-                        else { res.redirect('/sys_ALERT_TIMESTAMPInterval'); }
-                    }
-                }
+                console.log('sys_ALERT_delete');
+                res.redirect('/sys_ALERT_list');
             });
         }
-
     };
 };
 
@@ -275,7 +260,7 @@ exports.sys_ALERT_event = function(mongodb){
                 ,key: {$push:{identifier:"$identifier",time:"$time"}}
                 ,count: {$sum: 1}
             }}
-            ,{$sort:{_id:1}}
+            ,{$sort:{_id:-1}}
             ,{$project:{
                 _id:1
                 //,key:1
