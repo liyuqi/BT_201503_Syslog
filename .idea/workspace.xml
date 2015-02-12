@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/syslog_ALERT_display_timer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/syslog_ALERT_event.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -75,8 +73,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5882353" vertical-offset="1068" max-vertical-offset="1848">
-              <caret line="68" column="95" selection-start-line="68" selection-start-column="95" selection-end-line="68" selection-end-column="95" />
+            <state vertical-scroll-proportion="0.6911765" vertical-offset="1236" max-vertical-offset="1848">
+              <caret line="79" column="91" selection-start-line="79" selection-start-column="91" selection-end-line="79" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -643,7 +641,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423737861597</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="md example">
+      <created>1423737990513</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1423737990513</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -722,7 +726,8 @@
     <MESSAGE value="gen log" />
     <MESSAGE value="del button" />
     <MESSAGE value="md" />
-    <option name="LAST_COMMIT_MESSAGE" value="md" />
+    <MESSAGE value="md example" />
+    <option name="LAST_COMMIT_MESSAGE" value="md example" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1127,8 +1132,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5882353" vertical-offset="1068" max-vertical-offset="1848">
-          <caret line="68" column="95" selection-start-line="68" selection-start-column="95" selection-end-line="68" selection-end-column="95" />
+        <state vertical-scroll-proportion="0.6911765" vertical-offset="1236" max-vertical-offset="1848">
+          <caret line="79" column="91" selection-start-line="79" selection-start-column="91" selection-end-line="79" selection-end-column="91" />
           <folding />
         </state>
       </provider>

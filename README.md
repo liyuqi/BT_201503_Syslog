@@ -77,7 +77,7 @@ $ node app.js
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_list.png)
 
 顯示 Alert (60sec)
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_display_timer.png)
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_display.png)
 
 流量 Alert
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_display_timer.png)
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_event.png)
