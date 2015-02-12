@@ -166,7 +166,7 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
                     if (!alerts) res.redirect('/sys_ALERT_list');
                     else {
                         event = alerts[0].event;
-                        event.time = {
+                        event.TIMESTAMP = {                          //
                             $gt: new Date(new Date-_interval)
                             //,$lte: ruleEnd
                         };
@@ -222,9 +222,6 @@ exports.sys_ALERT_TIMESTAMPInterval = function (mongodb) {
                             $gt : ruleStart,//.toISOString(),//.toString(),
                             $lte: ruleEnd//.toISOString()//.toString()
                         };
-                        //console.log('event: '+util.inspect(event));
-                        //var collection = mongodb.get('alerts');
-                        //console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
                         var collectionLog = mongodb.get('logs');
 
                         if (event) {
@@ -278,6 +275,7 @@ exports.sys_ALERT_event = function(mongodb){
                 ,key: {$push:{identifier:"$identifier",time:"$time"}}
                 ,count: {$sum: 1}
             }}
+            ,{$sort:{_id:1}}
             ,{$project:{
                 _id:1
                 //,key:1
