@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FET081Paging.iws" />
@@ -26,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10071942" vertical-offset="0" max-vertical-offset="417">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="231">
+              <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -59,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys_ALERT_list.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sys_ALERT_list.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/sys_ALERT_list.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6296296" vertical-offset="883" max-vertical-offset="1428">
-              <caret line="48" column="65" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.55437666" vertical-offset="799" max-vertical-offset="1428">
+              <caret line="48" column="116" selection-start-line="48" selection-start-column="116" selection-end-line="48" selection-end-column="116" />
               <folding />
             </state>
           </provider>
@@ -116,10 +117,10 @@
         <option value="$PROJECT_DIR$/views/mongoStatus.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
         <option value="$PROJECT_DIR$/routes/sys_mongo.js" />
         <option value="$PROJECT_DIR$/routes/sys_alert.js" />
         <option value="$PROJECT_DIR$/routes/sys_mongoShell.js" />
+        <option value="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
       </list>
     </option>
   </component>
@@ -588,7 +589,19 @@
       <option name="project" value="LOCAL" />
       <updated>1423734120418</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="delete alert rule&#10;">
+      <created>1423734151184</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1423734151184</updated>
+    </task>
+    <task id="LOCAL-00046" summary="gen log">
+      <created>1423734600433</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1423734600433</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -664,7 +677,8 @@
     <MESSAGE value="timeinterval" />
     <MESSAGE value="final&#10;" />
     <MESSAGE value="delete alert rule&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete alert rule&#10;" />
+    <MESSAGE value="gen log" />
+    <option name="LAST_COMMIT_MESSAGE" value="gen log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1062,18 +1076,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/sys_ALERT_list.ejs">
+    <entry file="file://$PROJECT_DIR$/settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6296296" vertical-offset="883" max-vertical-offset="1428">
-          <caret line="48" column="65" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="231">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.js">
+    <entry file="file://$PROJECT_DIR$/views/sys_ALERT_list.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10071942" vertical-offset="0" max-vertical-offset="417">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.55437666" vertical-offset="799" max-vertical-offset="1428">
+          <caret line="48" column="116" selection-start-line="48" selection-start-column="116" selection-end-line="48" selection-end-column="116" />
           <folding />
         </state>
       </provider>
