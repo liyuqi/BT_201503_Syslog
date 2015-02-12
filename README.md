@@ -66,7 +66,7 @@ $ node app.js
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_query_result.png)
 
 最新 Log
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_show.png)
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_show_pagging.png)
 
 ### Alert part
 
