@@ -150,11 +150,11 @@ _interval = 60*1000;
 
 exports.sys_ALERT_timeInterval = function (mongodb) {
     return function (req, res) {
-        //var time = new Date('2004-03-29T01:55');
-        //var rule = {};
-        var ruleStart = new Date('2004-03-29T01:55');
-        var ruleEnd = new Date().setTime(ruleStart.getTime() + _interval);
 
+        var ruleNow = new Date();//('2004-03-29T01:55');
+        var ruleBack = new Date(new Date-_interval);//(new Date().setTime(ruleStart.getTime() + _interval));
+        console.log(typeof (ruleBack)+' '+ruleBack);
+        console.log(util.inspect(ruleNow));
         var collectionAlert = mongodb.get('alerts');
         var event = {};
         //console.log('url._id: '+req.query._id);
@@ -167,8 +167,8 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
                     else {
                         event = alerts[0].event;
                         event.time = {
-                            $gt : start,
-                            $lte: end
+                            $gt: new Date(new Date-_interval)
+                            //,$lte: ruleEnd
                         };
                         //console.log('event: '+util.inspect(event));
                         //var collection = mongodb.get('alerts');
@@ -178,13 +178,13 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
                         if (event) {
                             collectionLog.count(event, function (err, count) {
                                 collectionLog.find(event, {limit: 20}, function (err, docs) {
-                                    console.log('event_log: ' + util.inspect(event) + ' ' + docs.length);
+                                    console.log('event_log: ' + util.inspect(event) + ' ' + count);
                                     res.render('sys_ALERT_timeInterval', {
                                         title: 'alert display',
                                         totalcount: count,
                                         resp: docs,
-                                        start: ruleStart,
-                                        end: ruleEnd
+                                        start: ruleBack,//.getTime(),
+                                        end: ruleNow//.getTime()
                                     });
                                 });
                             })

@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/sys_ALERT_TIMESTAMPInterval.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/sys_CRUD_show_pagging.ejs" />
-      <change type="MOVED" beforePath="C:\workspace\Syslog0209\views\sys_CRUD_display.ejs" afterPath="$PROJECT_DIR$/views/sys_CRUD_display_query.ejs" />
+    <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="timeinterval">
+      <change type="DELETED" beforePath="C:\workspace\Syslog0209\views\sys_ALERT_TIMESTAMPInterval.ejs" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/TIMESTAMP_test.js" afterPath="$PROJECT_DIR$/routes/TIMESTAMP_test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.ejs" afterPath="$PROJECT_DIR$/views/layout.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.js" afterPath="$PROJECT_DIR$/settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_display.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_display.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_event.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_event.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_insert.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_insert.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_ALERT_timeInterval.ejs" afterPath="$PROJECT_DIR$/views/sys_ALERT_timeInterval.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_CRUD_show.ejs" afterPath="$PROJECT_DIR$/views/sys_CRUD_show.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sys_alert.js" afterPath="$PROJECT_DIR$/routes/sys_alert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sys_mongo.js" afterPath="$PROJECT_DIR$/routes/sys_mongo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sys_query.js" afterPath="$PROJECT_DIR$/routes/sys_query.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FET081Paging.iws" />
@@ -41,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.85294116" vertical-offset="1260" max-vertical-offset="2331">
-              <caret line="89" column="2" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="2289">
+              <caret line="88" column="74" selection-start-line="88" selection-start-column="74" selection-end-line="88" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -54,8 +46,8 @@
       <file leaf-file-name="sys_alert.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/sys_alert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2689" max-vertical-offset="4893">
-              <caret line="242" column="25" selection-start-line="242" selection-start-column="25" selection-end-line="242" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2185" max-vertical-offset="4893">
+              <caret line="186" column="54" selection-start-line="186" selection-start-column="54" selection-end-line="186" selection-end-column="54" />
               <folding>
                 <element signature="e#163#242#0" expanded="false" />
                 <element signature="e#245#1727#0" expanded="false" />
@@ -66,31 +58,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys_ALERT_TIMESTAMPInterval.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/sys_ALERT_TIMESTAMPInterval.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.703703" vertical-offset="287" max-vertical-offset="1323">
-              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="231">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sys_ALERT_timeInterval.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/sys_ALERT_timeInterval.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.259259" vertical-offset="455" max-vertical-offset="1344">
-              <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+            <state vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="1365">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/layout.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.888889" vertical-offset="0" max-vertical-offset="3171">
+              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TIMESTAMP_test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/TIMESTAMP_test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33168316" vertical-offset="202" max-vertical-offset="3360">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -125,26 +117,26 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/node_modules/connect-mongo/lib/connect-mongo.js" />
         <option value="$PROJECT_DIR$/views/sys_CRUD_query.ejs" />
-        <option value="$PROJECT_DIR$/routes/TIMESTAMP_test.js" />
         <option value="$PROJECT_DIR$/public/javascripts/c3_example.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/views/sys_ALERT_insert.ejs" />
         <option value="$PROJECT_DIR$/routes/sys_query.js" />
-        <option value="$PROJECT_DIR$/views/layout.ejs" />
         <option value="$PROJECT_DIR$/views/sys_CRUD_show.ejs" />
         <option value="$PROJECT_DIR$/views/sys_CRUD_display.ejs" />
         <option value="$PROJECT_DIR$/views/sys_CRUD_show_pagging.ejs" />
-        <option value="$PROJECT_DIR$/views/sys_ALERT_timeInterval.ejs" />
         <option value="$PROJECT_DIR$/views/sys_ALERT_list.ejs" />
         <option value="$PROJECT_DIR$/views/sys_ALERT_event.ejs" />
         <option value="$PROJECT_DIR$/views/sys_ALERT_display.ejs" />
         <option value="$PROJECT_DIR$/routes/sys_mongo.js" />
         <option value="$PROJECT_DIR$/settings.js" />
-        <option value="$PROJECT_DIR$/settings.js" />
         <option value="$PROJECT_DIR$/views/sys_ALERT_TIMESTAMPInterval.ejs" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/settings.js" />
         <option value="$PROJECT_DIR$/routes/sys_alert.js" />
+        <option value="$PROJECT_DIR$/views/sys_ALERT_timeInterval.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/layout.ejs" />
+        <option value="$PROJECT_DIR$/routes/TIMESTAMP_test.js" />
       </list>
     </option>
   </component>
@@ -614,7 +606,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423649298456</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="timeinterval">
+      <created>1423660650123</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1423660650123</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -628,11 +626,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930756" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674572" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40843216" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40843216" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17149569" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23805794" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -687,7 +685,8 @@
     <MESSAGE value="c3 throughput&#10;&#10;Conflicts:&#10;&#9;README.md&#10;" />
     <MESSAGE value="c3 barAgg" />
     <MESSAGE value="loglist mark start" />
-    <option name="LAST_COMMIT_MESSAGE" value="loglist mark start" />
+    <MESSAGE value="timeinterval" />
+    <option name="LAST_COMMIT_MESSAGE" value="timeinterval" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -907,16 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/TIMESTAMP_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.057771664" vertical-offset="0" max-vertical-offset="727">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/c3.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
@@ -1005,14 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/sys_CRUD_show.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7114286" vertical-offset="342" max-vertical-offset="1449">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="43" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/sys_CRUD_insert.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58078605" vertical-offset="966" max-vertical-offset="1680">
@@ -1029,26 +1010,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2125182" vertical-offset="1576" max-vertical-offset="3171">
-          <caret line="82" column="85" selection-start-line="82" selection-start-column="85" selection-end-line="82" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/sys_ALERT_display.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31857142" vertical-offset="617" max-vertical-offset="1344">
           <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/sys_CRUD_display_query.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.101892285" vertical-offset="581" max-vertical-offset="1407">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1070,32 +1035,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="231">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/sys_ALERT_TIMESTAMPInterval.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.703703" vertical-offset="287" max-vertical-offset="1323">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/sys_ALERT_timeInterval.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.259259" vertical-offset="455" max-vertical-offset="1344">
-          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.057771664" vertical-offset="0" max-vertical-offset="727">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/sys_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2689" max-vertical-offset="4893">
-          <caret line="242" column="25" selection-start-line="242" selection-start-column="25" selection-end-line="242" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2185" max-vertical-offset="4893">
+          <caret line="186" column="54" selection-start-line="186" selection-start-column="54" selection-end-line="186" selection-end-column="54" />
           <folding>
             <element signature="e#163#242#0" expanded="false" />
             <element signature="e#245#1727#0" expanded="false" />
@@ -1105,10 +1054,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/sys_CRUD_show.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7114286" vertical-offset="342" max-vertical-offset="1449">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="43" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/sys_CRUD_display_query.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46" vertical-offset="329" max-vertical-offset="1407">
+          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/sys_ALERT_timeInterval.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="1365">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.888889" vertical-offset="0" max-vertical-offset="3171">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85294116" vertical-offset="1260" max-vertical-offset="2331">
-          <caret line="89" column="2" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="2289">
+          <caret line="88" column="74" selection-start-line="88" selection-start-column="74" selection-end-line="88" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/TIMESTAMP_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33168316" vertical-offset="202" max-vertical-offset="3360">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding />
         </state>
       </provider>

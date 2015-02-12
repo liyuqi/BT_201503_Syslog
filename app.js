@@ -22,7 +22,7 @@ var MongoStore = require('connect-mongo')(express);
 var monk = require('monk');
 //var dbevents = monk('192.168.0.190/events');
 //var dbalerts = monk('192.168.0.190/alerts');
-var dbfluentd = monk('172.17.24.196/fluentd');
+var dbfluentd = monk('127.0.0.1/testlog');
 
 var partials = require('express-partials');
 var flash = require('connect-flash');
@@ -87,8 +87,6 @@ app.post('/sys_ALERT_list', 	sys_alert.sys_ALERT_list(dbfluentd));
 app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
 app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
 //app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_query(dbfluentd));
-//app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_TIMESTAMPInterval(dbfluentd));
-//app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_TIMESTAMPInterval(dbfluentd));
 app.use('/sys_ALERT_event', 	sys_alert.sys_ALERT_event(dbfluentd));
 
 
