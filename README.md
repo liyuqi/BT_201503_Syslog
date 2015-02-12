@@ -54,17 +54,21 @@ var dbfluentd = monk('192.168.0.190/test');
 $ node app.js
 ```
 
-新增Log
+### Log part
+
+新增 Log
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_insert.png)
 
-查詢Log
+查詢 Log
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_query.png)
 
-顯示Log
+顯示 Log
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_query_result.png)
 
-最新Log
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_show_pagging.png)
+最新 Log
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_show.png)
+
+### Alert part
 
 設定 Alert
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_insert.png)
@@ -72,5 +76,8 @@ $ node app.js
 列表 Alert
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_list.png)
 
-顯示Alert
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_display.png)
+顯示 Alert (60sec)
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_display_timer.png)
+
+流量 Alert
+![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_display_timer.png)
