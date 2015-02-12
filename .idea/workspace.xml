@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="decff4dd-fa77-47c9-b79a-234f2da9f855" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FET081Paging.iws" />
@@ -72,8 +73,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75980395" vertical-offset="1236" max-vertical-offset="1848">
-              <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.7941176" vertical-offset="1236" max-vertical-offset="1848">
+              <caret line="82" column="93" selection-start-line="82" selection-start-column="93" selection-end-line="82" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -351,12 +352,6 @@
       <created>1421724754045</created>
       <option name="number" value="Default" />
       <updated>1421724754045</updated>
-    </task>
-    <task id="LOCAL-00002" summary="sys_ALERT_list &lt;%= JSON.parse() %&gt;">
-      <created>1423139740449</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1423139740449</updated>
     </task>
     <task id="LOCAL-00003" summary="sys_ALERT_list &lt;%= JSON.parse() %&gt;">
       <created>1423220764813</created>
@@ -646,7 +641,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423738069534</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="md example">
+      <created>1423738096771</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1423738096771</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1131,8 +1132,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75980395" vertical-offset="1236" max-vertical-offset="1848">
-          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.7941176" vertical-offset="1236" max-vertical-offset="1848">
+          <caret line="82" column="93" selection-start-line="82" selection-start-column="93" selection-end-line="82" selection-end-column="93" />
           <folding />
         </state>
       </provider>
