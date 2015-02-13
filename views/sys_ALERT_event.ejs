@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link href="/stylesheets/c3.css" rel="stylesheet" type="text/css">
+    <script src="/javascripts/d3.min.js" charset="utf-8"></script>
+    <script src="/javascripts/c3.min.js"></script>
+</head>
+<body>
+<!--<span class="glyphicon glyphicon-user"></span>-->
+
+<div id="chart"></div>
+
+<fieldset>
+    <legend>流量 Alert</legend>
+</fieldset>
+
+<% if(result){%>
+    <h4>小計<%=result.length%>筆</h4>
+    <table class="table table-striped table-hover " width="80%">
+        <thead>
+        <tr>
+            <th></th>
+            <th>tag</th>
+            <th>count</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <% var a = [], x=[],y=[],i=0;
+                result.forEach( function ( event ){ %>
+
+        <tr>
+            <td><%= i++; %></td>
+            <!--<td ><a href="/nw01detail?oid=<%# event._id %>"><%# event._id %></a></td>-->
+            <!--<td ><%= JSON.stringify(event._id) %></td>-->
+            <td><%= event._id.year %>-<%= event._id.month %>-<%= event._id.day %> <%= event._id.hour%>:<%= event._id.minute %></td>
+            <!--<td><%# event._id.year - event._id.month - event._id.day - event._id.hour : event._id.minute %></td>-->
+            <td ><%= event.count %></td>
+            <%
+                x[i] = event._id;
+                y[i] = event.count;
+            %>
+            <% //            a[i]= [event._id.toString(),event.count]; %>
+        </tr>
+        <% i++;
+        });
+        %>
+        </tbody>
+    </table>
+    <!--chart 不放 c3_example.js的原因: 要動態展示-->
+    <script type="text/javascript">
+
+        var xdata = [];
+        var ydata = [];
+        var i=1;
+        xdata[0]='x';
+        ydata[0]='count';
+        <%
+            result.forEach( function ( d ){
+        %>
+        //xdata[i]= '<%# JSON.stringify(d._id.hour) %>';
+        xdata[i]= '<%= d._id.year %>-'+'<%= d._id.month %>-'+'<%= d._id.day %> '+'<%= d._id.hour%>:'+'<%= d._id.minute %>';
+        ydata[i]= '<%= d.count %>';
+        console.log("x:"+xdata[i]+"-- y:"+ydata[i]);
+        i++;
+        <%
+             });
+        %>
+        var chart = c3.generate({
+            size: {
+                width: 600
+            },
+            data: {
+                //            columns: [myVar],
+                x:'x',
+                columns:[
+                    xdata,
+                    ydata
+                ],
+                type: 'bar',
+                //            onclick: function (xdata) {  location.href = "/nw01"; }
+                onclick: function (d, i) {
+                    console.log(d,i);
+                    //console.log("id :"+xdata[d.x+1]);  // +1是因為xdata不是0 base
+                    //location.href = "/nw01detail?oid="+xdata[d.x+1];
+                }
+            },
+            bar: {
+                width: {
+                    ratio: 0.5 // this makes bar width 50% of length between ticks
+                }
+                // or
+                //width: 1 // this makes bar width 100px
+                ,onclick: function (xdata,element) {  alert("clicked:"+xdata);}
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    tick: {
+                        rotate: 90,
+                        fit: true,
+                        multiline: false
+                    },
+                    height: 100/*ydata.max()+10*/
+                }
+            }
+            ,zoom:{enabled:true}
+        });
+
+    </script>
+<% }else{}%>
+</body>
+</html>

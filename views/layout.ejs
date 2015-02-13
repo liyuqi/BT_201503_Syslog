@@ -52,17 +52,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="brand" href="#">Sys Log Demo</a>
+                <a class="brand" href="/">Sys Log Demo</a>
                 <div class="nav-collapse collapse">
-                    <p class="navbar-text pull-right">
+                    <span class="navbar-text pull-right">
                         <!--Logged in as <a href="#" class="navbar-link">Username</a>-->
                         &copy; BlueTechnology 2015
-                    </p>
-                    <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <!--<li><a href="#about">About</a></li>-->
-                        <!--<li><a href="#contact">Contact</a></li>-->
-                    </ul>
+                    </span>
+                    <!--<ul class="nav">-->
+                        <!--<li class="active"><a href="/">Home</a></li>-->
+                        <!--&lt;!&ndash;<li><a href="#about">About</a></li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li><a href="#contact">Contact</a></li>&ndash;&gt;-->
+                    <!--</ul>-->
                 </div>
                 <!--/.nav-collapse -->
             </div>
@@ -91,9 +91,10 @@
                         <!--icon-exclamation-sign-->
 
                         <li class="nav-header">Alert 告警</li>
+                        <li><a href="/sys_ALERT_insert"><i class="icon-cog"></i> 設定 Alert</a></li>
                         <li><a href="/sys_ALERT_list"><i class="icon-th-list"></i> 列表 Alert</a></li>
                         <li><a href="/sys_ALERT_display"><i class="icon-warning-sign"></i> 顯示 Alert</a></li>
-                        <li><a href="/sys_ALERT_insert"><i class="icon-cog"></i> 設定 Alert</a></li>
+                        <li><a href="/sys_ALERT_event"><i class="icon-signal"></i> 流量 Alert</a></li>
 
                         <!--<li class="nav-header">Control</li>-->
                         <!--<li><a href="/mongoStatus">Status</a></li>-->
@@ -111,7 +112,7 @@
                 <!--/row-->
                 <div class="row-fluid">
                     <div class="span10">
-                        <h2>Demo</h2>
+                        <!--<h2>Demo</h2>-->
                         <%- body %>
                     </div>
                    

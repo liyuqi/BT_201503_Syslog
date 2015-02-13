@@ -21,8 +21,17 @@
 <% if (resp.length == 0) { %>
 <h4>查無資料!</h4>
 <% } else{ %>
-<h3> 總量 : <%= totalcount %>筆資料,  顯示前 <%= resp.length %> 筆</h3>
-
+<h3> 總量 : <%= totalcount %>筆資料,  顯示 <%= (page - 1) * 10 +1 %>-<%= (page - 1) * 10 + resp.length %></h3>
+<!--<div>-->
+    <ul class="pagination">
+        <% if (!isFirstPage) { %>
+        <li class="prepage"><a href="?p=<%= page-1 %>"><i class="icon-chevron-left"></i>上頁 </a></li>
+        <% } %>
+        <% if (!isLastPage) { %>
+        <li class="nextpage"><a href="?p=<%= page+1 %>"> 下頁<i class="icon-chevron-right"></i></a></li>
+        <% } %>
+    </ul>
+<!--</div>-->
 <!--<h4> 回傳最新 <%= resp.length %> 筆</h4>-->
 
 <table class="table table-hover table-condensed">
@@ -30,7 +39,7 @@
     <thead>
     <tr>
     <tr>
-        <td></td>
+        <th></th>
         <th>Timestamp</th>
         <th>Identifier</th>
         <th>Message</th>

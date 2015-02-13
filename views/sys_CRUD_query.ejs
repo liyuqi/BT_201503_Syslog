@@ -5,14 +5,6 @@
     <link href="/stylesheets/c3.css" rel="stylesheet" type="text/css">
     <script src="/javascripts/d3.min.js" charset="utf-8"></script>
     <script src="/javascripts/c3.min.js"></script>
-    <!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" media="all">-->
-    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>-->
-    <!--<script>-->
-        <!--$(function() {-->
-            <!--$('.datepick').datepicker();-->
-        <!--});-->
-    <!--</script>-->
 </head>
 <body>
 <form class="form-horizontal" method="post">
@@ -29,9 +21,8 @@
             <label class="control-label" for="matchdate">時間區間</label>
             <div class="controls">
                 <!--disabled="disabled"-->
-                <!--<input type="text" class="input-small" id="matchdate" name="matchdate" value=""/> --->
-                <input type="text" class="input-small datepick" id="matchdate" name="matchdate" value=""/> -
-                <input type="text" class="input-small" id="matchenddate" name="matchenddate" value=""/>　ex:2014-03-25 or 2013-03-25 18:00:00
+                <input type="text" class="input-small" id="matchdate" name="matchdate"/> -
+                <input type="text" class="input-small" id="matchenddate" name="matchenddate"/>　ex:2004-03-29T01:56
                 </br>
 
             </div>
@@ -39,13 +30,13 @@
 
             <label class="control-label" for="identifer">identifier</label>
             <div class="controls">
-                <input type="text" class="input-xlarge" id="identifier" name="identifier" value=""/>　　ex:%PIX-4-106023
+                <input type="text" class="input-xlarge" id="identifier" name="identifier"/>　　ex:%PIX-4-106023
             </div>
             <p></p>
 
             <label class="control-label" for="matchmsg">Message</label>
             <div class="controls">
-                <input type="text" class="input-xlarge" id="matchmsg" name="matchmsg" value=""/>　　ex:198.207.223.240
+                <input type="text" class="input-xlarge" id="matchmsg" name="matchmsg"/>　　ex:198.207.223.240
             </div>
             <p></p>
 
@@ -85,7 +76,7 @@
         <th>Timestamp</th>
         <th>Identifier</th>
         <th>Message</th>
-        <th>_id</th>
+        <!--<th>_id</th>-->
     </tr>
     </thead>
     <tbody>
@@ -93,14 +84,14 @@
     <tr>
         <!--<td><%= body.level %></td>-->
         <% if(body.time) {
-        if(body.time.toString().length > 12){ %>
+        if(body.time.toString()){ %>
         <td><%= body.time.toLocaleString() %></td>
         <% } else { %>
         <td><%= body.time.toLocaleString() %></td>
         <% } } %>
         <td><%= body.identifier %></td>
         <td><%= body.message %></td>
-        <td><%= body._id %></td>
+        <!--<td><%= body._id %></td>-->
     </tr>
     <% }); %>
     </tbody>

@@ -9,11 +9,11 @@
 <fieldset>
     <legend>列表 Alert</legend>
 </fieldset>
-<form class="form-horizontal" method="post">
-    <h3> 總量 : <%= totalcount %>筆資料
-        <button type="submit" class="btn btn-primary">show</button>
-    </h3>
-</form>
+<!--<form class="form-horizontal" method="post">-->
+    <!--<h3> 總量 : <%= totalcount %>筆規則-->
+        <!--&lt;!&ndash;<button type="submit" class="btn btn-primary">show</button>&ndash;&gt;-->
+    <!--</h3>-->
+<!--</form>-->
 
 <p></p>
 
@@ -23,27 +23,31 @@
 <h4>查無資料!</h4>
 <% } else{ %>
 
-<h4> 回傳最近 <%= resp.length %> 筆</h4>
+<h4> 回傳 <%= resp.length %> 筆Rule</h4>
 
 <table class="table table-hover table-condensed">
     <caption></caption>
     <thead>
     <tr>
     <tr>
+        <th></th>
         <th>Rule</th>
         <!--<th>JSON</th>-->
         <th>Show</th>
+        <th>Del</th>
     </tr>
     </thead>
     <tbody>
 
+    <% var i=1; %>
     <% resp.forEach( function(docs){ %>
-    <%# for(var i=0; i<resp.length; i++){ %>
-    <%# var event = resp[i] %>
+    <tr>
+        <td><%= i++ %></td>
+        <td><%# docs.event %>{identifier:<%= docs.event.identifier %>,message:<%= docs.event.message %>}</td>
+        <!--<td><%# docs.event.message %></td>-->
+        <td><!--<button class="btn btn-mini" type="button">--><a href="/sys_ALERT_display?_id=<%= docs._id %>">show</a><!--</button>--></td>
+        <td><!--<button class="btn btn-mini" type="button">--><a href="/sys_ALERT_delete?_id=<%= docs._id %>">Delete</a><!--</button>--></td>
 
-    <td>{identifier:<%= docs.event.identifier%>,message:<%= docs.event.message%>}</td>
-    <!--<td><%# docs.event.message %></td>-->
-    <td><a href="/sys_ALERT_display?_id=<%= docs._id %>">show</a></td>
     </tr>
 
     <% }) %>
@@ -55,23 +59,5 @@
 <% } else { %>
 
 <% } %>
-
-<script>
-    <%
-        function checkJSON(doc) {
-            var d = doc.getValue();
-
-            try {
-                docJSON = JSON.parse(d);
-                console.log('json.parse');
-                return true;
-            } catch (err) {
-                alert('This is not a valid document!');
-                return false;
-            }
-        }
-    %>
-</script>
-
 </body>
 </html>
