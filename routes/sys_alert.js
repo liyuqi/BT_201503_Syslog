@@ -184,12 +184,11 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
                     if (!alerts) res.redirect('/sys_ALERT_list');
                     else {
                         event = alerts[0].event;
-                        event.TIMESTAMP = {                          //
+                        event.TIMESTAMP = {//----------------------------TIMESTAMP---------------
                             $gt: new Date(new Date-_interval)
                             //,$lte: ruleEnd
                         };
                         //console.log('event: '+util.inspect(event));
-                        //var collection = mongodb.get('alerts');
                         //console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
                         var collectionLog = mongodb.get('logs');
 
@@ -269,7 +268,7 @@ exports.sys_ALERT_event = function(mongodb){
         ], function(err, result) {
             if(err) console.log("err : "+err.message);
             console.log("result : "+util.inspect(result));
-            res.render('sys_ALERT_event', {title: '流量小計', result: result });
+            res.render('sys_ALERT_event', {title: 'flow', result: result });
         });
     };
 };
