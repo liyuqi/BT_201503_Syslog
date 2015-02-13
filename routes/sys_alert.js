@@ -5,7 +5,7 @@ _interval = 60*1000;
 _pageunit = 50;
 
 exports.index = function(req, res){
-    res.render('sys_ALERT_list', { title: 'Create ALERT', resp : false});
+    res.render('sys_ALERT_insert', { title: 'Create ALERT', resp : false});
 };
 
 exports.sys_ALERT_insert = function(mongodb){

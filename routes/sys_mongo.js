@@ -18,20 +18,34 @@ exports.index = function(req, res){
 
 exports.sys_CRUD_insert = function(mongodb){
     return function(req, res) {
-        //console.log(req.body.timestamp);
-        var reqTimestamp = req.body.timestamp || new Date().toISOString();
-        //console.log(reqTimestamp);
-        var logmsg = {
-            TIMESTAMP : new Date(),
-            time : new Date(reqTimestamp),
-            identifier: req.body.identifier || '',
-            message: req.body.msg || ''
-        };
-        var collection = mongodb.get('logs');
-        collection.insert(logmsg,{safe: true}, function(err, events){
-            console.log("events data : " + util.inspect(events));
+        //fields
+        var log = {};
+        if(req.body.timestamp){
+            if(isNaN((new Date(req.body.timestamp).getTime()))){
+                console.log((new Date(req.body.timestamp).getTime()));
+                log.TIMESTAMP = new Date();
+                log.time = new Date();
+            }else{
+                console.log((new Date(req.body.timestamp).getTime()));
+                log.TIMESTAMP = new Date(req.body.timestamp);
+                    log.time = new Date(req.body.timestamp);
+            }
+        }else{
+            log.TIMESTAMP = new Date();
+            log.time = new Date();
+        }
+        if(req.body.identifier){
+            log.identifier = req.body.identifier;
+        }
+        if(req.body.message){
+            log.message = req.body.message;
+        }
 
-            res.render('sys_CRUD_insert', { title: 'Create log', resp : events});
+        //insert
+        var collection = mongodb.get('logs');
+        collection.insert(log,{safe: true}, function(err, docs){
+            console.log("insert log : " + util.inspect(docs));
+            res.render('sys_CRUD_insert', {title: 'Create log', resp: docs});
         });
     };
 };
@@ -39,9 +53,8 @@ exports.sys_CRUD_insert = function(mongodb){
 exports.sys_CRUD_loglist = function(mongodb){
     return function(req, res) {
         var collection = mongodb.get('logs');
-
         collection.col.count({},function(err, count) {
-            if(err) throw err;
+            if(err) res.redirect('sys_CRUD_query');
             //console.log(format("count = %s", count));
             res.render('sys_CRUD_query', {title: 'logs', totalcount : count,resp :null});
         });
@@ -50,9 +63,10 @@ exports.sys_CRUD_loglist = function(mongodb){
 
 exports.sys_CRUD_query = function(mongodb){
     return function(req, res) {
-        var query = {};
-        var collection = mongodb.get('logs');
+
         //field input
+        var query = {};
+
         if(req.body.matchdate){
             if(req.body.matchenddate){
                 query.time = {$gte:(new Date(req.body.matchdate/*.trim().toISOString()*/)), $lt: (new Date(req.body.matchenddate/*.trim().toISOString()*/))};
@@ -68,17 +82,18 @@ exports.sys_CRUD_query = function(mongodb){
             }
         }
         if(req.body.identifier){
-            query.identifier = {$regex: new RegExp('.*'+req.body.identifier)};
+            query.identifier = {$regex: new RegExp('.*'+req.body.identifier.trim())};
         }
         if(req.body.matchmsg){
-            query.message = {$regex: new RegExp('.*'+req.body.matchmsg)}
+            query.message = {$regex: new RegExp('.*'+req.body.matchmsg.trim())}
         }
         if(req.body.logid){
             query._id = req.body.logid;
         }
+        console.log(query);
 
         //query
-        console.log(query);
+        var collection = mongodb.get('logs');
         collection.find(query /*,{limit : 20}*/,function(err,docs){
             console.log('docs.length: '+docs.length);
             if(err) res.redirect('/sys_CRUD_query');
@@ -93,7 +108,7 @@ exports.sys_CRUD_count = function (mongodb) {
         var collection = mongodb.get('logs');
         collection.count({},function(err,count){
             collection.find({}, {limit : _pageunit,sort : { time : -1 }} , function (err, docs) {
-                    if (err) throw err;
+                    if (err) res.redirect('sys_CRUD_show');
                     res.render('sys_CRUD_show', {
                         title: 'logs',
                         totalcount: count,
@@ -108,7 +123,6 @@ exports.sys_CRUD_show = function (mongodb) {
     return function (req, res) {
 
         var collection = mongodb.get('logs');
-
         collection.count({}, function (err, count) {
             collection.find({}, //{/*limit: 20,*/ sort: {_id: -1}}, function (e, docs) {
                 {limit : 50,sort : { timestamp : -1 }}, function (e, docs) {
@@ -131,7 +145,6 @@ exports.sys_CRUD_show_pagging = function (mongodb) {
         var page = req.query.p ? parseInt(req.query.p) : 1;
 
         var collection = mongodb.get('logs');
-
         collection.count({}, function (err, count) {
             collection.find({}, //{/*limit: 20,*/ sort: {_id: -1}}, function (e, docs) {
                 {skip : (page - 1) * 20,limit : 20,sort : { timestamp : -1 }}, function (e, docs) {
@@ -152,8 +165,3 @@ exports.sys_CRUD_show_pagging = function (mongodb) {
         });
     };
 };
-
-//sys_CRUD_timeConverter = function (mongodb){
-//    var collection = mongodb.get('logs');
-//    collection.update({})
-//}

@@ -8,7 +8,7 @@ var routes = require('./routes');
 var mongodbAlert = require('./routes/mongodbAlert');
 var mongoStatus = require('./routes/mongoStatus');
 var sys_mongo = require('./routes/sys_mongo');
-var sys_query = require('./routes/sys_query');
+
 var sys_alert = require('./routes/sys_alert');
 
 var util = require('util');
@@ -55,11 +55,11 @@ app.use(express.methodOverride());
 
 app.use(express.cookieParser());
 app.use(express.session({
-		secret : settings.cookie_secret,
-		cookie : {
-			maxAge : 60000 * 20	//20 minutes
-		},
-		store : sessionStore
+	secret: settings.cookie_secret,
+	cookie: {
+		maxAge: 60000 * 20	//20 minutes
+	},
+	store: sessionStore
 }));
 
 app.use(app.router);
@@ -67,7 +67,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
@@ -81,9 +81,9 @@ app.get('/sys_CRUD_show', 	sys_mongo.sys_CRUD_count(dbfluentd));
 //app.post('/sys_CRUD_show', 	sys_mongo.sys_CRUD_show(dbfluentd));
 
 app.get('/sys_ALERT_insert',	sys_alert.index);
-app.post('/sys_ALERT_insert', 	sys_query.sys_ALERT_insert(dbfluentd));
+app.post('/sys_ALERT_insert', 	sys_alert.sys_ALERT_insert(dbfluentd));
 //app.get('/sys_ALERT_list', 		sys_alert.sys_ALERT_count(dbfluentd));
-app.get('/sys_ALERT_list', 	sys_alert.sys_ALERT_list(dbfluentd));
+app.get('/sys_ALERT_list', 		sys_alert.sys_ALERT_list(dbfluentd));
 //app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_loglist(dbfluentd));
 app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
 app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
@@ -103,5 +103,5 @@ app.post('/mongoStatus',mongoStatus.child());
 //app.post('/mongoStatus',mongoStatus.child());
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+	console.log('Express server listening on port ' + app.get('port'));
 });
