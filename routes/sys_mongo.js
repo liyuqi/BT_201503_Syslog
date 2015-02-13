@@ -1,5 +1,4 @@
-/**
- * Created by Yuqi on 2015/1/21.
+/*** Created by Yuqi on 2015/1/21.
  * > db.logs.findOne()
  {
          "_id" : ObjectId("54d966730778511cff000009"),
@@ -9,7 +8,6 @@
          "time" : ISODate("2004-03-29T01:54:18Z")               //syslog時間
  }
  */
-//mongodbDemo
 // var mongodb = require('../models/db.js');
 var util = require('util');
 var _pageunit=50;

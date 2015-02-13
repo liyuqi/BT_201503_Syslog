@@ -82,8 +82,8 @@ app.get('/sys_CRUD_show', 	sys_mongo.sys_CRUD_count(dbfluentd));
 
 app.get('/sys_ALERT_insert',	sys_alert.index);
 app.post('/sys_ALERT_insert', 	sys_query.sys_ALERT_insert(dbfluentd));
-app.get('/sys_ALERT_list', 		sys_alert.sys_ALERT_count(dbfluentd));
-app.post('/sys_ALERT_list', 	sys_alert.sys_ALERT_list(dbfluentd));
+//app.get('/sys_ALERT_list', 		sys_alert.sys_ALERT_count(dbfluentd));
+app.get('/sys_ALERT_list', 	sys_alert.sys_ALERT_list(dbfluentd));
 //app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_loglist(dbfluentd));
 app.get('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));
 app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_timeInterval(dbfluentd));

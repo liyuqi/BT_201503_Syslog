@@ -1,52 +1,12 @@
-/**
- * Created by Yuqi on 2015/1/21.
- */
-//mongodbDemo
+/*** Created by Yuqi on 2015/1/21. */
 // var mongodb = require('../models/db.js');
 var util = require('util');
+_interval = 60*1000;
+_pageunit = 50;
 
 exports.index = function(req, res){
-    res.render('sys_ALERT_insert', { title: 'Create ALERT', resp : false});
+    res.render('sys_ALERT_list', { title: 'Create ALERT', resp : false});
 };
-
-/*exports.sys_ALERT_insert = function (mongodb) {
-    return function (req, res) {
-
-        var collection = mongodb.get('alerts');
-
-        //var identifier = req.body.identifier || null;
-        var identifier = (req.body.identifier == '') ? '.*' : req.body.identifier;
-        var sysid = new RegExp(identifier);
-
-        //var matchmsg = req.body.matchmsg || null;
-        //console.log('aaa:\''+req.body.matchmsg+'\'');
-        var matchmsg = (req.body.matchmsg == '') ? '.*' : req.body.matchmsg;
-        var message = new RegExp(matchmsg);
-
-        //if(identifier.length > 0 && matchmsg.length > 0){
-        if (identifier || matchmsg) {
-            console.log('matchmsg>0 && identifier>0:\n'
-            + util.inspect(identifier)
-            + ' ' + util.inspect(matchmsg));
-            var sysid = new RegExp('' + identifier);
-            var message = new RegExp('' + matchmsg);
-            var event = {
-                event: {
-                    identifier: new RegExp('' + identifier),
-                    message: new RegExp('' + matchmsg)
-                }
-            };
-            collection.insert(event, {safe: true}, function (err, events) {
-                console.log("events data : " + util.inspect(events));
-                res.render('sys_ALERT_insert', {title: 'Create log', resp: events, layout: 'l2'});
-            });
-        }
-        else {
-            console.log('redirect');
-            res.redirect('/sys_ALERT_insert');
-        }
-    };
-};*/
 
 exports.sys_ALERT_insert = function(mongodb){
     return function(req, res) {
@@ -75,35 +35,6 @@ exports.sys_ALERT_insert = function(mongodb){
     };
 };
 
-//exports.sys_ALERT_count = function (mongodb) {
-//    return function (req, res) {
-//        var collection = mongodb.get('alerts');
-//
-//        collection.count({}, function (err, count) {
-//            if (err) throw err;
-//            res.render('sys_ALERT_list', {title: 'alerts', totalcount: count, resp: null, logdetail: null});
-//        });
-//    };
-//};
-
-exports.sys_ALERT_count = function (mongodb) {
-    return function (req, res) {
-        var collection = mongodb.get('alerts');
-
-        collection.count({}, function (err, count) {
-            collection.find({}, function (err, docs) {
-                // console.log("docs data : "+util.inspect(docs));
-                var docdetail;
-                if (docs.length == 1) docdetail = util.inspect(docs);
-                //console.log(util.inspect(docs));
-                res.render('sys_ALERT_list', {
-                    title: 'alerts', totalcount: count, resp: docs, logdetail: docdetail
-                });
-            });
-        });
-    };
-};
-
 exports.sys_ALERT_list = function (mongodb) {
     return function (req, res) {
         var collection = mongodb.get('alerts');
@@ -124,27 +55,25 @@ exports.sys_ALERT_list = function (mongodb) {
 
 exports.sys_ALERT_loglist = function(mongodb){
     return function(req, res) {
-
-        var event = {};
         var collectionAlert = mongodb.get('alerts');
+        var event = {};
 
         //console.log('url._id: '+req.query._id);
         if (!req.query._id) res.redirect('/sys_ALERT_list');
         else {
             collectionAlert.find({_id: req.query._id}, function (err, alerts) {
-                if (err)   res.redirect('/sys_ALERT_timeInterval');
+                if (err) res.redirect('/sys_ALERT_timeInterval');
                 else {
                     if (!alerts) res.redirect('/sys_ALERT_list');
                     else {
                         event = alerts[0].event;
                         //console.log('event: '+util.inspect(event));
-                        //var collection = mongodb.get('alerts');
                         //console.log('sysid:'+util.inspect(sysid)+'sysid.length:'+sysid.length);
                         var collectionLog = mongodb.get('logs');
 
                         if (event) {
                             collectionLog.count(event, function (err, count) {
-                                collectionLog.find(event, {limit: 50}, function (err, docs) {
+                                collectionLog.find(event, {limit: _pageunit}, function (err, docs) {
                                     console.log('event_log: ' + util.inspect(event) + ' ' + docs.length);
                                     res.render('sys_ALERT_timeInterval', {
                                         title: 'alert display',
@@ -164,15 +93,12 @@ exports.sys_ALERT_loglist = function(mongodb){
     };
 };
 
-_interval = 60*1000;
-
 exports.sys_ALERT_timeInterval = function (mongodb) {
     return function (req, res) {
 
         var ruleNow = new Date();//('2004-03-29T01:55');
         var ruleBack = new Date(new Date-_interval);//(new Date().setTime(ruleStart.getTime() + _interval));
-        console.log(typeof (ruleBack)+' '+ruleBack);
-        console.log(util.inspect(ruleNow));
+
         var collectionAlert = mongodb.get('alerts');
         var event = {};
         //console.log('url._id: '+req.query._id);
@@ -184,7 +110,7 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
                     if (!alerts) res.redirect('/sys_ALERT_list');
                     else {
                         event = alerts[0].event;
-                        event.TIMESTAMP = {//----------------------------TIMESTAMP---------------
+                        event.TIMESTAMP = {//----------------------------TIMESTAMP---------------//
                             $gt: new Date(new Date-_interval)
                             //,$lte: ruleEnd
                         };
@@ -211,7 +137,6 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
                 }
             });
         }
-
     };
 };
 
@@ -236,7 +161,7 @@ exports.sys_ALERT_event = function(mongodb){
 
         var collection = mongodb.get('logs');
 
-        console.log("流量小計 : ");
+        console.log("flow : ");
         collection.col.aggregate([
             {$project:{
                   _id:1
