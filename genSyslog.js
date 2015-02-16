@@ -106,7 +106,7 @@ var MSG= [
     "Teardown UDP connection for faddr 195.235.113.3/18429 gaddr 10.0.0.187/53 laddr 192.168.0.2/53"
 ];
 
-for(var i =0;i<500;i++){
+for(var i =0;i<5;i++){
     var item = {
         'identifier':ID[Math.floor(Math.random()*ID.length)],
         'message':MSG[Math.floor(Math.random()*MSG.length)],

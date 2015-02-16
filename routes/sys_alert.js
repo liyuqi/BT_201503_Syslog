@@ -1,7 +1,7 @@
 /*** Created by Yuqi on 2015/1/21. */
 // var mongodb = require('../models/db.js');
 var util = require('util');
-_interval = 60*1000;
+_interval = 1*60*1000;
 _pageunit = 50;
 
 exports.index = function(req, res){
