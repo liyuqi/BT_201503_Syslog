@@ -163,13 +163,14 @@ exports.sys_ALERT_event = function(mongodb){
 
         console.log("flow : ");
         collection.col.aggregate([
+            //{$match:{identifier:/%PIX-x/}},
             {$project:{
                   _id:1
                 , year: {$year: "$time"}
                 , month:{$month: "$time"}
                 , day:  {$dayOfMonth: "$time"}
                 , hour: {$hour: "$time"}
-                , minute: {$minute: "$time"}
+                //, minute: {$minute: "$time"}
                 , time: 1
                 , identifier: 1
             }}
@@ -179,7 +180,7 @@ exports.sys_ALERT_event = function(mongodb){
                     , month: "$month"
                     , day: "$day"
                     , hour: "$hour"
-                    , minute: "$minute"
+                    //, minute: "$minute"
                 }
                 ,key: {$push:{identifier:"$identifier",time:"$time"}}
                 ,count: {$sum: 1}

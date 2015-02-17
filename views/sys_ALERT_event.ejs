@@ -21,17 +21,17 @@
         <thead>
         <tr>
             <th></th>
-            <th>tag</th>
+            <th>tag ()</th>
             <th>count</th>
 
         </tr>
         </thead>
         <tbody>
-        <% var a = [], x=[],y=[],i=0;
+        <% var a = [], x=[],y=[],i= 1;
                 result.forEach( function ( event ){ %>
 
         <tr>
-            <td><%= i++; %></td>
+            <td><%= i %></td>
             <!--<td ><a href="/nw01detail?oid=<%# event._id %>"><%# event._id %></a></td>-->
             <!--<td ><%= JSON.stringify(event._id) %></td>-->
             <td><%= event._id.year %>-<%= event._id.month %>-<%= event._id.day %> <%= event._id.hour%>:<%= event._id.minute %></td>
@@ -60,7 +60,7 @@
             result.forEach( function ( d ){
         %>
         //xdata[i]= '<%# JSON.stringify(d._id.hour) %>';
-        xdata[i]= '<%= d._id.year %>-'+'<%= d._id.month %>-'+'<%= d._id.day %> '+'<%= d._id.hour%>:'+'<%= d._id.minute %>';
+        xdata[i]= '<%= d._id.year %>-'+'<%= d._id.month %>-'+'<%= d._id.day %> '+'<%= d._id.hour%> '+'<%= d._id.minute %>';
         ydata[i]= '<%= d.count %>';
         console.log("x:"+xdata[i]+"-- y:"+ydata[i]);
         i++;
