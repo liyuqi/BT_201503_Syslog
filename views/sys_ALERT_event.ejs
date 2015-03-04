@@ -60,11 +60,12 @@
             result.forEach( function ( d ){
         %>
         //xdata[i]= '<%# JSON.stringify(d._id.hour) %>';
-        xdata[i]= '<%= d._id.year %>-'
+        xdata[i]= <%# util.inspect(d._id) %>
+                '<%= d._id.year %>-'
                  +'<%= d._id.month %>'
                  +'-<%= d._id.day %> '
-                 +'<%= d._id.hour%>'
-                 +':<%# d._id.minute %>';
+                 +'<%= d._id.hour%>';
+                 //+':<%# d._id.minute %>';
         ydata[i]= '<%= d.count %>';
         console.log("x:"+xdata[i]+"-- y:"+ydata[i]);
         i++;

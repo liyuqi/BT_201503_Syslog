@@ -3,8 +3,14 @@
 <head>
     <title><%= title %></title>
     <link href="/stylesheets/c3.css" rel="stylesheet" type="text/css">
+
     <script src="/javascripts/d3.min.js" charset="utf-8"></script>
     <script src="/javascripts/c3.min.js"></script>
+
+    <link rel="stylesheet" href="https://github.com/dbushell/Pikaday/blob/master/css/pikaday.css">
+    <script src="https://github.com/dbushell/Pikaday/blob/master/pikaday.js"></script>
+    <script src="https://github.com/dbushell/Pikaday/blob/master/pikaday.js"></script>
+
 </head>
 <body>
 <form class="form-horizontal" method="post">
@@ -18,15 +24,26 @@
             </div>
             <p></p>
 
-            <label class="control-label" for="matchdate">時間區間</label>
-            <div class="controls">
-                <!--disabled="disabled"-->
+            <!--<label class="control-label" for="matchdate">時間區間</label>-->
+<!--            <div class="controls">
+                &lt;!&ndash;disabled="disabled"&ndash;&gt;
                 <input type="text" class="input-small" id="matchdate" name="matchdate"/> -
                 <input type="text" class="input-small" id="matchenddate" name="matchenddate"/>　ex:2004-03-29T01:56
                 </br>
 
             </div>
+            <p></p>-->
+
+            <label class="control-label" for="matchdate">時間區間</label>
+            <div class="controls">
+                <input type="date" class="input-medium" id="matchdate" name="matchdate"/>
+                <input type="date" class="input-medium" id="matchenddate" name="matchenddate"/>　ex:2004-03-29T01:56
+                <!--<i class="icon-calendar datepick"/>-->
+            </div>
             <p></p>
+            <script>
+                var picker = new Pikaday({ field: document.getElementById('datepicker') });
+            </script>
 
             <label class="control-label" for="identifier">identifier</label>
             <div class="controls">
@@ -97,7 +114,7 @@
         <th>device_name</th>
         <th>Identifier</th>
         <th>Facility來源</th>
-        <th>sSeverity嚴重</th>
+        <th>Severity嚴重</th>
         <th>Mnemonic識別</th>
         <th>Message</th>
         <!--<th>_id</th>-->

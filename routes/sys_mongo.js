@@ -28,23 +28,23 @@ exports.sys_CRUD_insert = function(mongodb){
             }else{
                 console.log((new Date(req.body.timestamp).getTime()));
                 log.TIMESTAMP = new Date(req.body.timestamp);
-                    log.time = new Date(req.body.timestamp);
+                log.time = new Date(req.body.timestamp);
             }
         }else{
             log.TIMESTAMP = new Date();
             log.time = new Date();
         }
         if(req.body.identifier){
-            log.identifier = req.body.identifier;
+            log.identifier = req.body.identifier.trim();
         }
         if(req.body.facility){
-            log.facility = {$regex: new RegExp('.*'+req.body.facility.trim())};
+            log.facility = req.body.facility.trim();
         }
         if(req.body.severity){
-            log.severity = {$regex: new RegExp('.*'+req.body.severity.trim())};
+            log.severity = req.body.severity.trim();
         }
         if(req.body.mnemonic){
-            log.mnemonic = {$regex: new RegExp('.*'+req.body.mnemonic.trim())};
+            log.mnemonic = req.body.mnemonic.trim();
         }
         if(req.body.message){
             log.message = req.body.message;
@@ -78,16 +78,16 @@ exports.sys_CRUD_query = function(mongodb){
 
         if(req.body.matchdate){
             if(req.body.matchenddate){
-                query.time = {$gte:(new Date(req.body.matchdate/*.trim().toISOString()*/)), $lt: (new Date(req.body.matchenddate/*.trim().toISOString()*/))};
+                query.time = {$gte:(new Date(req.body.matchdate/*.trim().toISOString()*/)), $lt: (new Date(req.body.matchenddate.trim()/*.toISOString()*/))};
             }else{
                 query.time = {$gte:(new Date(req.body.matchdate/*.trim().toISOString()*/))};
             }
         }
         if(req.body.matchenddate){
             if(req.body.matchdate){
-                query.time = {$gte:new Date(req.body.matchdate.trim().toISOString()), $lt: new Date(req.body.matchenddate.trim().toISOString())};
+                query.time = {$gte:new Date(req.body.matchdate.trim()/*.toISOString()*/), $lt: new Date(req.body.matchenddate.trim()/*.toISOString()*/)};
             }else{
-                query.time = {$lt :new Date(req.body.matchenddate.trim().toISOString())}
+                query.time = {$lt :new Date(req.body.matchenddate.trim()/*.toISOString()*/)}
             }
         }
         if(req.body.identifier){
@@ -116,7 +116,7 @@ exports.sys_CRUD_query = function(mongodb){
         //query
         var collection = mongodb.get('logs');
         collection.find(query /*,{limit : 20}*/,function(err,docs){
-            console.log('docs.length: '+docs.length);
+            if(docs.length) console.log('docs.length: '+docs.length);
             if(err) res.redirect('/sys_CRUD_query');
             res.render('sys_CRUD_display_query', {title: 'logs', totalcount: docs.length, resp: docs});
         });

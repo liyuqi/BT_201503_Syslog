@@ -5,8 +5,8 @@
 var express = require('express');
 var routes = require('./routes');
 
-var mongodbAlert = require('./routes/mongodbAlert');
-var mongoStatus = require('./routes/mongoStatus');
+//var mongodbAlert = require('./routes/mongodbAlert');
+var mongoStatus = require('./routes/sys_mongoShell');
 var sys_mongo = require('./routes/sys_mongo');
 
 var sys_alert = require('./routes/sys_alert');
