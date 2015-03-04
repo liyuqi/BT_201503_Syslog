@@ -44,7 +44,7 @@
     <% var i=1; %>
     <% resp.forEach( function(body){ %>
     <tr>
-        <td><%= i++; %></td>
+        <td><%= i++ %></td>
         <% if(body.time) {
         if(body.time.toString()){ %>
         <td><%= body.time.toISOString() %></td>

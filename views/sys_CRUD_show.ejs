@@ -45,7 +45,7 @@
     <% var i=1; %>
     <% resp.forEach( function(body){ %>
     <tr>
-        <td><%= i++; %></td>
+        <td><%= i++ %></td>
         <% if(body.time) {
         if(body.time.toString().length > 12){ %>
         <td><%= body.time.toJSON().slice(0, 10)%> <%= body.time.toLocaleTimeString()%></td>
