@@ -37,6 +37,15 @@ exports.sys_CRUD_insert = function(mongodb){
         if(req.body.identifier){
             log.identifier = req.body.identifier;
         }
+        if(req.body.facility){
+            log.facility = {$regex: new RegExp('.*'+req.body.facility.trim())};
+        }
+        if(req.body.severity){
+            log.severity = {$regex: new RegExp('.*'+req.body.severity.trim())};
+        }
+        if(req.body.mnemonic){
+            log.mnemonic = {$regex: new RegExp('.*'+req.body.mnemonic.trim())};
+        }
         if(req.body.message){
             log.message = req.body.message;
         }
@@ -84,8 +93,20 @@ exports.sys_CRUD_query = function(mongodb){
         if(req.body.identifier){
             query.identifier = {$regex: new RegExp('.*'+req.body.identifier.trim())};
         }
+        if(req.body.facility){
+            query.facility = {$regex: new RegExp('.*'+req.body.facility.trim())};
+        }
+        if(req.body.severity){
+            query.severity = {$regex: new RegExp('.*'+req.body.severity.trim())};
+        }
+        if(req.body.mnemonic){
+            query.mnemonic = {$regex: new RegExp('.*'+req.body.mnemonic.trim())};
+        }
+        if(req.body.device_name){
+            query.device_name = {$regex: new RegExp('.*'+req.body.device_name.trim())};
+        }
         if(req.body.matchmsg){
-            query.message = {$regex: new RegExp('.*'+req.body.matchmsg.trim())}
+            query.message = {$regex: new RegExp('.*'+req.body.matchmsg.trim())};
         }
         if(req.body.logid){
             query._id = req.body.logid;

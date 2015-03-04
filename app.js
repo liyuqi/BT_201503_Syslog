@@ -24,6 +24,7 @@ var monk = require('monk');
 //var dbevents = monk('192.168.0.190/events');
 //var dbalerts = monk('192.168.0.190/alerts');
 var dbfluentd = monk('127.0.0.1/fluentd');
+//var dbfluentd = monk('172.17.24.196/fluentd');
 
 var partials = require('express-partials');
 var flash = require('connect-flash');
@@ -37,7 +38,8 @@ var sessionStore = new MongoStore({
 });
 
 var app = express();
-
+//app.locals.inspect = require('util').inspect;
+app.locals.util = require('util');
 // all environments
 app.set('port', process.env.PORT || 8000);
 app.set('views', path.join(__dirname, 'views'));

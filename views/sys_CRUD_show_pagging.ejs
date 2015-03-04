@@ -41,7 +41,11 @@
     <tr>
         <th></th>
         <th>Timestamp</th>
+        <th>device_name</th>
         <th>Identifier</th>
+        <th>Facility設備代號</th>
+        <th>sSeverity嚴重</th>
+        <th>Mnemonic設備識別</th>
         <th>Message</th>
         <!--<th>_id</th>-->
     </tr>
@@ -57,7 +61,11 @@
         <% } else { %>
         <td><%= body.time.toISOString() %></td>
         <% } } %>
+        <td><%= body.device_name %></td>
         <td><%= body.identifier %></td>
+        <td><%= body.facility %></td>
+        <td><%= body.severity %></td>
+        <td><%= body.mnemonic %></td>
         <td><%= body.message %></td>
         <!--<td><%# body._id %></td>-->
     </tr>

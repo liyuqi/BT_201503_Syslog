@@ -1,7 +1,7 @@
 /*** Created by Yuqi on 2015/1/21. */
 // var mongodb = require('../models/db.js');
 var util = require('util');
-_interval = 1*60*1000;
+_interval = 1*60*60*1000;
 _pageunit = 50;
 
 exports.index = function(req, res){
@@ -16,6 +16,15 @@ exports.sys_ALERT_insert = function(mongodb){
 
         if(req.body.identifier){
             rule.identifier = /*$regex:*/ new RegExp('.*'+req.body.identifier.trim());
+        }
+        if(req.body.facility){
+            rule.facility = /*{$regex:*/ new RegExp('.*'+req.body.facility.trim())/*}*/;
+        }
+        if(req.body.severity){
+            rule.severity = /*{$regex:*/ new RegExp('.*'+req.body.severity.trim())/*}*/;
+        }
+        if(req.body.mnemonic){
+            rule.mnemonic = /*{$regex:*/ new RegExp('.*'+req.body.mnemonic.trim())/*}*/;
         }
         if(req.body.matchmsg){
             rule.message = /*$regex:*/ new RegExp('.*'+req.body.matchmsg.trim());
@@ -169,8 +178,11 @@ exports.sys_ALERT_event = function(mongodb){
                 , month:{$month: "$time"}
                 , day:  {$dayOfMonth: "$time"}
                 , hour: {$hour: "$time"}
-                , minute: {$minute: "$time"}
+                //, minute: {$minute: "$time"}
                 , time: 1
+                , facility : 1
+                , severity : 1
+                , mnemonic : 1
                 , identifier: 1
             }}
             ,{$group:{
@@ -179,7 +191,7 @@ exports.sys_ALERT_event = function(mongodb){
                     , month: "$month"
                     , day: "$day"
                     , hour: "$hour"
-                    , minute: "$minute"
+                    //, minute: "$minute"
                 }
                 ,key: {$push:{identifier:"$identifier",time:"$time"}}
                 ,count: {$sum: 1}

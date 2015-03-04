@@ -19,24 +19,41 @@
             <!--<option value="fatal">fatal</option>-->
             <!--</select>-->
             <!--</div>-->
-            <p></p>
+            <!--<p></p>-->
             <!--<label class="control-label" for="timestamp">timestamp</label>-->
             <!--<div class="controls">-->
                 <!--<input type="text" class="input-xlarge" id="timestamp" name="timestamp"/>　　ex:2014-04-25-->
             <!--</div>-->
             <!--<p></p>-->
-
             <label class="control-label" for="identifier">identifier</label>
             <div class="controls">
                 <input type="text" class="input-xlarge" id="identifier" name="identifier" value="%PIX-x-insert" />　　ex:%PIX-6-302005
-                       <!--disabled="disabled"-->
+                <!--disabled="disabled"-->
+            </div>
+            <p></p>
 
+            <label class="control-label" for="facility">Facility</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="facility" name="facility" value="%PIX" />　　ex:%PIX
+            </div>
+            <p></p>
+
+            <label class="control-label" for="severity">Severity</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="severity" name="severity" value="x" />　　ex:%6
+
+            </div>
+            <p></p>
+
+            <label class="control-label" for="mnemonic">Mnemonic</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="mnemonic" name="mnemonic" value="insert" />　　ex:302005
             </div>
             <p></p>
 
             <label class="control-label" for="message">message</label>
             <div class="controls">
-                <input type="text" class="input-xlarge" id="message" name="message"/>
+                <input type="text" class="input-xlarge" id="message" name="message" value="Could not process"/>
             </div>
             <p></p>
 
@@ -65,6 +82,9 @@
 <p>_id : <%= resp._id %></p>
 <p>Time : <%= resp.time %></p>
 <p>Identifier : <%= resp.identifier %></p>
+<p>Facility : <%= resp.facility %></p>
+<p>Severity : <%= resp.severity %></p>
+<p>Mnemonic : <%= resp.mnemonic %></p>
 <p>Log Message : <%= resp.message %></p>
 
 <% } else { %>

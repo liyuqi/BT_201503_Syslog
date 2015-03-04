@@ -33,8 +33,8 @@
         <tr>
             <td><%= i++; %></td>
             <!--<td ><a href="/nw01detail?oid=<%# event._id %>"><%# event._id %></a></td>-->
-            <!--<td ><%= JSON.stringify(event._id) %></td>-->
-            <td><%= event._id.year %>-<%= event._id.month %>-<%= event._id.day %> <%= event._id.hour%>:<%= event._id.minute %></td>
+            <td ><%= util.inspect(event._id) %></td>
+            <!--<td><%= event._id.year %>-<%= event._id.month %>-<%= event._id.day %> <%= event._id.hour%>:<%= event._id.minute %></td>-->
             <!--<td><%# event._id.year - event._id.month - event._id.day - event._id.hour : event._id.minute %></td>-->
             <td ><%= event.count %></td>
             <%
@@ -60,7 +60,11 @@
             result.forEach( function ( d ){
         %>
         //xdata[i]= '<%# JSON.stringify(d._id.hour) %>';
-        xdata[i]= '<%= d._id.year %>-'+'<%= d._id.month %>-'+'<%= d._id.day %> '+'<%= d._id.hour%>:'+'<%= d._id.minute %>';
+        xdata[i]= '<%= d._id.year %>-'
+                 +'<%= d._id.month %>'
+                 +'-<%= d._id.day %> '
+                 +'<%= d._id.hour%>'
+                 +':<%# d._id.minute %>';
         ydata[i]= '<%= d.count %>';
         console.log("x:"+xdata[i]+"-- y:"+ydata[i]);
         i++;

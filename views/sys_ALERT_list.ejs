@@ -43,8 +43,17 @@
     <% resp.forEach( function(docs){ %>
     <tr>
         <td><%= i++ %></td>
-        <td><%# docs.event %>{identifier:<%= docs.event.identifier %>,message:<%= docs.event.message %>}</td>
+        <!--<script>-->
+            <!--var util = require('util');-->
+            <!--console.log(util.inspect(resp));-->
+<!--//            var doctemp = JSON.parse(docs);-->
+<!--//            console.log(util.inspect(docs));-->
+<!--//            console.log(JSON.stringify(docs));-->
+        <!--</script>-->
+        <!--<td><%# docs.event %>{identifier:<%# docs.event.identifier %>,message:<%# docs.event.message %>}</td>-->
         <!--<td><%# docs.event.message %></td>-->
+        <!--<td><%= JSON.stringify(docs.event, 3,5) %></td>-->
+        <td><%= util.inspect(docs.event) %></td>
         <td><!--<button class="btn btn-mini" type="button">--><a href="/sys_ALERT_display?_id=<%= docs._id %>">show</a><!--</button>--></td>
         <td><!--<button class="btn btn-mini" type="button">--><a href="/sys_ALERT_delete?_id=<%= docs._id %>">Delete</a><!--</button>--></td>
 
