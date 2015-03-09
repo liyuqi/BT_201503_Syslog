@@ -5,7 +5,7 @@ _interval = 1*60*1000; //{時:1*60*60*1000, 分:1*60*1000, 秒:1000}
 _pageunit = 50;
 
 exports.index = function(req, res){
-    res.render('sys_ALERT_insert', { title: 'Create ALERT', resp : false});
+    res.render('sys_ALERT_insert', { title: 'insert rule', resp : false});
 };
 
 exports.sys_ALERT_insert = function(mongodb){
@@ -40,7 +40,7 @@ exports.sys_ALERT_insert = function(mongodb){
         if(rule){
             collection.insert({event:rule,time:new Date()},{safe: true}, function(err, docs){
                 console.log("alert data : " + JSON.stringify(docs) + util.inspect(docs));
-                res.render('sys_ALERT_insert', { title: 'Create log', resp :docs});
+                res.render('sys_ALERT_insert', { title: 'insert rule', resp :docs});
                 if(err) res.redirect('/sys_ALERT_insert');
             });
         }
@@ -58,7 +58,7 @@ exports.sys_ALERT_list = function (mongodb) {
                 if (docs.length == 1) docdetail = util.inspect(docs);
                 //console.log(util.inspect(docs));
                 res.render('sys_ALERT_list', {
-                    title: 'alerts', totalcount: count, resp: docs, logdetail: docdetail
+                    title: 'alert list', totalcount: count, resp: docs, logdetail: docdetail
                 });
             });
         });
@@ -170,6 +170,8 @@ exports.sys_ALERT_delete = function(mongodb){
     };
 };
 
+// timezone offset +8 hours * 60 min * 60 sec * 1000 ms
+//[{ $add: [ "$time", 8*60*60*1000 ]}]
 exports.sys_ALERT_event = function(mongodb){
     return function(req, res) {
 
@@ -179,11 +181,11 @@ exports.sys_ALERT_event = function(mongodb){
         collection.col.aggregate([
             {$project:{
                   _id:1
-                , year: {$year: "$time"}
-                , month:{$month: "$time"}
-                , day:  {$dayOfMonth: "$time"}
-                , hour: {$hour: "$time"}
-                //, minute: {$minute: "$time"}
+                , year: {$year: [{ $add: [ "$time", 8*60*60*1000 ]}]}         // , year: {$year: "$time"}
+                , month:{$month: [{ $add: [ "$time", 8*60*60*1000 ]}]}        // , month:{$month: "$time"}
+                , day:  {$dayOfMonth: [{ $add: [ "$time", 8*60*60*1000 ]}]}   // , day:  {$dayOfMonth: "$time"}
+                , hour: {$hour: [{ $add: [ "$time", 8*60*60*1000 ]}]}         // , hour: {$hour: "$time"}
+                //, minute: {$minute: [{ $add: [ "$time", 8*60*60*1000 ]}]}   // , minute: {$minute: "$time"}
                 , time: 1
                 , facility : 1
                 , severity : 1
@@ -192,10 +194,10 @@ exports.sys_ALERT_event = function(mongodb){
             }}
             ,{$group:{
                 _id: {
-                      year: "$year"
-                    , month: "$month"
-                    , day: "$day"
-                    , hour: "$hour"
+                      year: "$year"             //  year: "$year"
+                    , month: "$month"           //, month: "$month"
+                    , day: "$day"               //, day: "$day"
+                    , hour: "$hour"             //, hour: "$hour"
                     //, minute: "$minute"
                 }
                 ,key: {$push:{identifier:"$identifier",time:"$time"}}

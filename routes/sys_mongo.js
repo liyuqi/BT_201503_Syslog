@@ -13,7 +13,7 @@ var util = require('util');
 var _pageunit=50;
 
 exports.index = function(req, res){
-    res.render('sys_CRUD_insert', { title: 'Create log', resp : false});
+    res.render('sys_CRUD_insert', { title: 'insert log', resp : false});
 };
 
 exports.sys_CRUD_insert = function(mongodb){
@@ -57,7 +57,7 @@ exports.sys_CRUD_insert = function(mongodb){
         var collection = mongodb.get('logs');
         collection.insert(log,{safe: true}, function(err, docs){
             console.log("insert log : " + util.inspect(docs));
-            res.render('sys_CRUD_insert', {title: 'Create log', resp: docs});
+            res.render('sys_CRUD_insert', {title: 'insert log', resp: docs});
         });
     };
 };
@@ -68,7 +68,7 @@ exports.sys_CRUD_loglist = function(mongodb){
         collection.col.count({},function(err, count) {
             if(err) res.redirect('sys_CRUD_query');
             //console.log(format("count = %s", count));
-            res.render('sys_CRUD_query', {title: 'logs', totalcount : count,resp :null});
+            res.render('sys_CRUD_query', {title: 'show logs', totalcount : count,resp :null});
         });
     };
 };
@@ -124,7 +124,7 @@ exports.sys_CRUD_query = function(mongodb){
         collection.find(query /*,{limit : 20}*/,function(err,docs){
             if(docs.length) console.log('docs.length: '+docs.length);
             if(err) res.redirect('/sys_CRUD_query');
-            res.render('sys_CRUD_display_query', {title: 'logs', totalcount: docs.length, resp: docs});
+            res.render('sys_CRUD_display_query', {title: 'query log', totalcount: docs.length, resp: docs});
         });
     };
 };
@@ -137,7 +137,7 @@ exports.sys_CRUD_count = function (mongodb) {
             collection.find({}, {limit : _pageunit,sort : { time : -1, _id:-1}} , function (err, docs) {
                     if (err) res.redirect('sys_CRUD_show');
                     res.render('sys_CRUD_show', {
-                        title: 'logs',
+                        title: 'show logs2',
                         totalcount: count,
                         resp: docs
                     });
@@ -157,7 +157,7 @@ exports.sys_CRUD_show = function (mongodb) {
                     var docdetail;
                     if (docs.length == 1) docdetail = util.inspect(docs);
                     res.render('sys_CRUD_show', {
-                        title: 'logs',
+                        title: 'show logs3',
                         totalcount: count,
                         resp: docs,
                         logdetail: docdetail
@@ -179,7 +179,7 @@ exports.sys_CRUD_show_pagging = function (mongodb) {
                 var docdetail;
                 if (docs.length == 1) docdetail = util.inspect(docs);
                 res.render('sys_CRUD_show', {
-                    title: 'logs',
+                    title: 'log page',
                     totalcount: count,
                     resp: docs,
                     logdetail: docdetail,

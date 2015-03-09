@@ -21,14 +21,6 @@
     <fieldset>
         <legend>查詢 log</legend>
 
-        <div class="control-group">
-            <label class="control-label" for="logid" style="visibility: hidden">_id</label>
-            <div class="controls">
-                <input type="text"  class="input-medium search-query" id="logid" name="logid" style="visibility: hidden"/>
-            </div>
-            <p></p>
-
-
             <table class="table table-hover table-condensed borderless">
                 <caption></caption>
                 <thead>
@@ -42,6 +34,12 @@
                 </thead>
 
                 <tbody>
+                <!--<tr>-->
+                    <!--<td id="name00">_id</td>-->
+                    <!--<td id="field00"><label for=>_id</label></td>-->
+                    <!--<td id="input00"><input type="text" class="input-large" id="_id" name="_id"/></td>            </td>-->
+                    <!--<td id="sample1"></td>-->
+                <!--</tr>-->
                 <tr>
                     <td id="name1">時間</td>
                     <td id="field1"><label for=>timestamp</label></td>
@@ -59,12 +57,12 @@
                 <tr>
                     <td id="name3">訊息ID</td>   <td id="field3"><label for="identifier">identifier</label></td>
                     <td id="input3"><input type="text" class="input-large" id="identifier" name="identifier"/></td>
-                    <td id="sample3">%PIX-6-302005</td>
+                    <td id="sample3">PIX-6-302005</td>
                 </tr>
                 <tr>
                     <td id="name4">分類</td>  <td id="field4"><label for="facility">Facility</label></td>
                     <td id="input4"><input type="text" class="input-large" id="facility" name="facility"/></td>
-                    <td id="sample4">%PIX</td>
+                    <td id="sample4">PIX</td>
                 </tr>
                 <tr>
                     <td id="name5">嚴重</td>   <td id="field5"><label for="severity">Severity</label></td>
