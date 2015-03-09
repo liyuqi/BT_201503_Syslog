@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="https://github.com/dbushell/Pikaday/blob/master/css/pikaday.css">
     <script src="https://github.com/dbushell/Pikaday/blob/master/pikaday.js"></script>
     <script src="https://github.com/dbushell/Pikaday/blob/master/pikaday.js"></script>
-
+    <style>
+        .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+            border: none;
+        }
+    </style>
 </head>
 <body>
 <form class="form-horizontal" method="post">
@@ -24,21 +28,73 @@
             </div>
             <p></p>
 
-            <!--<label class="control-label" for="matchdate">時間區間</label>-->
-<!--            <div class="controls">
-                &lt;!&ndash;disabled="disabled"&ndash;&gt;
-                <input type="text" class="input-small" id="matchdate" name="matchdate"/> -
-                <input type="text" class="input-small" id="matchenddate" name="matchenddate"/>　ex:2004-03-29T01:56
-                </br>
 
-            </div>
-            <p></p>-->
+            <table class="table table-hover table-condensed borderless">
+                <caption></caption>
+                <thead>
+                <tr>
+                <tr>
+                    <th id="name0">名稱</td>
+                    <th id="field0">field</th>
+                    <th id="input0">input</th>
+                    <th id="sample0">sample</th>
+                </tr>
+                </thead>
 
-            <label class="control-label" for="matchdate">時間區間</label>
+                <tbody>
+                <tr>
+                    <td id="name1">時間</td>
+                    <td id="field1"><label for=>timestamp</label></td>
+                    <td id="input1">
+                        <input type="date" class="input-medium" id="matchdate" name="matchdate"/>
+                        <input type="date" class="input-medium" id="matchenddate" name="matchenddate"/>
+                    </td>
+                    <td id="sample1">2004-03-29T01:56</td>
+                </tr>
+                <tr>
+                <td id="name2">發送來源</td> <td id="field2"><label for=>device_name</label></td>
+                <td id="input2"><input type="text" class="input-large" id="device_name" name="device_name"/></td>
+                <td id="sample2">logserver</td>
+                </tr>
+                <tr>
+                    <td id="name3">訊息ID</td>   <td id="field3"><label for="identifier">identifier</label></td>
+                    <td id="input3"><input type="text" class="input-large" id="identifier" name="identifier"/></td>
+                    <td id="sample3">%PIX-6-302005</td>
+                </tr>
+                <tr>
+                    <td id="name4">分類</td>  <td id="field4"><label for="facility">Facility</label></td>
+                    <td id="input4"><input type="text" class="input-large" id="facility" name="facility"/></td>
+                    <td id="sample4">%PIX</td>
+                </tr>
+                <tr>
+                    <td id="name5">嚴重</td>   <td id="field5"><label for="severity">Severity</label></td>
+                    <td id="input5"><input type="text" class="input-large" id="severity" name="severity"/></td>
+                    <td id="sample5">6</td>
+                </tr>
+                <tr>
+                    <td id="name6">識別</td>   <td id="field6"><label for="mnemonic">Mnemonic</label></td>
+                    <td id="input6"><input type="text" class="input-large" id="mnemonic" name="mnemonic"/></td>
+                    <td id="sample6">302005</td>
+                </tr>
+                <tr>
+                    <td id="name7">訊息</td>  <td id="field7"><label for="message">message</label></td>
+                    <td id="input7"><input type="text" class="input-large" id="message" name="message"/></td>
+                    <td id="sample7">198.207.223.240/Could not process</td>
+                </tr>
+                <tr>
+                    <td id="name8">擴充</td> <td id="field8"><label for="enrich">Enrich</label></td>
+                    <td id="input8"><input type="text" class="input-large" id="enrich" name="enrich"/></td>
+                    <td id="sample8">Could not process</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+           <!-- <label class="control-label" for="matchdate">時間區間</label>
             <div class="controls">
                 <input type="date" class="input-medium" id="matchdate" name="matchdate"/>
                 <input type="date" class="input-medium" id="matchenddate" name="matchenddate"/>　ex:2004-03-29T01:56
-                <!--<i class="icon-calendar datepick"/>-->
+                &lt;!&ndash;<i class="icon-calendar datepick"/>&ndash;&gt;
             </div>
             <p></p>
             <script>
@@ -69,19 +125,23 @@
             </div>
             <p></p>
 
-
-
             <label class="control-label" for="matchmsg">Message</label>
             <div class="controls">
                 <input type="text" class="input-xlarge" id="matchmsg" name="matchmsg"/>　　ex:198.207.223.240/Could not process
             </div>
             <p></p>
 
+            <label class="control-label" for="enrich">Enrich</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="enrich" name="enrich"/>　　ex:Could not process
+            </div>
+            <p></p>
+
             <label class="control-label" for="info"></label>
             <div> * 一次僅會搜尋一個條件, message使用RegEx查詢   <span style="font-family:consolas">{$regex:/string/}</span>  </div>
-            <!--，由上面的欄位開始。-->
+            &lt;!&ndash;，由上面的欄位開始。&ndash;&gt;
             <p></p>
-        </div>
+        </div>-->
 
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">search</button>
@@ -110,13 +170,32 @@
     <thead>
     <tr>
     <tr>
+        <td> </td>
+        <td>時間</td>
+        <th>來源</th>
+        <th>訊息ID</th>
+        <th>分類</th>
+        <th>嚴重</th>
+        <th>識別</th>
+        <th>訊息</th>
+        <th>擴充</th>
+        <th></th>
+        <!--<th>_id</th>-->
+    </tr>
+    </thead>
+    <thead>
+    <tr>
+    <tr>
+        <td></td>
         <th>Timestamp</th>
         <th>device_name</th>
         <th>Identifier</th>
-        <th>Facility來源</th>
-        <th>Severity嚴重</th>
-        <th>Mnemonic識別</th>
+        <th>Facility</th>
+        <th>Severity</th>
+        <th>Mnemonic</th>
         <th>Message</th>
+        <th>Enrich</th>
+        <th></th>
         <!--<th>_id</th>-->
     </tr>
     </thead>
@@ -136,6 +215,7 @@
         <td><%= body.severity %></td>
         <td><%= body.mnemonic %></td>
         <td><%= body.message %></td>
+        <td><%= body.enrich %></td>
         <!--<td><%= body._id %></td>-->
     </tr>
     <% }); %>

@@ -29,14 +29,32 @@
     <thead>
     <tr>
     <tr>
+        <td> </td>
+        <td>時間</td>
+        <th>來源</th>
+        <th>訊息ID</th>
+        <th>分類</th>
+        <th>嚴重</th>
+        <th>識別</th>
+        <th>訊息</th>
+        <th>擴充</th>
         <th></th>
+        <!--<th>_id</th>-->
+    </tr>
+    </thead>
+    <thead>
+    <tr>
+    <tr>
+        <td></td>
         <th>Timestamp</th>
         <th>device_name</th>
         <th>Identifier</th>
-        <th>Facility來源</th>
-        <th>Severity嚴重</th>
-        <th>Mnemonic識別</th>
+        <th>Facility</th>
+        <th>Severity</th>
+        <th>Mnemonic</th>
         <th>Message</th>
+        <th>Enrich</th>
+        <th></th>
         <!--<th>_id</th>-->
     </tr>
     </thead>
@@ -57,6 +75,7 @@
         <td><%= body.severity %></td>
         <td><%= body.mnemonic %></td>
         <td><%= body.message %></td>
+        <td><%= body.enrich %></td>
         <!--<td><%= body._id %></td>-->
     </tr>
     <% }); %>

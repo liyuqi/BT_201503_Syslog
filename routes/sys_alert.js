@@ -1,7 +1,7 @@
 /*** Created by Yuqi on 2015/1/21. */
 // var mongodb = require('../models/db.js');
 var util = require('util');
-_interval = 1*60*60*1000;
+_interval = 1*60*1000; //{時:1*60*60*1000, 分:1*60*1000, 秒:1000}
 _pageunit = 50;
 
 exports.index = function(req, res){
@@ -28,6 +28,9 @@ exports.sys_ALERT_insert = function(mongodb){
         }
         if(req.body.matchmsg){
             rule.message = /*$regex:*/ new RegExp('.*'+req.body.matchmsg.trim());
+        }
+        if(req.body.enrich){
+            rule.enrich = req.body.enrich.trim();
         }
         /*if(req.body.logid){
             rule._id = req.body.logid;
@@ -82,11 +85,12 @@ exports.sys_ALERT_loglist = function(mongodb){
 
                         if (event) {
                             collectionLog.count(event, function (err, count) {
-                                collectionLog.find(event, {limit: _pageunit}, function (err, docs) {
+                                collectionLog.find(event, {limit: _pageunit,sort : { time : -1, _id:-1}}, function (err, docs) {
                                     console.log('event_log: ' + util.inspect(event) + ' ' + docs.length);
                                     res.render('sys_ALERT_timeInterval', {
                                         title: 'alert display',
                                         totalcount: count,
+
                                         resp: docs
                                         //,start: start
                                         //,end: end
@@ -129,10 +133,11 @@ exports.sys_ALERT_timeInterval = function (mongodb) {
 
                         if (event) {
                             collectionLog.count(event, function (err, count) {
-                                collectionLog.find(event, {limit: 20}, function (err, docs) {
+                                collectionLog.find(event, {limit: _pageunit,sort : { time : -1, _id:-1}}, function (err, docs) {
                                     console.log('event_log: ' + util.inspect(event) + ' ' + count);
                                     res.render('sys_ALERT_timeInterval', {
                                         title: 'alert display',
+                                        timeinterval:_interval,
                                         totalcount: count,
                                         resp: docs,
                                         start: ruleBack,//.getTime(),

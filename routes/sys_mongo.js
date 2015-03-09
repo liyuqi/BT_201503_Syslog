@@ -46,6 +46,9 @@ exports.sys_CRUD_insert = function(mongodb){
         if(req.body.mnemonic){
             log.mnemonic = req.body.mnemonic.trim();
         }
+        if(req.body.enrich){
+            log.enrich = req.body.enrich.trim();
+        }
         if(req.body.message){
             log.message = req.body.message;
         }
@@ -78,16 +81,16 @@ exports.sys_CRUD_query = function(mongodb){
 
         if(req.body.matchdate){
             if(req.body.matchenddate){
-                query.time = {$gte:(new Date(req.body.matchdate/*.trim().toISOString()*/)), $lt: (new Date(req.body.matchenddate.trim()/*.toISOString()*/))};
+                query.time = {$gte:(new Date(req.body.matchdate)), $lt: (new Date(req.body.matchenddate))};
             }else{
-                query.time = {$gte:(new Date(req.body.matchdate/*.trim().toISOString()*/))};
+                query.time = {$gte:(new Date(req.body.matchdate))};
             }
         }
         if(req.body.matchenddate){
             if(req.body.matchdate){
-                query.time = {$gte:new Date(req.body.matchdate.trim()/*.toISOString()*/), $lt: new Date(req.body.matchenddate.trim()/*.toISOString()*/)};
+                query.time = {$gte:new Date(req.body.matchdate), $lt: new Date(req.body.matchenddate)};
             }else{
-                query.time = {$lt :new Date(req.body.matchenddate.trim()/*.toISOString()*/)}
+                query.time = {$lt :new Date(req.body.matchenddate)}
             }
         }
         if(req.body.identifier){
@@ -107,6 +110,9 @@ exports.sys_CRUD_query = function(mongodb){
         }
         if(req.body.matchmsg){
             query.message = {$regex: new RegExp('.*'+req.body.matchmsg.trim())};
+        }
+        if(req.body.enrich){
+            query.enrich = req.body.enrich.trim();
         }
         if(req.body.logid){
             query._id = req.body.logid;
@@ -128,7 +134,7 @@ exports.sys_CRUD_count = function (mongodb) {
         //var page = req.query.p ? parseInt(req.query.p) : 1;
         var collection = mongodb.get('logs');
         collection.count({},function(err,count){
-            collection.find({}, {limit : _pageunit,sort : { time : -1 }} , function (err, docs) {
+            collection.find({}, {limit : _pageunit,sort : { time : -1, _id:-1}} , function (err, docs) {
                     if (err) res.redirect('sys_CRUD_show');
                     res.render('sys_CRUD_show', {
                         title: 'logs',
@@ -146,7 +152,7 @@ exports.sys_CRUD_show = function (mongodb) {
         var collection = mongodb.get('logs');
         collection.count({}, function (err, count) {
             collection.find({}, //{/*limit: 20,*/ sort: {_id: -1}}, function (e, docs) {
-                {limit : 50,sort : { timestamp : -1 }}, function (e, docs) {
+                {limit : 50,sort : { time : -1, _id:-1 }}, function (e, docs) {
                     // console.log("docs data : "+util.inspect(docs));
                     var docdetail;
                     if (docs.length == 1) docdetail = util.inspect(docs);
@@ -168,7 +174,7 @@ exports.sys_CRUD_show_pagging = function (mongodb) {
         var collection = mongodb.get('logs');
         collection.count({}, function (err, count) {
             collection.find({}, //{/*limit: 20,*/ sort: {_id: -1}}, function (e, docs) {
-                {skip : (page - 1) * 20,limit : 20,sort : { timestamp : -1 }}, function (e, docs) {
+                {skip : (page - 1) * _pageunit, limit :  _pageunit, sort : { time : -1, _id:-1 }}, function (e, docs) {
                 // console.log("docs data : "+util.inspect(docs));
                 var docdetail;
                 if (docs.length == 1) docdetail = util.inspect(docs);
@@ -178,9 +184,9 @@ exports.sys_CRUD_show_pagging = function (mongodb) {
                     resp: docs,
                     logdetail: docdetail,
                     page: page,
-                    pageTotal: Math.ceil(docs.length / 20),
+                    pageTotal: Math.ceil(docs.length / _pageunit),
                     isFirstPage: (page - 1) == 0,
-                    isLastPage: ((page - 1) * 20 + docs.length) == docs.length
+                    isLastPage: ((page - 1) * _pageunit + docs.length) == docs.length
                 });
             });
         });
