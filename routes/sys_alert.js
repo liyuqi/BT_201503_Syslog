@@ -2,6 +2,7 @@
 // var mongodb = require('../models/db.js');
 var util = require('util');
 _interval = 1*60*1000; //{時:1*60*60*1000, 分:1*60*1000, 秒:1000}
+_time_offset = 8*60*60*1000; // timezone offset +8 hours * 60 min * 60 sec * 1000 ms
 _pageunit = 50;
 
 exports.index = function(req, res){
@@ -181,8 +182,8 @@ exports.sys_ALERT_event = function(mongodb){
         collection.col.aggregate([
             {$project:{
                   _id:1
-                , year: {$year: [{ $add: [ "$time", 8*60*60*1000 ]}]}         // , year: {$year: "$time"}
-                , month:{$month: [{ $add: [ "$time", 8*60*60*1000 ]}]}        // , month:{$month: "$time"}
+                , year: {$year:     [{ $add: [ "$time", 8*60*60*1000 ]}]}         // , year: {$year: "$time"}
+                , month:{$month:    [{ $add: [ "$time", 8*60*60*1000 ]}]}        // , month:{$month: "$time"}
                 , day:  {$dayOfMonth: [{ $add: [ "$time", 8*60*60*1000 ]}]}   // , day:  {$dayOfMonth: "$time"}
                 , hour: {$hour: [{ $add: [ "$time", 8*60*60*1000 ]}]}         // , hour: {$hour: "$time"}
                 //, minute: {$minute: [{ $add: [ "$time", 8*60*60*1000 ]}]}   // , minute: {$minute: "$time"}
@@ -198,7 +199,7 @@ exports.sys_ALERT_event = function(mongodb){
                     , month: "$month"           //, month: "$month"
                     , day: "$day"               //, day: "$day"
                     , hour: "$hour"             //, hour: "$hour"
-                    //, minute: "$minute"
+                    , minute: "$minute"
                 }
                 ,key: {$push:{identifier:"$identifier",time:"$time"}}
                 ,count: {$sum: 1}

@@ -27,11 +27,11 @@
         </tr>
         </thead>
         <tbody>
-        <% var a = [], x=[],y=[],i=0;
+        <% var a = [], x=[],y=[],i=1;
                 result.forEach( function ( event ){ %>
 
         <tr>
-            <td><%= i++ %></td>
+            <td><%= i %></td>
             <!--<td ><a href="/nw01detail?oid=<%# event._id %>"><%# event._id %></a></td>-->
             <!--<td><%= util.inspect(event._id) %></td>-->
             <td><%= event._id.year %>-<%= event._id.month %>-<%= event._id.day %> <%= event._id.hour%>:00<%# event._id.minute %></td>
