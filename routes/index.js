@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Sys Log Demo' });
+  res.render('index', { title: 'CLM System' });
 };
