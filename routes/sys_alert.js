@@ -199,7 +199,7 @@ exports.sys_ALERT_event = function(mongodb){
                     , month: "$month"           //, month: "$month"
                     , day: "$day"               //, day: "$day"
                     , hour: "$hour"             //, hour: "$hour"
-                    , minute: "$minute"
+                    //, minute: "$minute"
                 }
                 ,key: {$push:{identifier:"$identifier",time:"$time"}}
                 ,count: {$sum: 1}
