@@ -27,8 +27,8 @@ exports.sys_ALERT_insert = function(mongodb){
         if(req.body.mnemonic){
             rule.mnemonic = /*{$regex:*/ new RegExp('.*'+req.body.mnemonic.trim())/*}*/;
         }
-        if(req.body.matchmsg){
-            rule.message = /*$regex:*/ new RegExp('.*'+req.body.matchmsg.trim());
+        if(req.body.message){
+            rule.message = /*$regex:*/ new RegExp('.*'+req.body.message.trim());
         }
         if(req.body.enrich){
             rule.enrich = req.body.enrich.trim();

@@ -110,8 +110,9 @@ exports.sys_CRUD_query = function(mongodb){
             query.mnemonic = req.body.mnemonic.trim() //{$regex: new RegExp('.*'+req.body.mnemonic.trim())};
         }
 
-        if(req.body.matchmsg){
-            query.message = {$regex: new RegExp('.*'+req.body.matchmsg.trim())};
+        if(req.body.message){
+            query.message = new RegExp(req.body.message.trim());//{$regex: new RegExp('.*'+req.body.matchmsg.trim())};
+            console.log(req.body.message);
         }
         if(req.body.enrich){
             query.enrich = req.body.enrich.trim();
@@ -119,8 +120,13 @@ exports.sys_CRUD_query = function(mongodb){
         if(req.body.logid){
             query._id = req.body.logid;
         }
-        console.log(query.length,query);
+        console.log(query);
 
+        var keys = [];
+        for(var k in query) keys.push(k);
+
+        if(keys.length==0)
+            res.redirect('/sys_CRUD_query');
         //query
         var collection = mongodb.get('logs');
         collection.find(query ,{limit : _max_pageunit},function(err,docs){
