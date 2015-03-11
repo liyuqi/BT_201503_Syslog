@@ -11,6 +11,7 @@
 // var mongodb = require('../models/db.js');
 var util = require('util');
 var _pageunit=50;
+var _max_pageunit=500;
 
 exports.index = function(req, res){
     res.render('sys_CRUD_insert', { title: 'insert log', resp : false});
@@ -93,21 +94,22 @@ exports.sys_CRUD_query = function(mongodb){
                 query.time = {$lt :new Date(req.body.matchenddate)}
             }
         }
+        if(req.body.device_name){
+            query.device_name = req.body.device_name.trim()//{$regex: new RegExp('.*'+req.body.device_name.trim())};
+        }
         if(req.body.identifier){
-            query.identifier = {$regex: new RegExp('.*'+req.body.identifier.trim())};
+            query.identifier = req.body.identifier.trim() //{$regex: new RegExp('.*'+req.body.identifier.trim())};
         }
         if(req.body.facility){
-            query.facility = {$regex: new RegExp('.*'+req.body.facility.trim())};
+            query.facility = req.body.facility.trim()//{$regex: new RegExp('.*'+req.body.facility.trim())};
         }
         if(req.body.severity){
-            query.severity = {$regex: new RegExp('.*'+req.body.severity.trim())};
+            query.severity = req.body.severity.trim() //{$regex: new RegExp('.*'+req.body.severity.trim())};
         }
         if(req.body.mnemonic){
-            query.mnemonic = {$regex: new RegExp('.*'+req.body.mnemonic.trim())};
+            query.mnemonic = req.body.mnemonic.trim() //{$regex: new RegExp('.*'+req.body.mnemonic.trim())};
         }
-        if(req.body.device_name){
-            query.device_name = {$regex: new RegExp('.*'+req.body.device_name.trim())};
-        }
+
         if(req.body.matchmsg){
             query.message = {$regex: new RegExp('.*'+req.body.matchmsg.trim())};
         }
@@ -117,11 +119,11 @@ exports.sys_CRUD_query = function(mongodb){
         if(req.body.logid){
             query._id = req.body.logid;
         }
-        console.log(query);
+        console.log(query.length,query);
 
         //query
         var collection = mongodb.get('logs');
-        collection.find(query /*,{limit : 20}*/,function(err,docs){
+        collection.find(query ,{limit : _max_pageunit},function(err,docs){
             if(docs.length) console.log('docs.length: '+docs.length);
             if(err) res.redirect('/sys_CRUD_query');
             res.render('sys_CRUD_display_query', {title: 'query log', totalcount: docs.length, resp: docs});

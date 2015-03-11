@@ -6,7 +6,7 @@ var express = require('express');
 var routes = require('./routes');
 
 //var mongodbAlert = require('./routes/mongodbAlert');
-var mongoStatus = require('./routes/sys_mongoShell');
+//var mongoStatus = require('./routes/sys_mongoShell');
 var sys_mongo = require('./routes/sys_mongo');
 
 var sys_alert = require('./routes/sys_alert');
@@ -93,8 +93,8 @@ app.get('/sys_ALERT_delete', 	sys_alert.sys_ALERT_delete(dbfluentd));
 //app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_query(dbfluentd));
 app.use('/sys_ALERT_event', 	sys_alert.sys_ALERT_event(dbfluentd));
 
-app.get('/mongoStatus',mongoStatus.page);
-app.post('/mongoStatus',mongoStatus.child());
+//app.get('/mongoStatus',mongoStatus.page);
+//app.post('/mongoStatus',mongoStatus.child());
 
 //app.get('/mongodbSetting', mongodbAlert.page);
 //app.post('/mongodbSetting', mongodbAlert.alertSetting(dbalerts));
