@@ -188,10 +188,11 @@ exports.sys_ALERT_event = function(mongodb){
                 , hour: {$hour: [{ $add: [ "$time", 8*60*60*1000 ]}]}         // , hour: {$hour: "$time"}
                 //, minute: {$minute: [{ $add: [ "$time", 8*60*60*1000 ]}]}   // , minute: {$minute: "$time"}
                 , time: 1
-                , facility : 1
-                , severity : 1
-                , mnemonic : 1
-                , identifier: 1
+                //, device_name :1
+                //, facility : 1
+                //, severity : 1
+                //, mnemonic : 1
+                //, identifier: 1
             }}
             ,{$group:{
                 _id: {
@@ -201,7 +202,7 @@ exports.sys_ALERT_event = function(mongodb){
                     , hour: "$hour"             //, hour: "$hour"
                     //, minute: "$minute"
                 }
-                ,key: {$push:{identifier:"$identifier",time:"$time"}}
+                //,key: {$push:{device_name:"$device_name",time:"$time"}}
                 ,count: {$sum: 1}
             }}
             ,{$sort:{_id:-1}}
