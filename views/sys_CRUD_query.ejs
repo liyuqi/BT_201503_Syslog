@@ -36,27 +36,27 @@
                 <tbody>
                 <!--<tr>-->
                     <!--<td id="name00">_id</td>-->
-                    <!--<td id="field00"><label for=>_id</label></td>-->
+                    <!--<td id="field00"><label for="_id">_id</label></td>-->
                     <!--<td id="input00"><input type="text" class="input-large" id="_id" name="_id"/></td>            </td>-->
                     <!--<td id="sample1"></td>-->
                 <!--</tr>-->
                 <tr>
                     <td id="name1">時間</td>
-                    <td id="field1"><label for=>timestamp</label></td>
+                    <td id="field1"><label for="timestamp">timestamp</label></td>
                     <td id="input1">
                         <input type="date" class="input-medium" id="matchdate" name="matchdate"/>
                         <input type="date" class="input-medium" id="matchenddate" name="matchenddate"/>
                     </td>
-                    <td id="sample1">2004-03-29T01:56</td>
+                    <td id="sample1">2015-03-01T01:56</td>
                 </tr>
                 <tr>
-                <td id="name2">發送來源</td> <td id="field2"><label for=>device_name</label></td>
+                <td id="name2">發送來源</td> <td id="field2"><label for="device_name">device_name</label></td>
                 <td id="input2"><input type="text" class="input-large" id="device_name" name="device_name"/></td>
-                <td id="sample2">logserver</td>
+                <td id="sample2">PC</td>
                 </tr>
                 <tr>
                     <td id="name3">訊息ID</td>   <td id="field3"><label for="identifier">identifier</label></td>
-                    <td id="input3"><input type="text" class="input-large" id="identifier" name="identifier"/></td>
+                    <td id="input3"><input type="text" class="input-large" id="identifier" name="identifier" disabled="disabled"/></td>
                     <td id="sample3">PIX-6-302005</td>
                 </tr>
                 <tr>
@@ -87,59 +87,6 @@
 
                 </tbody>
             </table>
-
-           <!-- <label class="control-label" for="matchdate">時間區間</label>
-            <div class="controls">
-                <input type="date" class="input-medium" id="matchdate" name="matchdate"/>
-                <input type="date" class="input-medium" id="matchenddate" name="matchenddate"/>　ex:2004-03-29T01:56
-                &lt;!&ndash;<i class="icon-calendar datepick"/>&ndash;&gt;
-            </div>
-            <p></p>
-            <script>
-                var picker = new Pikaday({ field: document.getElementById('datepicker') });
-            </script>
-
-            <label class="control-label" for="identifier">identifier</label>
-            <div class="controls">
-            <input type="text" class="input-xlarge" id="identifier" name="identifier"/>　　ex:%PIX-4-106023
-            </div>
-            <p></p>
-
-            <label class="control-label" for="facility">Facility</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="facility" name="facility" />　　ex:%PIX
-            </div>
-            <p></p>
-
-            <label class="control-label" for="severity">Severity</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="severity" name="severity" />　　ex:%6
-            </div>
-            <p></p>
-
-            <label class="control-label" for="mnemonic">Mnemonic</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="mnemonic" name="mnemonic" />　　ex:302005
-            </div>
-            <p></p>
-
-            <label class="control-label" for="matchmsg">Message</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="matchmsg" name="matchmsg"/>　　ex:198.207.223.240/Could not process
-            </div>
-            <p></p>
-
-            <label class="control-label" for="enrich">Enrich</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="enrich" name="enrich"/>　　ex:Could not process
-            </div>
-            <p></p>
-
-            <label class="control-label" for="info"></label>
-            <div> * 一次僅會搜尋一個條件, message使用RegEx查詢   <span style="font-family:consolas">{$regex:/string/}</span>  </div>
-            &lt;!&ndash;，由上面的欄位開始。&ndash;&gt;
-            <p></p>
-        </div>-->
 
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">search</button>

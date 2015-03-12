@@ -8,13 +8,6 @@
 <fieldset>
     <legend>查詢 log</legend>
 </fieldset>
-<!--<form class="form-horizontal" method="post">-->
-    <!--<h3> 總量 : <%= totalcount %>筆資料-->
-        <!--<button type="submit" class="btn btn-primary">show</button>-->
-    <!--</h3>-->
-<!--</form>-->
-
-<p></p>
 
 <% if (resp) { %>
 <!--<h3>顯示結果</h3><br/>-->
@@ -22,7 +15,7 @@
 <h4>查無資料!</h4>
 <% } else{ %>
 
-<h4> 回傳 <%= resp.length %> 筆</h4>
+<h4> 總量<%= db_count %>筆， 符合<%= totalcount %>筆， 顯示<%= resp.length %> 筆</h4>
 
 <table class="table table-hover table-condensed">
     <caption></caption>

@@ -11,7 +11,7 @@
 // var mongodb = require('../models/db.js');
 var util = require('util');
 var _pageunit=50;
-var _max_pageunit=500;
+var _max_pageunit=50;
 
 exports.index = function(req, res){
     res.render('sys_CRUD_insert', { title: 'insert log', resp : false});
@@ -35,8 +35,24 @@ exports.sys_CRUD_insert = function(mongodb){
             log.TIMESTAMP = new Date();
             log.time = new Date();
         }
+        if(req.body.device_name){
+            log.device_name = req.body.device_name.trim();
+        }
         if(req.body.identifier){
             log.identifier = req.body.identifier.trim();
+        }
+        else if(req.body.facility || req.body.severity || req.body.mnemonic){
+            log.identifier = '';
+            if(req.body.facility){
+                log.identifier += req.body.facility.trim()+'-';
+            }
+            if(req.body.severity){
+                log.identifier += req.body.severity.trim()+'-';
+            }
+            if(req.body.mnemonic){
+                log.identifier += req.body.mnemonic.trim();
+            }
+            //log.identifier = req.body.identifier.trim();
         }
         if(req.body.facility){
             log.facility = req.body.facility.trim();
@@ -47,11 +63,11 @@ exports.sys_CRUD_insert = function(mongodb){
         if(req.body.mnemonic){
             log.mnemonic = req.body.mnemonic.trim();
         }
-        if(req.body.enrich){
-            log.enrich = req.body.enrich.trim();
-        }
         if(req.body.message){
             log.message = req.body.message;
+        }
+        if(req.body.enrich){
+            log.enrich = req.body.enrich.trim();
         }
 
         //insert
@@ -70,6 +86,69 @@ exports.sys_CRUD_loglist = function(mongodb){
             if(err) res.redirect('sys_CRUD_query');
             //console.log(format("count = %s", count));
             res.render('sys_CRUD_query', {title: 'show logs', totalcount : count,resp :null});
+        });
+    };
+};
+
+exports.sys_CRUD_query_short = function(mongodb){
+    return function(req, res) {
+
+        //field input
+        var query = {};
+
+        if(req.body.matchdate){
+            if(req.body.matchenddate){
+                query.time = {$gte:(new Date(req.body.matchdate)), $lt: (new Date(req.body.matchenddate))};
+            }else{
+                query.time = {$gte:(new Date(req.body.matchdate))};
+            }
+        }
+        if(req.body.matchenddate){
+            if(req.body.matchdate){
+                query.time = {$gte:new Date(req.body.matchdate), $lt: new Date(req.body.matchenddate)};
+            }else{
+                query.time = {$lt :new Date(req.body.matchenddate)}
+            }
+        }
+        if(req.body.device_name){
+            query.device_name = req.body.device_name.trim(); //{$regex: new RegExp('.*'+req.body.device_name.trim())};
+        }
+        //if(req.body.identifier){
+        //    query.identifier = new RegExp(req.body.identifier.trim()); //{$regex: new RegExp('.*'+req.body.identifier.trim())};
+        //}
+        if(req.body.facility){
+            query.facility = req.body.facility.trim();//{$regex: new RegExp('.*'+req.body.facility.trim())};
+        }
+        if(req.body.severity){
+            query.severity = req.body.severity.trim(); //{$regex: new RegExp('.*'+req.body.severity.trim())};
+        }
+        if(req.body.mnemonic){
+            query.mnemonic = req.body.mnemonic.trim(); //{$regex: new RegExp('.*'+req.body.mnemonic.trim())};
+        }
+
+        if(req.body.message){
+            query.message = new RegExp(req.body.message.trim()); //{$regex: new RegExp('.*'+req.body.matchmsg.trim())};
+            console.log(req.body.message);
+        }
+        if(req.body.enrich){
+            query.enrich = req.body.enrich.trim();
+        }
+        if(req.body.logid){
+            query._id = req.body.logid;
+        }
+        console.log(query);
+
+        var keys = [];
+        for(var k in query) keys.push(k);
+
+        if(keys.length==0)
+            res.redirect('/sys_CRUD_query');
+        //query
+        var collection = mongodb.get('logs');
+        collection.find(query ,{limit : _max_pageunit},function(err,docs){
+            if(docs.length) console.log('docs.length: '+docs.length);
+            if(err) res.redirect('/sys_CRUD_query');
+            res.render('sys_CRUD_display_query', {title: 'query log', totalcount: docs.length, resp: docs});
         });
     };
 };
@@ -95,23 +174,23 @@ exports.sys_CRUD_query = function(mongodb){
             }
         }
         if(req.body.device_name){
-            query.device_name = req.body.device_name.trim()//{$regex: new RegExp('.*'+req.body.device_name.trim())};
+            query.device_name = req.body.device_name.trim(); //{$regex: new RegExp('.*'+req.body.device_name.trim())};
         }
-        if(req.body.identifier){
-            query.identifier = req.body.identifier.trim() //{$regex: new RegExp('.*'+req.body.identifier.trim())};
-        }
+        //if(req.body.identifier){
+        //    query.identifier = new RegExp(req.body.identifier.trim()); //{$regex: new RegExp('.*'+req.body.identifier.trim())};
+        //}
         if(req.body.facility){
-            query.facility = req.body.facility.trim()//{$regex: new RegExp('.*'+req.body.facility.trim())};
+            query.facility = req.body.facility.trim();//{$regex: new RegExp('.*'+req.body.facility.trim())};
         }
         if(req.body.severity){
-            query.severity = req.body.severity.trim() //{$regex: new RegExp('.*'+req.body.severity.trim())};
+            query.severity = req.body.severity.trim(); //{$regex: new RegExp('.*'+req.body.severity.trim())};
         }
         if(req.body.mnemonic){
-            query.mnemonic = req.body.mnemonic.trim() //{$regex: new RegExp('.*'+req.body.mnemonic.trim())};
+            query.mnemonic = req.body.mnemonic.trim(); //{$regex: new RegExp('.*'+req.body.mnemonic.trim())};
         }
 
         if(req.body.message){
-            query.message = new RegExp(req.body.message.trim());//{$regex: new RegExp('.*'+req.body.matchmsg.trim())};
+            query.message = new RegExp(req.body.message.trim()); //{$regex: new RegExp('.*'+req.body.matchmsg.trim())};
             console.log(req.body.message);
         }
         if(req.body.enrich){
@@ -129,10 +208,21 @@ exports.sys_CRUD_query = function(mongodb){
             res.redirect('/sys_CRUD_query');
         //query
         var collection = mongodb.get('logs');
-        collection.find(query ,{limit : _max_pageunit},function(err,docs){
-            if(docs.length) console.log('docs.length: '+docs.length);
-            if(err) res.redirect('/sys_CRUD_query');
-            res.render('sys_CRUD_display_query', {title: 'query log', totalcount: docs.length, resp: docs});
+        collection.count({},function(err,db_count){
+            collection.count(query, function (err, query_count) {
+                collection.find(query, {limit: _max_pageunit}, function (err, docs) {
+                    if (docs.length) console.log('docs.length: ' + docs.length);
+                    if (err) res.redirect('/sys_CRUD_query');
+                    res.render('sys_CRUD_display_query', {
+                            title: 'query log',
+                            db_count:db_count,
+                            totalcount:query_count,
+                            //page_count:docs.length,
+                            resp: docs
+                        }
+                    );
+                });
+            });
         });
     };
 };

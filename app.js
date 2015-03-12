@@ -93,6 +93,11 @@ app.get('/sys_ALERT_delete', 	sys_alert.sys_ALERT_delete(dbfluentd));
 //app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_query(dbfluentd));
 app.use('/sys_ALERT_event', 	sys_alert.sys_ALERT_event(dbfluentd));
 
+
+//app.get('/test_page_timePicker', function(req,res){
+//	res.render('test_page_timePicker', { title: 'test_page_timePicker', resp : false});
+//});
+
 //app.get('/mongoStatus',mongoStatus.page);
 //app.post('/mongoStatus',mongoStatus.child());
 
