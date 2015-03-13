@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cbf92b8-030b-4b3f-af80-43c13158d30e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sys_CRUD_query.ejs" afterPath="$PROJECT_DIR$/views/sys_CRUD_query.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/sys_alert.js" afterPath="$PROJECT_DIR$/routes/sys_alert.js" />
+    <list default="true" id="0cbf92b8-030b-4b3f-af80-43c13158d30e" name="Default" comment="0304 field update event flow">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Syslog0209.iws" />
@@ -42,8 +40,18 @@
       <file leaf-file-name="sys_mongo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/sys_mongo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="6237">
-              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3507" max-vertical-offset="6237">
+              <caret line="192" column="117" selection-start-line="192" selection-start-column="68" selection-end-line="192" selection-end-column="117" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sys_alert.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/sys_alert.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="4725">
+              <caret line="137" column="99" selection-start-line="137" selection-start-column="99" selection-end-line="137" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -79,21 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_page_timePicker.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_page_timePicker.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/test_page_timePicker.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.222222" vertical-offset="1491" max-vertical-offset="2289">
-              <caret line="88" column="106" selection-start-line="87" selection-start-column="20" selection-end-line="88" selection-end-column="106" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sys_alert.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/sys_alert.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5006974" vertical-offset="3988" max-vertical-offset="4725">
-              <caret line="207" column="21" selection-start-line="207" selection-start-column="21" selection-end-line="207" selection-end-column="21" />
+            <state vertical-scroll-proportion="2.6899564" vertical-offset="0" max-vertical-offset="2289">
+              <caret line="88" column="106" selection-start-line="88" selection-start-column="106" selection-end-line="88" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -386,7 +384,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426156614592</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="0304 field update event flow">
+      <created>1426159210815</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1426159210815</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -462,7 +466,8 @@
     <MESSAGE value="0304 syslog demo =&gt; CLM system" />
     <MESSAGE value="0304 matchmsg=&gt;message" />
     <MESSAGE value="0304 field update @ CRUD_insert &amp; CRUD_query" />
-    <option name="LAST_COMMIT_MESSAGE" value="0304 field update @ CRUD_insert &amp; CRUD_query" />
+    <MESSAGE value="0304 field update event flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="0304 field update event flow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -811,22 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/sys_mongo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6237">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/test_page_timePicker.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.222222" vertical-offset="1491" max-vertical-offset="2289">
-          <caret line="88" column="106" selection-start-line="87" selection-start-column="20" selection-end-line="88" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/sys_CRUD_query.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.4444447" vertical-offset="1113" max-vertical-offset="3843">
@@ -837,8 +826,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/sys_alert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5006974" vertical-offset="3988" max-vertical-offset="4725">
-          <caret line="207" column="21" selection-start-line="207" selection-start-column="21" selection-end-line="207" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="4725">
+          <caret line="137" column="99" selection-start-line="137" selection-start-column="99" selection-end-line="137" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/sys_mongo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3507" max-vertical-offset="6237">
+          <caret line="192" column="117" selection-start-line="192" selection-start-column="68" selection-end-line="192" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/test_page_timePicker.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.6899564" vertical-offset="0" max-vertical-offset="2289">
+          <caret line="88" column="106" selection-start-line="88" selection-start-column="106" selection-end-line="88" selection-end-column="106" />
           <folding />
         </state>
       </provider>
