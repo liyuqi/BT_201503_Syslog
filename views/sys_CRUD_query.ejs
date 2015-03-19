@@ -30,6 +30,7 @@
                     <th id="field0">field</th>
                     <th id="input0">input</th>
                     <th id="sample0">sample</th>
+                    <th class="query_mark">查詢特性</th>
                 </tr>
                 </thead>
 
@@ -47,45 +48,55 @@
                         <!--<input type="date" class="input-medium" id="matchdate" name="matchdate"/>-->
                         <!--<input type="date" class="input-medium" id="matchenddate" name="matchenddate"/>-->
 
-                        <input type="datetime-local" class="input-large" id="matchdate" name="matchdate"/>
-                        <input type="datetime-local" class="input-large" id="matchenddate" name="matchenddate"/>
+                        <input type="datetime-local" class="input-large" id="matchdate" name="matchdate"/> (from)
+                        </br>
+                        <input type="datetime-local" class="input-large" id="matchenddate" name="matchenddate"/> (to)
                     </td>
                     <td id="sample1">2015-03-01T01:56</td>
+                    <td class="query_mark" style="color: blue" >範圍查詢</td>
                 </tr>
                 <tr>
-                <td id="name2">發送來源</td> <td id="field2"><label for="device_name">device_name</label></td>
-                <td id="input2"><input type="text" class="input-large" id="device_name" name="device_name"/></td>
-                <td id="sample2">PC</td>
+                    <td id="name2">發送來源</td>
+                    <td id="field2"><label for="device_name">device_name</label></td>
+                    <td id="input2"><input type="text" class="input-large" id="device_name" name="device_name"/></td>
+                    <td id="sample2">PC</td>
+                    <td class="query_mark"></td>
                 </tr>
                 <tr>
                     <td id="name3">訊息ID</td>   <td id="field3"><label for="identifier">identifier</label></td>
                     <td id="input3"><input type="text" class="input-large" id="identifier" name="identifier" disabled="disabled"/></td>
                     <td id="sample3">PIX-6-302005</td>
+                    <td class="query_mark"></td>
                 </tr>
                 <tr>
                     <td id="name4">分類</td>  <td id="field4"><label for="facility">Facility</label></td>
                     <td id="input4"><input type="text" class="input-large" id="facility" name="facility"/></td>
                     <td id="sample4">PIX</td>
+                    <td class="query_mark"></td>
                 </tr>
                 <tr>
                     <td id="name5">嚴重</td>   <td id="field5"><label for="severity">Severity</label></td>
                     <td id="input5"><input type="text" class="input-large" id="severity" name="severity"/></td>
                     <td id="sample5">6</td>
+                    <td class="query_mark"></td>
                 </tr>
                 <tr>
                     <td id="name6">識別</td>   <td id="field6"><label for="mnemonic">Mnemonic</label></td>
                     <td id="input6"><input type="text" class="input-large" id="mnemonic" name="mnemonic"/></td>
                     <td id="sample6">302005</td>
+                    <td class="query_mark"></td>
                 </tr>
                 <tr>
                     <td id="name7">訊息</td>  <td id="field7"><label for="message">message</label></td>
                     <td id="input7"><input type="text" class="input-large" id="message" name="message"/></td>
                     <td id="sample7">198.207.223.240/Could not process</td>
+                    <td id="query_mark7" style="color: blue" >模糊查詢</td>
                 </tr>
                 <tr>
                     <td id="name8">擴充</td> <td id="field8"><label for="enrich">Enrich</label></td>
                     <td id="input8"><input type="text" class="input-large" id="enrich" name="enrich"/></td>
                     <td id="sample8">Could not process</td>
+                    <td class="query_mark"></td>
                 </tr>
 
                 </tbody>
