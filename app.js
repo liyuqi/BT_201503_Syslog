@@ -4,14 +4,12 @@
 
 var fs = require('fs');
 var logFile = fs.createWriteStream('./nodeLogFile.log', {flags: 'a'});
-
 var express = require('express');
 var routes = require('./routes');
 
 //var mongodbAlert = require('./routes/mongodbAlert');
 //var mongoStatus = require('./routes/sys_mongoShell');
 var sys_mongo = require('./routes/sys_mongo');
-
 var sys_alert = require('./routes/sys_alert');
 
 var util = require('util');
@@ -41,14 +39,16 @@ var sessionStore = new MongoStore({
 });
 
 var app = express();
-//app.locals.inspect = require('util').inspect;
+
 app.locals.util = require('util');
+//app.locals.log4js = require('log4js');
+//app.locals.logFile = fs.createWriteStream('./nodeLogFile.log', {flags: 'a'});
+
 // all environments
 app.set('port', process.env.PORT || 8000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(express.logger({stream: logFile}));
 app.use(partials());
 app.use(flash());
 
@@ -68,8 +68,11 @@ app.use(express.session({
 	store: sessionStore
 }));
 
-app.use(app.router);
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.enable('trust proxy');
+app.use(express.logger({stream: logFile}));  //========logging========
+app.use(app.router);
 
 // development only
 if ('development' == app.get('env')) {
@@ -97,21 +100,9 @@ app.get('/sys_ALERT_delete', 	sys_alert.sys_ALERT_delete(dbfluentd));
 //app.post('/sys_ALERT_display', 	sys_alert.sys_ALERT_query(dbfluentd));
 app.use('/sys_ALERT_event', 	sys_alert.sys_ALERT_event(dbfluentd));
 
-
-//app.get('/test_page_timePicker', function(req,res){
-//	res.render('test_page_timePicker', { title: 'test_page_timePicker', resp : false});
-//});
-
-//app.get('/mongoStatus',mongoStatus.page);
-//app.post('/mongoStatus',mongoStatus.child());
-
-//app.get('/mongodbSetting', mongodbAlert.page);
-//app.post('/mongodbSetting', mongodbAlert.alertSetting(dbalerts));
-//app.get('/mongodbAlert', mongodbAlert.alertPush(dbevents,dbalerts));
-//app.get('/mongodbAlertPage', mongodbAlert.alertPushAll(dbevents,dbalerts));
-//
-//app.get('/mongoStatus',mongoStatus.page);
-//app.post('/mongoStatus',mongoStatus.child());
+//cdr performance test
+app.get('/cdr_CRUD_insert',sys_mongo.cdr_CRUD_insert(dbfluentd));
+app.post('/cdr_CRUD_insert',sys_mongo.cdr_CRUD_insert(dbfluentd));
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
