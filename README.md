@@ -1,12 +1,12 @@
-# Syslog0209
-syslog0209
+# BT_201503_Syslog
+BT_201503_Syslog
 
 ### 前置準備
 
-下載Syslog0209資源
+下載BT_201503_Syslog資源
 
 ```bash 
-$ git clone https://github.com/liyuqi/Syslog0209
+$ git clone https://github.com/liyuqi/BT_201503_Syslog
 ```
 
 
@@ -57,27 +57,27 @@ $ node app.js
 ### Log part
 
 新增 Log
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_insert.png)
+![Image text](https://github.com/liyuqi/BT_201503_Syslog/blob/master/example/syslog_CRUD_insert.png)
 
 查詢 Log
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_query.png)
+![Image text](https://github.com/liyuqi/BT_201503_Syslog/blob/master/example/syslog_CRUD_query.png)
 
 顯示 Log
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_query_result.png)
+![Image text](https://github.com/liyuqi/BT_201503_Syslog/blob/master/example/syslog_CRUD_query_result.png)
 
 最新 Log
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_CRUD_show_pagging.png)
+![Image text](https://github.com/liyuqi/BT_201503_Syslog/blob/master/example/syslog_CRUD_show_pagging.png)
 
 ### Alert part
 
 設定 Alert
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_insert.png)
+![Image text](https://github.com/liyuqi/BT_201503_Syslog/blob/master/example/syslog_ALERT_insert.png)
 
 列表 Alert
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_list.png)
+![Image text](https://github.com/liyuqi/BT_201503_Syslog/blob/master/example/syslog_ALERT_list.png)
 
 顯示 Alert (60sec)
-![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_display.png)
+![Image text](https://github.com/liyuqi/BT_201503_Syslog/blob/master/example/syslog_ALERT_display.png)
 
 流量 Alert
 ![Image text](https://github.com/liyuqi/Syslog0130/blob/master/example/syslog_ALERT_event.png)
